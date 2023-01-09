@@ -32,17 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xM-5c-1LC">
-                                <rect key="frame" x="122" y="478" width="117" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="카카오 로그인"/>
-                                <connections>
-                                    <action selector="tapKakaoLoginButton:" destination="hCc-gc-Duu" eventType="touchUpInside" id="PW2-87-zgR"/>
-                                </connections>
-                            </button>
-=======
+
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GD-Re-JmR">
                                 <rect key="frame" x="102" y="123" width="189" height="38"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +52,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginImage" translatesAutoresizingMaskIntoConstraints="NO" id="iHm-ND-iUl">
                                 <rect key="frame" x="37" y="272" width="319" height="315"/>
                             </imageView>
->>>>>>> 60ad03a ([Feat] Login Ui 초기 세팅)
+
+
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0dn-9k-5HQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
