@@ -19,8 +19,6 @@ class LoginViewController: UIViewController {
     }
     
 
-    @IBAction func tapKakaoLoginButton(_ sender: UIButton) {
-        loginWithKakaoTalk(launchMethod: <#T##LaunchMethod?#>, channelPublicIds: <#T##[String]?#>, serviceTerms: <#T##[String]?#>, nonce: <#T##String?#>, completion: <#T##(OAuthToken?, Error?) -> Void#>)
-    }
+
     
 }

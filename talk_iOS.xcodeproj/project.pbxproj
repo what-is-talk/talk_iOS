@@ -11,12 +11,12 @@
 		0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393C29645C3C0007CCB5 /* SceneDelegate.swift */; };
 		0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0990394329645C3D0007CCB5 /* Assets.xcassets */; };
 		0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0990394529645C3D0007CCB5 /* LaunchScreen.storyboard */; };
-		09D42FC72968292800E70F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* Main.storyboard */; };
-		09D42FC92968296700E70F80 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* MainTabBarController.swift */; };
+		09D42FC72968292800E70F80 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* Home.storyboard */; };
+		09D42FC92968296700E70F80 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeTabBarController.swift */; };
 		09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FCD296840BE00E70F80 /* Chatting.storyboard */; };
 		09D42FD22968415700E70F80 /* ChattingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FD12968415700E70F80 /* ChattingTableViewController.swift */; };
-		09F8A3BB2966CE5900BE850F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F8A3BA2966CE5900BE850F /* Login.storyboard */; };
-		09F8A3BD2966CE9600BE850F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A3BC2966CE9600BE850F /* LoginViewController.swift */; };
+		09F8A3BB2966CE5900BE850F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F8A3BA2966CE5900BE850F /* Main.storyboard */; };
+		09F8A3BD2966CE9600BE850F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A3BC2966CE9600BE850F /* MainViewController.swift */; };
 		D95917809B2B4F8534E9CB1C /* Pods_talk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,13 +27,13 @@
 		0990394329645C3D0007CCB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0990394629645C3D0007CCB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0990394829645C3D0007CCB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09D42FC62968292800E70F80 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		09D42FC82968296700E70F80 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		09D42FC62968292800E70F80 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		09D42FC82968296700E70F80 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		09D42FCD296840BE00E70F80 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		09D42FD12968415700E70F80 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
 		09D42FD3296A8FCD00E70F80 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
-		09F8A3BA2966CE5900BE850F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		09F8A3BC2966CE9600BE850F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		09F8A3BA2966CE5900BE850F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		09F8A3BC2966CE9600BE850F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85FC97A712F73F7A6502D45 /* Pods-talk_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk_iOS.release.xcconfig"; path = "Target Support Files/Pods-talk_iOS/Pods-talk_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		DB3340AD52661E0631DFC930 /* Pods-talk_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk_iOS.debug.xcconfig"; path = "Target Support Files/Pods-talk_iOS/Pods-talk_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 		09F8A3B92966CE2300BE850F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				09F8A3BA2966CE5900BE850F /* Login.storyboard */,
-				09F8A3BC2966CE9600BE850F /* LoginViewController.swift */,
+				09F8A3BA2966CE5900BE850F /* Main.storyboard */,
+				09F8A3BC2966CE9600BE850F /* MainViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -178,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				09D42FCC2968409D00E70F80 /* Chatting */,
-				09D42FC62968292800E70F80 /* Main.storyboard */,
-				09D42FC82968296700E70F80 /* MainTabBarController.swift */,
+				09D42FC62968292800E70F80 /* Home.storyboard */,
+				09D42FC82968296700E70F80 /* HomeTabBarController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 			files = (
 				0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
-				09F8A3BB2966CE5900BE850F /* Login.storyboard in Resources */,
-				09D42FC72968292800E70F80 /* Main.storyboard in Resources */,
+				09F8A3BB2966CE5900BE850F /* Main.storyboard in Resources */,
+				09D42FC72968292800E70F80 /* Home.storyboard in Resources */,
 				09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,10 +318,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09F8A3BD2966CE9600BE850F /* LoginViewController.swift in Sources */,
+				09F8A3BD2966CE9600BE850F /* MainViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09D42FD22968415700E70F80 /* ChattingTableViewController.swift in Sources */,
-				09D42FC92968296700E70F80 /* MainTabBarController.swift in Sources */,
+				09D42FC92968296700E70F80 /* HomeTabBarController.swift in Sources */,
 				0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
