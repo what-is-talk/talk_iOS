@@ -10,7 +10,7 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class LoginViewController: UIViewController {
+class MainViewController: UIViewController {
     
 
     override func viewDidLoad() {
