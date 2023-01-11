@@ -6,6 +6,8 @@ target 'talk_iOS' do
   use_frameworks!
   pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire'
+  pod 'KakaoSDKAuth'
+  pod 'KakaoSDKUser'
 
   # Pods for talk_iOS
 
