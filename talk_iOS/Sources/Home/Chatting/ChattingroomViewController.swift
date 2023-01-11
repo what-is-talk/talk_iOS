@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import Alamofire
-
+// 안녕,,,
 class ChattingroomViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var msgTextField: UITextField!
