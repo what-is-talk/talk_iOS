@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "LoginImage.png",
+      "filename" : "btnG_아이콘원형 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "03.png",
+      "filename" : "btnG_아이콘원형 1 (1).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "03 (1).png",
+      "filename" : "btnG_아이콘원형 1 (2).png",
       "idiom" : "universal",
       "scale" : "3x"
     }
