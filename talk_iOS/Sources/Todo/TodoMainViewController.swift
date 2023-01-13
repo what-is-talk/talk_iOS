@@ -1,16 +1,18 @@
 //
-//  ChattingTableViewController.swift
+//  TodoMainViewController.swift
 //  talk_iOS
 //
-//  Created by User on 2023/01/12.
+//  Created by User on 2023/01/13.
 //
 
 import UIKit
 
-class ChattingTableViewController: UIViewController {
+class TodoMainViewController: UIViewController {
+    static let identifier = "TodoMainViewController"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     

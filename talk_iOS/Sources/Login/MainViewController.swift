@@ -87,7 +87,8 @@ class MainViewController: UIViewController {
             $0.centerY.equalToSuperview()
         }
         let appleLoginLabel = UILabel()
-        appleLoginLabel.text = "Apple로 계속하기"
+//        appleLoginLabel.text = "Apple로 계속하기"
+        appleLoginLabel.text = "이거 누르면 홈으로 넘어가여"
         appleLoginLabel.font = .systemFont(ofSize: 16, weight: .regular)
         appleLoginLabel.textColor = loginButtonLabelColor
         appleLoginButton.addSubview(appleLoginLabel)
@@ -141,11 +142,12 @@ class MainViewController: UIViewController {
         naverLoginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapNaverLoginButton)))
     }
 
-    @objc func tapAppleLoginButton(sender:UITapGestureRecognizer){
+    @objc private func tapAppleLoginButton(sender:UITapGestureRecognizer){
         print("apple")
+        goNextScene(storyBoardName: "MainTabBar", identifier: MainTabBarController.identifier)
     }
     
-    @objc func tapKakaoLoginButton(sender:UITapGestureRecognizer){
+    @objc private func tapKakaoLoginButton(sender:UITapGestureRecognizer){
         if(UserApi.isKakaoTalkLoginAvailable()){
             UserApi.shared.loginWithKakaoTalk{(oauthToken, error) in
                 if let error = error {
@@ -169,8 +171,16 @@ class MainViewController: UIViewController {
         }
     }
     
-    @objc func tapNaverLoginButton(sender:UITapGestureRecognizer){
+    @objc private func tapNaverLoginButton(sender:UITapGestureRecognizer){
         print("naver")
+    }
+    
+    private func goNextScene(storyBoardName:String, identifier:String){
+        let storyBoard = UIStoryboard(name: storyBoardName, bundle: nil)
+        let afterVC = storyBoard.instantiateViewController(withIdentifier: identifier)
+        afterVC.modalPresentationStyle = .fullScreen
+        afterVC.modalTransitionStyle = .crossDissolve
+        self.present(afterVC, animated: true)
     }
 
 }
