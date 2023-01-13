@@ -1,13 +1,15 @@
 //
-//  MainTabBarController.swift
+//  CalendarViewController.swift
 //  talk_iOS
 //
-//  Created by User on 2023/01/06.
+//  Created by User on 2023/01/13.
 //
 
 import UIKit
 
-class HomeTabBarController: UITabBarController {
+class CalendarMainViewController: UIViewController {
+    
+    static let identifier = "CalendarMainViewController"
 
     override func viewDidLoad() {
         super.viewDidLoad()

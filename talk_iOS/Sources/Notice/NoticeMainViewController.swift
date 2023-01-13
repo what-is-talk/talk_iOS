@@ -1,16 +1,19 @@
 //
-//  ChattingTableViewController.swift
+//  MyPageViewController.swift
 //  talk_iOS
 //
-//  Created by User on 2023/01/12.
+//  Created by User on 2023/01/13.
 //
 
 import UIKit
 
-class ChattingTableViewController: UIViewController {
+class NoticeMainViewController: UIViewController {
+    
+    static let identifier = "NoticeMainViewController"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     

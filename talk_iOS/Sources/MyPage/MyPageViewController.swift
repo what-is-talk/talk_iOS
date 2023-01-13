@@ -1,16 +1,19 @@
 //
-//  ChattingTableViewController.swift
+//  MyPageViewController.swift
 //  talk_iOS
 //
-//  Created by User on 2023/01/12.
+//  Created by User on 2023/01/13.
 //
 
 import UIKit
 
-class ChattingTableViewController: UIViewController {
+class MyPageViewController: UIViewController {
+    
+    static let identifier = "MyPageViewController"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
     
