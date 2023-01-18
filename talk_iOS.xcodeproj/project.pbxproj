@@ -20,10 +20,17 @@
 		09588A82297177FB0046F869 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A81297177FB0046F869 /* MyPageViewController.swift */; };
 		09588A86297180FD0046F869 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A85297180FD0046F869 /* MainTabBarController.swift */; };
 		09588A882971859A0046F869 /* MainTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09588A872971859A0046F869 /* MainTabBar.storyboard */; };
+		09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A8929719C720046F869 /* TalkNavigationBar.swift */; };
+		09588A8C2972AFA20046F869 /* InviteChattingPartner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09588A8B2972AFA20046F869 /* InviteChattingPartner.storyboard */; };
+		09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A8D2972AFB70046F869 /* InviteChattingPartnerViewController.swift */; };
+		09588A902972D67B0046F869 /* TalkRollBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A8F2972D67B0046F869 /* TalkRollBox.swift */; };
+		09588A922972DEF80046F869 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A912972DEF80046F869 /* UIColor.swift */; };
 		0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393A29645C3C0007CCB5 /* AppDelegate.swift */; };
 		0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393C29645C3C0007CCB5 /* SceneDelegate.swift */; };
 		0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0990394329645C3D0007CCB5 /* Assets.xcassets */; };
 		0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0990394529645C3D0007CCB5 /* LaunchScreen.storyboard */; };
+		09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */; };
+		09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */; };
 		09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* HomeMain.storyboard */; };
 		09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FCD296840BE00E70F80 /* Chatting.storyboard */; };
@@ -46,12 +53,19 @@
 		09588A81297177FB0046F869 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		09588A85297180FD0046F869 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		09588A872971859A0046F869 /* MainTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBar.storyboard; sourceTree = "<group>"; };
+		09588A8929719C720046F869 /* TalkNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkNavigationBar.swift; sourceTree = "<group>"; };
+		09588A8B2972AFA20046F869 /* InviteChattingPartner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InviteChattingPartner.storyboard; sourceTree = "<group>"; };
+		09588A8D2972AFB70046F869 /* InviteChattingPartnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteChattingPartnerViewController.swift; sourceTree = "<group>"; };
+		09588A8F2972D67B0046F869 /* TalkRollBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRollBox.swift; sourceTree = "<group>"; };
+		09588A912972DEF80046F869 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = talk_iOS/Resources/Extensions/UIColor.swift; sourceTree = SOURCE_ROOT; };
 		0990393729645C3C0007CCB5 /* talk_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0990393A29645C3C0007CCB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0990393C29645C3C0007CCB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0990394329645C3D0007CCB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0990394629645C3D0007CCB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0990394829645C3D0007CCB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkUIColor.swift; sourceTree = "<group>"; };
+		09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkCheckBox.swift; sourceTree = "<group>"; };
 		09D42FC62968292800E70F80 /* HomeMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeMain.storyboard; sourceTree = "<group>"; };
 		09D42FC82968296700E70F80 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		09D42FCD296840BE00E70F80 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
@@ -147,6 +161,8 @@
 				09D42FCD296840BE00E70F80 /* Chatting.storyboard */,
 				5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */,
 				0927E04C296F960300B16CE4 /* ChattingTableViewController.swift */,
+				09588A8B2972AFA20046F869 /* InviteChattingPartner.storyboard */,
+				09588A8D2972AFB70046F869 /* InviteChattingPartnerViewController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -199,6 +215,10 @@
 		09F8A3B42966CDB400BE850F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				09588A8929719C720046F869 /* TalkNavigationBar.swift */,
+				09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */,
+				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
+				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,6 +247,7 @@
 		09F8A3B82966CDEE00BE850F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				09588A912972DEF80046F869 /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -334,6 +355,7 @@
 				09588A7C2971768F0046F869 /* NoticeMain.storyboard in Resources */,
 				0927E049296EF13600B16CE4 /* Main.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
+				09588A8C2972AFA20046F869 /* InviteChattingPartner.storyboard in Resources */,
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */,
 				09588A80297177EF0046F869 /* MypageMain.storyboard in Resources */,
@@ -395,11 +417,17 @@
 				09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */,
 				5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */,
 				5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */,
+				09588A922972DEF80046F869 /* UIColor.swift in Sources */,
 				09588A82297177FB0046F869 /* MyPageViewController.swift in Sources */,
 				09588A7E2971777D0046F869 /* NoticeMainViewController.swift in Sources */,
 				09588A79297175670046F869 /* TodoMainViewController.swift in Sources */,
+				09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */,
+				09588A902972D67B0046F869 /* TalkRollBox.swift in Sources */,
 				09588A86297180FD0046F869 /* MainTabBarController.swift in Sources */,
+				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
+				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
+				09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */,
 				0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */,
 				0927E04D296F960300B16CE4 /* ChattingTableViewController.swift in Sources */,
 			);

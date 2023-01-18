@@ -28,6 +28,9 @@ class TalkRollBox: UIView {
     }
     let color:UIColor
     
+    deinit{
+        print("deinit")
+    }
     
     init(text:String, color:UIColor, selected:Bool = false){
         self.label.text = text
