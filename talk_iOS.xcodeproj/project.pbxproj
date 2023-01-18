@@ -12,12 +12,7 @@
 		0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0990394329645C3D0007CCB5 /* Assets.xcassets */; };
 		0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0990394529645C3D0007CCB5 /* LaunchScreen.storyboard */; };
 		09D42FC72968292800E70F80 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* Home.storyboard */; };
-		09D42FC92968296700E70F80 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeTabBarController.swift */; };
-		09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FCD296840BE00E70F80 /* Chatting.storyboard */; };
-		09D42FD22968415700E70F80 /* ChattingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FD12968415700E70F80 /* ChattingTableViewController.swift */; };
-		5A6438A8296E9D0F00860AEA /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeTabBarController.swift */; };
 		5A6438B3296F0EFC00860AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6438B2296F0EFC00860AEA /* Main.storyboard */; };
-		5A6438B5296F0F0600860AEA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6438B4296F0F0600860AEA /* MainViewController.swift */; };
 		5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */; };
 		D95917809B2B4F8534E9CB1C /* Pods_talk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -31,7 +26,6 @@
 		0990394829645C3D0007CCB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09D42FC62968292800E70F80 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		09D42FC82968296700E70F80 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
-		09D42FCD296840BE00E70F80 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		09D42FD12968415700E70F80 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
 		09D42FD3296A8FCD00E70F80 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		5A6438B2296F0EFC00860AEA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -89,7 +83,6 @@
 		09D42FCC2968409D00E70F80 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
-				09D42FCD296840BE00E70F80 /* Chatting.storyboard */,
 				5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */,
 			);
 			path = Chatting;
@@ -277,7 +270,6 @@
 				5A6438B3296F0EFC00860AEA /* Main.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
 				09D42FC72968292800E70F80 /* Home.storyboard in Resources */,
-				09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,13 +323,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
-				09D42FD22968415700E70F80 /* ChattingTableViewController.swift in Sources */,
-				09D42FC92968296700E70F80 /* HomeTabBarController.swift in Sources */,
-				5A6438A8296E9D0F00860AEA /* HomeTabBarController.swift in Sources */,
 				5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */,
-				5A6438B5296F0F0600860AEA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +470,6 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -513,7 +500,6 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
