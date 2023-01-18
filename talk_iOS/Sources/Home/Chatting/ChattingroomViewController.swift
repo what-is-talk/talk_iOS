@@ -53,13 +53,13 @@ class ChattingroomViewController: UIViewController, UITextFieldDelegate {
     }
     
     func leftButton() {
-        let backButton =  UIBarButtonItem(image: UIImage(named: "Vector.png"), style: .done, target: self, action: nil)
+        let backButton =  UIBarButtonItem(image: UIImage(named: "btnBack"), style: .done, target: self, action: nil)
         backButton.tintColor = .black
         navigationItem.leftBarButtonItem = backButton
     }
     
     func rightButton() {
-        let searchButton =  UIBarButtonItem(image: UIImage(named: "Vector-2.png"), style: .done, target: self, action: nil)
+        let searchButton =  UIBarButtonItem(image: UIImage(named: "btnSearch"), style: .done, target: self, action: nil)
         searchButton.tintColor = .black
         navigationItem.rightBarButtonItem = searchButton
     }

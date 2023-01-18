@@ -117,7 +117,7 @@ class MainViewController: UIViewController {
         kakaoLoginLabel.snp.makeConstraints{
             $0.centerX.centerY.equalToSuperview()
         }
-        kakaoLoginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapKakaoLoginButton)))
+        kakaoLoginButton.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapKakaoLoginButton)))
         
         
         // naverLoginButton
