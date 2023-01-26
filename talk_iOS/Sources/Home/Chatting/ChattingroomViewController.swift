@@ -22,6 +22,7 @@ class ChattingroomViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
     }
     
+    
     // 네비게이션
     // 네비게이션 타이틀
     func initTitle() {
@@ -47,6 +48,7 @@ class ChattingroomViewController: UIViewController, UITextFieldDelegate {
         containerView.addSubview(subTitle)
         
         self.navigationItem.titleView = containerView
+        
     }
     // 뒤로가기 버튼
     func leftButton() {
@@ -67,23 +69,6 @@ class ChattingroomViewController: UIViewController, UITextFieldDelegate {
         return tableView
     }()
     
-    private let user: UILabel = {
-        let user = UILabel()
-        user.text = "사용자 A"
-        user.textColor = UIColor(red: 0.271, green: 0.553, blue: 0.784, alpha: 1)
-        user.font = UIFont(name: "SFPro-Semibold", size: 14)
-        return user
-    }()
-    
-    private let message: UITextView = {
-        let message =  UITextView()
-        message.textColor = .black
-        message.font = UIFont(name: "SFPro-Regular", size: 16)
-        return message
-    }()
-    
-    
-    
     
     
     
@@ -94,19 +79,27 @@ class ChattingroomViewController: UIViewController, UITextFieldDelegate {
         let plusButton = UIButton()
         let plusimage = UIImage(named: "Vector-3.png")
         plusButton.setBackgroundImage(plusimage, for: .normal)
-        //plusButton.addTarget(self, action: Selector(("openview")), for: .touchUpInside)
+        plusButton.addTarget(self, action: #selector(openview), for: .touchUpInside)
         return plusButton
     }()
-    /*
-    func openview() {
-        self.plusButton.transform = CGAffineTransform(rotationAngle: .pi*0.25)
-    }*/
     
-    // ? 뭔가 이상함
+    lazy var menuView: UIView = {
+        let menuView = UIView()
+        
+        return menuView
+    }()
+    
+    @objc func openview(sender: UIButton!) {
+        print("버튼 클릭")
+        self.plusButton.transform = CGAffineTransform(rotationAngle: .pi * 0.25)
+    }
+    
+
     lazy var textField: UITextField = {
-        //textField.frame = CGRect(x: 0, y: 0, width: 80, height: 30)
+        
         let textField = UITextField()
-        // Substitute the characters to be displayed.
+        
+        // placeholder
         textField.placeholder = "메시지를 입력하세요."
         
         // Set Delegate to itself
@@ -135,7 +128,9 @@ class ChattingroomViewController: UIViewController, UITextFieldDelegate {
     
     lazy var bottomView: UIView = {
         let bottomView = UIView()
-        bottomView.backgroundColor = .clear
+        bottomView.backgroundColor = .white
+        bottomView.layer.borderWidth = 1.0
+        bottomView.layer.borderColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1).cgColor
         bottomView.addSubview(plusButton)
         bottomView.addSubview(textField)
         return bottomView
@@ -220,7 +215,7 @@ class ChattingroomViewController: UIViewController, UITextFieldDelegate {
             return true
     }
 }
-
+/*
 import SwiftUI
 
 struct ViewControllerRepresentable: UIViewControllerRepresentable {
@@ -240,3 +235,4 @@ struct ViewPreview: PreviewProvider {
             ViewControllerRepresentable()
     }
 }
+*/
