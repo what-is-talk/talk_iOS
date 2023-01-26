@@ -29,6 +29,11 @@
 		0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393C29645C3C0007CCB5 /* SceneDelegate.swift */; };
 		0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0990394329645C3D0007CCB5 /* Assets.xcassets */; };
 		0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0990394529645C3D0007CCB5 /* LaunchScreen.storyboard */; };
+		09D42FC72968292800E70F80 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* Home.storyboard */; };
+		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
+		5A2DD75629819176004F907A /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeTabBarController.swift */; };
+		5A2DD7572981917B004F907A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6438B4296F0F0600860AEA /* MainViewController.swift */; };
+		5A6438B3296F0EFC00860AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6438B2296F0EFC00860AEA /* Main.storyboard */; };
 		09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */; };
 		09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */; };
 		09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* HomeMain.storyboard */; };
@@ -65,6 +70,13 @@
 		0990394329645C3D0007CCB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0990394629645C3D0007CCB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0990394829645C3D0007CCB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09D42FC62968292800E70F80 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		09D42FC82968296700E70F80 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		09D42FD12968415700E70F80 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
+		09D42FD3296A8FCD00E70F80 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
+		5A6438B2296F0EFC00860AEA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5A6438B4296F0F0600860AEA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkUIColor.swift; sourceTree = "<group>"; };
 		09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkCheckBox.swift; sourceTree = "<group>"; };
 		09D42FC62968292800E70F80 /* HomeMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeMain.storyboard; sourceTree = "<group>"; };
@@ -133,6 +145,7 @@
 				0990393829645C3C0007CCB5 /* Products */,
 				2BBA624E13136C34A0C782D2 /* Pods */,
 				FA3045F92BEE51ED7CB7C4BF /* Frameworks */,
+				5A6438B1296F0B1E00860AEA /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +231,7 @@
 		09F8A3B42966CDB400BE850F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5A080F6A297E8762004DF4C7 /* CALayer.swift */,
 				09588A8929719C720046F869 /* TalkNavigationBar.swift */,
 				09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */,
 				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
@@ -258,6 +272,8 @@
 		09F8A3B92966CE2300BE850F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5A6438B2296F0EFC00860AEA /* Main.storyboard */,
+				5A6438B4296F0F0600860AEA /* MainViewController.swift */,
 				0927E048296EF13600B16CE4 /* Main.storyboard */,
 				0927E04A296EF17600B16CE4 /* MainViewController.swift */,
 			);
@@ -281,6 +297,14 @@
 				D85FC97A712F73F7A6502D45 /* Pods-talk_iOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5A6438B1296F0B1E00860AEA /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				09D42FD12968415700E70F80 /* ChattingTableViewController.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		FA3045F92BEE51ED7CB7C4BF /* Frameworks */ = {
@@ -355,6 +379,9 @@
 				09588A882971859A0046F869 /* MainTabBar.storyboard in Resources */,
 				09588A77297175590046F869 /* TodoMain.storyboard in Resources */,
 				0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */,
+				5A6438B3296F0EFC00860AEA /* Main.storyboard in Resources */,
+				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
+				09D42FC72968292800E70F80 /* Home.storyboard in Resources */,
 				09588A7C2971768F0046F869 /* NoticeMain.storyboard in Resources */,
 				0927E049296EF13600B16CE4 /* Main.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
@@ -415,6 +442,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2DD7572981917B004F907A /* MainViewController.swift in Sources */,
+				5A2DD75629819176004F907A /* HomeTabBarController.swift in Sources */,
+				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */,
 				0927E04B296EF17600B16CE4 /* MainViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
@@ -433,6 +463,7 @@
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
 				09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */,
 				0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */,
+				5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */,
 				0927E04D296F960300B16CE4 /* ChattingTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,7 +609,6 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -609,7 +639,6 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
