@@ -3,7 +3,7 @@
 //  talk_iOS
 //
 //  Created by 박지수 on 2023/01/13.
-//
+//  이거 쓰지 마세요
 
 import UIKit
 import SnapKit
