@@ -14,6 +14,8 @@ import SnapKit
 // width, height (CGSize) 정의 함수/init (기본 60 20)
 // 안에 들어갈 글자 (init)
 class TalkRollBox: UIView {
+    
+    let title:String
 
     let label:UILabel = {
         let l = UILabel()
@@ -28,12 +30,11 @@ class TalkRollBox: UIView {
     }
     let color:UIColor
     
-    deinit{
-        print("deinit")
-    }
+   
     
-    init(text:String, color:UIColor, selected:Bool = false){
-        self.label.text = text
+    init(title:String, color:UIColor, selected:Bool = false){
+        self.title = title
+        self.label.text = title
         self.selected = selected
         self.color = color
         super.init(frame: .init(x: 0, y: 0, width: 0, height: 0))
@@ -56,6 +57,7 @@ class TalkRollBox: UIView {
     
     func select(){
         self.selected = true
+        self.selected = true
     }
     
     func unSelect(){
@@ -75,6 +77,7 @@ class TalkRollBox: UIView {
     
     
     required init?(coder: NSCoder) {
+        self.title = ""
         self.selected = false
         self.color = .red
         super.init(coder: coder)
