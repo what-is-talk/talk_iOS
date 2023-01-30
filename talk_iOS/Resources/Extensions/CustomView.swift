@@ -35,4 +35,12 @@ struct CustomView {
         setTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         return setTextField
     }()
+    
+    let setSwitch: UISwitch = {
+        let setSwitch = UISwitch()
+        setSwitch.onTintColor = UIColor.TalkRed
+        setSwitch.tintColor = UIColor.TalkRed
+        setSwitch.isOn = false
+        return setSwitch
+    }()
 }

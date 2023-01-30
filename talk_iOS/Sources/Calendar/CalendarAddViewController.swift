@@ -127,9 +127,16 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
     
     let customView_5: CustomView = CustomView()
     lazy var third1_Line = customView_5.setLine
+    lazy var startTimeLabel = customView_5.setTextLabel
+    lazy var startTimeSwitch = customView_5.setSwitch
     
     let customView_6: CustomView = CustomView()
     lazy var third2_Line = customView_6.setLine
+    lazy var endTimeLabel = customView_6.setTextLabel
+    lazy var endTimeSwitch = customView_6.setSwitch
+    
+    let customView_7: CustomView = CustomView()
+    lazy var selectDateLabel = customView_7.setTextLabel
     
     lazy var thirdView: UIView = {
         let thirdView = UIView()
@@ -141,10 +148,25 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
         thirdView.layer.shadowRadius = 8
         thirdView.layer.shadowOpacity = 0.1
         
+        startTimeLabel.text = "시작 상세 설정"
+        endTimeLabel.text = "종료일 설정"
+        selectDateLabel.text = "2023년 1월 30일"
+        selectDateLabel.textColor = UIColor.TalkRed
+        
+        thirdView.addSubview(startTimeLabel)
+        thirdView.addSubview(startTimeSwitch)
         thirdView.addSubview(third1_Line)
+        thirdView.addSubview(endTimeLabel)
+        thirdView.addSubview(endTimeSwitch)
         thirdView.addSubview(third2_Line)
+        thirdView.addSubview(selectDateLabel)
+        
         return thirdView
     }()
+    
+    let customView_8: CustomView = CustomView()
+    lazy var reminderLabel = customView_8.setTextLabel
+    lazy var reminderSwitch = customView_8.setSwitch
     
     lazy var fourthView: UIView = {
         let fourthView = UIView()
@@ -155,8 +177,18 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
         fourthView.layer.shadowOffset = CGSize(width: 0, height: 0)
         fourthView.layer.shadowRadius = 8
         fourthView.layer.shadowOpacity = 0.1
+        
+        reminderLabel.text = "리마인더"
+        
+        fourthView.addSubview(reminderLabel)
+        fourthView.addSubview(reminderSwitch)
+        
         return fourthView
     }()
+    
+    let customView_9: CustomView = CustomView()
+    lazy var noticeLabel = customView_9.setTextLabel
+    lazy var noticeSwitch = customView_9.setSwitch
     
     lazy var fifthView: UIView = {
         let fifthView = UIView()
@@ -167,6 +199,12 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
         fifthView.layer.shadowOffset = CGSize(width: 0, height: 0)
         fifthView.layer.shadowRadius = 8
         fifthView.layer.shadowOpacity = 0.1
+        
+        noticeLabel.text = "공지사항에 업로드"
+        
+        fifthView.addSubview(noticeLabel)
+        fifthView.addSubview(noticeSwitch)
+        
         return fifthView
     }()
     
@@ -241,15 +279,35 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(7)
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-7)
         }
+        startTimeLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(17)
+            make.left.equalToSuperview().offset(23)
+        }
+        startTimeSwitch.snp.makeConstraints { make in
+            make.centerY.equalTo(startTimeLabel.snp.centerY)
+            make.right.equalToSuperview().offset(-22)
+        }
         third1_Line.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.top.equalToSuperview().offset(54)
             make.left.right.equalToSuperview()
         }
+        endTimeLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(23)
+        }
+        endTimeSwitch.snp.makeConstraints { make in
+            make.centerY.equalTo(endTimeLabel.snp.centerY)
+            make.right.equalToSuperview().offset(-22)
+        }
         third2_Line.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.bottom.equalToSuperview().offset(-54)
             make.left.right.equalToSuperview()
+        }
+        selectDateLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-17)
+            make.right.equalToSuperview().offset(-22)
         }
         fourthView.snp.makeConstraints { make in
             make.height.equalTo(56)
@@ -257,16 +315,32 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(7)
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-7)
         }
+        reminderLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(23)
+        }
+        reminderSwitch.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-22)
+        }
         fifthView.snp.makeConstraints { make in
             make.height.equalTo(56)
             make.top.equalTo(fourthView.snp.bottom).offset(20)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(7)
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-7)
         }
+        noticeLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(23)
+        }
+        noticeSwitch.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-22)
+        }
     }
     
 }
-
+/*
 import SwiftUI
 
 struct ViewControllerRepresentable: UIViewControllerRepresentable {
@@ -286,3 +360,4 @@ struct ViewPreview: PreviewProvider {
             ViewControllerRepresentable()
     }
 }
+*/
