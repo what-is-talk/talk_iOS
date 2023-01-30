@@ -8,6 +8,7 @@ target 'talk_iOS' do
   pod 'Alamofire'
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'
+  pod 'FSCalendar'
 
   # Pods for talk_iOS
 
