@@ -29,18 +29,19 @@
 		0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393C29645C3C0007CCB5 /* SceneDelegate.swift */; };
 		0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0990394329645C3D0007CCB5 /* Assets.xcassets */; };
 		0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0990394529645C3D0007CCB5 /* LaunchScreen.storyboard */; };
-		09D42FC72968292800E70F80 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* Home.storyboard */; };
-		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
-		5A2DD75629819176004F907A /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeTabBarController.swift */; };
-		5A2DD7572981917B004F907A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6438B4296F0F0600860AEA /* MainViewController.swift */; };
-		5A6438B3296F0EFC00860AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6438B2296F0EFC00860AEA /* Main.storyboard */; };
 		09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */; };
 		09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */; };
 		09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BED39E2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift */; };
 		09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* HomeMain.storyboard */; };
 		09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
-		09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FCD296840BE00E70F80 /* Chatting.storyboard */; };
+		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
+		5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
+		5A90CB462982781600561FC8 /* Chattingroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A90CB452982781600561FC8 /* Chattingroom.storyboard */; };
+		5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */; };
+		5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */; };
+		5A90CB4E2982930D00561FC8 /* CalendarAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */; };
+		5AB68D852987C2090075203A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB68D842987C2090075203A /* CustomView.swift */; };
 		5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */; };
 		D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */; };
 		D95917809B2B4F8534E9CB1C /* Pods_talk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */; };
@@ -71,20 +72,19 @@
 		0990394329645C3D0007CCB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0990394629645C3D0007CCB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0990394829645C3D0007CCB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09D42FC62968292800E70F80 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		09D42FC82968296700E70F80 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
-		09D42FD12968415700E70F80 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
-		09D42FD3296A8FCD00E70F80 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
-		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
-		5A6438B2296F0EFC00860AEA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5A6438B4296F0F0600860AEA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkUIColor.swift; sourceTree = "<group>"; };
 		09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkCheckBox.swift; sourceTree = "<group>"; };
 		09BED39E2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteChattingPartnerTableViewCell.swift; sourceTree = "<group>"; };
 		09D42FC62968292800E70F80 /* HomeMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeMain.storyboard; sourceTree = "<group>"; };
 		09D42FC82968296700E70F80 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
-		09D42FCD296840BE00E70F80 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
+		09D42FD12968415700E70F80 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
 		09D42FD3296A8FCD00E70F80 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
+		5A90CB452982781600561FC8 /* Chattingroom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chattingroom.storyboard; sourceTree = "<group>"; };
+		5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
+		5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditViewController.swift; sourceTree = "<group>"; };
+		5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAddViewController.swift; sourceTree = "<group>"; };
+		5AB68D842987C2090075203A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingroomViewController.swift; sourceTree = "<group>"; };
 		86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChattingTable.storyboard; sourceTree = "<group>"; };
@@ -109,6 +109,9 @@
 			children = (
 				09588A72297174480046F869 /* CalendarMain.storyboard */,
 				09588A74297174580046F869 /* CalendarMainViewController.swift */,
+				5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */,
+				5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */,
+				5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -177,7 +180,7 @@
 			children = (
 				D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */,
 				0927E04C296F960300B16CE4 /* ChattingTableViewController.swift */,
-				09D42FCD296840BE00E70F80 /* Chatting.storyboard */,
+				5A90CB452982781600561FC8 /* Chattingroom.storyboard */,
 				5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */,
 				09588A8B2972AFA20046F869 /* InviteChattingPartner.storyboard */,
 				09588A8D2972AFB70046F869 /* InviteChattingPartnerViewController.swift */,
@@ -239,6 +242,7 @@
 				09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */,
 				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
 				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
+				5AB68D842987C2090075203A /* CustomView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,8 +279,6 @@
 		09F8A3B92966CE2300BE850F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				5A6438B2296F0EFC00860AEA /* Main.storyboard */,
-				5A6438B4296F0F0600860AEA /* MainViewController.swift */,
 				0927E048296EF13600B16CE4 /* Main.storyboard */,
 				0927E04A296EF17600B16CE4 /* MainViewController.swift */,
 			);
@@ -382,16 +384,15 @@
 				09588A882971859A0046F869 /* MainTabBar.storyboard in Resources */,
 				09588A77297175590046F869 /* TodoMain.storyboard in Resources */,
 				0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */,
-				5A6438B3296F0EFC00860AEA /* Main.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
-				09D42FC72968292800E70F80 /* Home.storyboard in Resources */,
+				5A90CB462982781600561FC8 /* Chattingroom.storyboard in Resources */,
+				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09588A7C2971768F0046F869 /* NoticeMain.storyboard in Resources */,
 				0927E049296EF13600B16CE4 /* Main.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
 				09588A8C2972AFA20046F869 /* InviteChattingPartner.storyboard in Resources */,
 				D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */,
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
-				09D42FCE296840BE00E70F80 /* Chatting.storyboard in Resources */,
 				09588A80297177EF0046F869 /* MypageMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,14 +446,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A2DD7572981917B004F907A /* MainViewController.swift in Sources */,
-				5A2DD75629819176004F907A /* HomeTabBarController.swift in Sources */,
+				5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */,
+				5A90CB4E2982930D00561FC8 /* CalendarAddViewController.swift in Sources */,
 				0927E04B296EF17600B16CE4 /* MainViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */,
 				5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */,
+				5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */,
 				5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */,
 				09588A922972DEF80046F869 /* UIColor.swift in Sources */,
 				09588A82297177FB0046F869 /* MyPageViewController.swift in Sources */,
@@ -465,6 +467,8 @@
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
+				5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */,
+				5AB68D852987C2090075203A /* CustomView.swift in Sources */,
 				09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */,
 				0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */,
 				5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */,
@@ -613,6 +617,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -643,6 +648,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
