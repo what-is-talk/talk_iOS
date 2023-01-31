@@ -8,16 +8,21 @@
 import UIKit
 import SwiftUI
 import SnapKit
+import CoreData
 
 class HomeMainViewController:UIViewController {
     static let identifier = "HomeMainViewController"
     
+//    var container:NSPersistentContainer!
     let btn = UIView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpNaviBar()
+//        guard container != nil else {
+//            fatalError("This view needs a persistent container.")
+//        }
         self.view.addSubview(btn)
         btn.backgroundColor = .black
         btn.snp.makeConstraints{
@@ -40,7 +45,6 @@ class HomeMainViewController:UIViewController {
         self.pushViewController(target: self, storyBoardName: "InviteChattingPartner", identifier: InviteChattingPartnerViewController.identifier)
     }
     func pushViewController(target:UIViewController, storyBoardName:String, identifier:String){
-        print("여기")
        let storyBoard = UIStoryboard(name: storyBoardName, bundle: nil)
        let afterVC = storyBoard.instantiateViewController(withIdentifier: identifier)
        afterVC.modalPresentationStyle = .fullScreen

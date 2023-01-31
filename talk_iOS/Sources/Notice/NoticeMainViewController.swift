@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import CoreData
 
 class NoticeMainViewController: UIViewController {
     
     static let identifier = "NoticeMainViewController"
+    var container:NSPersistentContainer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.container = appDelegate.persistentContainer
+        
     }
     
 

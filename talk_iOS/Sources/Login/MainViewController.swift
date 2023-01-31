@@ -12,8 +12,16 @@ import UIKit
 import SnapKit
 import KakaoSDKAuth
 import KakaoSDKUser
+import CoreData
+
+//struct NoticeData{
+//    let
+//}
 
 class MainViewController: UIViewController {
+    var container:NSPersistentContainer!
+    var noticeEntity:NSEntityDescription?
+    
     let subTitleLabel = UILabel()
     let mainTitleLabel = UILabel()
     let logoImage = UIImageView(image: .init(named: "LoginImage"))
@@ -26,8 +34,15 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        noticeTest()
         configureView()
-        print(self.view.frame)
+    }
+    
+    private func noticeTest(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.container = appDelegate.persistentContainer
+        self.noticeEntity = NSEntityDescription.entity(forEntityName: "Notification", in: self.container.viewContext)
+        
     }
     
     private func configureView(){
