@@ -56,22 +56,12 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
         return groupName
     }()
     
-    lazy var openMember: UILabel = {
-        let openMember = UILabel()
-        openMember.text = "공개 멤버"
-        openMember.textColor = UIColor.TalkRed
-        openMember.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        return openMember
-    }()
-    
     let customView_1: CustomView = CustomView()
     lazy var firstLine = customView_1.setLine
     lazy var groupLabel = customView_1.setTextLabel
-    lazy var btnRoundNext_1 = customView_1.setbtnRoundNext
+    lazy var btnRoundNext = customView_1.setbtnRoundNext
     
     let customView_2: CustomView = CustomView()
-    lazy var memberLabel = customView_2.setTextLabel
-    lazy var btnRoundNext_2 = customView_2.setbtnRoundNext
     
     lazy var firstView: UIView = {
         let firstView = UIView()
@@ -84,15 +74,11 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
         firstView.layer.shadowOpacity = 0.1
         
         groupLabel.text = "UMC"
-        memberLabel.text = "모든 멤버"
         
         firstView.addSubview(self.firstLine)
         firstView.addSubview(self.groupName)
         firstView.addSubview(self.groupLabel)
-        firstView.addSubview(self.openMember)
-        firstView.addSubview(self.memberLabel)
-        firstView.addSubview(self.btnRoundNext_1)
-        firstView.addSubview(self.btnRoundNext_2)
+        firstView.addSubview(self.btnRoundNext)
         
         return firstView
     }()
@@ -218,40 +204,22 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
     
     func setConstraints() {
         firstView.snp.makeConstraints { make in
-            make.height.equalTo(112)
+            make.height.equalTo(56)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(15)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(7)
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-7)
         }
         groupName.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(-28)
+            make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(23)
         }
         groupLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(-28)
-            make.left.equalToSuperview().offset(116)
-        }
-        btnRoundNext_1.snp.makeConstraints { make in
-            make.height.width.equalTo(18.18)
-            make.centerY.equalToSuperview().offset(-28)
-            make.right.equalToSuperview().offset(-23)
-        }
-        firstLine.snp.makeConstraints { make in
-            make.height.equalTo(1)
             make.centerY.equalToSuperview()
-            make.left.right.equalToSuperview()
-        }
-        openMember.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(28)
-            make.left.equalToSuperview().offset(23)
-        }
-        memberLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(28)
             make.left.equalToSuperview().offset(116)
         }
-        btnRoundNext_2.snp.makeConstraints { make in
+        btnRoundNext.snp.makeConstraints { make in
             make.height.width.equalTo(18.18)
-            make.centerY.equalToSuperview().offset(28)
+            make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-23)
         }
         secondView.snp.makeConstraints { make in
@@ -340,7 +308,7 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate {
     }
     
 }
-/*
+
 import SwiftUI
 
 struct ViewControllerRepresentable: UIViewControllerRepresentable {
@@ -360,4 +328,4 @@ struct ViewPreview: PreviewProvider {
             ViewControllerRepresentable()
     }
 }
-*/
+
