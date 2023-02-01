@@ -18,6 +18,7 @@ class HomeMainViewController:UIViewController {
     
     var groupList:[HomeMainGroup] = []
     var groupDetail:HomeMainGroupDetail?
+    var groupSelecting = false
     
     let groupChangeTitle:UILabel = {
         let label = UILabel()
@@ -35,6 +36,7 @@ class HomeMainViewController:UIViewController {
         stackView.spacing = 5
         return stackView
     }()
+    
     let settingBtn = UIImageView(image: .init(named: "btnSetting"))
     
     let collectionView:UICollectionView = {
@@ -45,13 +47,192 @@ class HomeMainViewController:UIViewController {
         view.backgroundColor = .white
         return view
     }()
+    
+    
+//    var testViewTopConstraint:Constraint?
+    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .white
+        return scrollView
+    }()
+    
+    //contentview 생성
+    private let contentView = UIView()
+    
+    
+    //contentview내에 추가할 label 생성
+    var announcementView:UIView = {
+        
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 8.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.layer.cornerRadius = 8
+        
+        let title = UILabel()
+        title.text = "공지사항"
+        title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
+        title.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(title)
+        title.snp.makeConstraints{ make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        let icon = UIImageView(image: UIImage(named: "homeAnnouncementIcon"))
+        view.addSubview(icon)
+        icon.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        return view
+    }()
+    var chattingView:UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 8.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.layer.cornerRadius = 8
+        
+        let title = UILabel()
+        title.text = "채팅"
+        title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
+        title.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(title)
+        title.snp.makeConstraints{ make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        let icon = UIImageView(image: UIImage(named: "homeChattingIcon"))
+        view.addSubview(icon)
+        icon.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        return view
+    }()
+    var voteView:UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 8.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.layer.cornerRadius = 8
+        
+        let title = UILabel()
+        title.text = "투표"
+        title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
+        title.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(title)
+        title.snp.makeConstraints{ make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        let icon = UIImageView(image: UIImage(named: "homeVoteIcon"))
+        view.addSubview(icon)
+        icon.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        return view
+    }()
+    var memberView:UIView = {
+        let view = UILabel()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 8.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.layer.cornerRadius = 8
+        
+        let title = UILabel()
+        title.text = "멤버"
+        title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
+        title.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(title)
+        title.snp.makeConstraints{ make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        let icon = UIImageView(image: UIImage(named: "homeMemberIcon"))
+        view.addSubview(icon)
+        icon.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        return view
+    }()
+    var calenderView:UIView = {
+        let view = UILabel()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 8.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.layer.cornerRadius = 8
+        
+        let title = UILabel()
+        title.text = "일정"
+        title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
+        title.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(title)
+        title.snp.makeConstraints{ make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        let icon = UIImageView(image: UIImage(named: "homeMemberIcon"))
+        view.addSubview(icon)
+        icon.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        return view
+    }()
+    var todoView:UIView = {
+        let view = UILabel()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 8.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        view.layer.cornerRadius = 8
+        
+        let title = UILabel()
+        title.text = "할 일"
+        title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
+        title.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(title)
+        title.snp.makeConstraints{ make in
+            make.top.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        let icon = UIImageView(image: UIImage(named: "homeVoteIcon"))
+        view.addSubview(icon)
+        icon.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        return view
+    }()
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpNaviBar()
-        self.configureView()
+        self.configureCollectionView()
+        self.configureScrollView()
         self.getGroupData()
         self.getGroupDetail()
         collectionView.register(HomeMainCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainCollectionViewCell.reuseIdentifier)
@@ -65,6 +246,7 @@ class HomeMainViewController:UIViewController {
         self.navigationController?.navigationBar.tintColor = .black
         let backBarButton = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButton
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     // 가입되어 있는 Group의 정보를 받아오는 함수
@@ -86,7 +268,7 @@ class HomeMainViewController:UIViewController {
         self.groupDetail = .init(newAnno: 1, newChat: 2, newVote: 3, memberCount: 4, newSchedule: 5, newTodo: 6)
     }
     
-    private func configureView(){
+    private func configureCollectionView(){
         
         //groupChangeStackView
         self.view.addSubview(groupChangeStackView)
@@ -94,6 +276,8 @@ class HomeMainViewController:UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(self.view.safeAreaLayoutGuide).inset(17)
         }
+        
+        groupChangeStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapGroupChangeStackView)))
         
         // groupChangeTitle, groupChangeIcon
         [groupChangeTitle, groupChangeIcon].forEach{
@@ -115,6 +299,103 @@ class HomeMainViewController:UIViewController {
             make.height.equalTo(COLLECTIONVIEW_HEIGHT)
         }
         
+       
+        
+    }
+    private func configureScrollView(){
+        // scrollView
+        self.view.addSubview(scrollView)
+        scrollView.snp.makeConstraints{ make in
+            make.top.equalTo(groupChangeStackView.snp.bottom).inset(-17)
+            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        
+        // contentView
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints{ make in
+            make.width.equalToSuperview() // 세로 스크롤
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+
+        [announcementView, chattingView, memberView, calenderView, voteView, todoView].forEach{
+            contentView.addSubview($0)
+        }
+        
+        
+        announcementView.snp.makeConstraints{
+            $0.top.equalToSuperview().inset(10)
+            $0.height.equalTo(140)
+            $0.leading.trailing.equalToSuperview().inset(8)
+        }
+        
+        chattingView.snp.makeConstraints{
+            $0.top.equalTo(announcementView.snp.bottom).inset(-20)
+            $0.height.equalTo(140)
+            $0.leading.trailing.equalToSuperview().inset(8)
+        }
+        
+        voteView.snp.makeConstraints{
+            $0.top.equalTo(chattingView.snp.bottom).inset(-20)
+            $0.height.equalTo(140)
+            $0.leading.equalToSuperview().inset(8)
+            $0.width.equalTo(178.5)
+        }
+
+        memberView.snp.makeConstraints{
+            $0.top.equalTo(chattingView.snp.bottom).inset(-20)
+            $0.height.equalTo(140)
+            $0.trailing.equalToSuperview().inset(8)
+            $0.width.equalTo(178.5)
+        }
+        calenderView.snp.makeConstraints{
+            $0.top.equalTo(voteView.snp.bottom).inset(-20)
+            $0.height.equalTo(140)
+            $0.leading.equalToSuperview().inset(8)
+            $0.width.equalTo(178.5)
+        }
+        todoView.snp.makeConstraints{
+            $0.top.equalTo(memberView.snp.bottom).inset(-20)
+            $0.height.equalTo(140)
+            $0.trailing.equalToSuperview().inset(8)
+            $0.width.equalTo(178.5)
+        }
+        
+
+
+    }
+    
+    
+    @objc func tapGroupChangeStackView(){
+//        self.view.layoutIfNeeded()
+        if self.groupSelecting{
+            groupChangeTitle.text = "모임명"
+            groupChangeTitle.font = .systemFont(ofSize: 24, weight: .bold)
+        } else{
+            groupChangeTitle.text = "OO님 어느 모임에 참가하시겠습니까?"
+            groupChangeTitle.font = .systemFont(ofSize: 16, weight: .bold)
+        }
+        
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            animations: {
+//                self.testViewTopConstraint?.update(inset: 100)
+                if self.groupSelecting{
+                    self.scrollView.snp.remakeConstraints{ make in
+                        make.top.equalTo(self.groupChangeStackView.snp.bottom).inset(-17)
+                        make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
+                    }
+                    
+                } else{
+                    self.scrollView.snp.remakeConstraints{ make in
+                        make.top.equalTo(self.collectionView.snp.bottom).inset(-20)
+                        make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
+                    }
+                }
+                
+                self.view.layoutIfNeeded()
+                self.groupSelecting = !self.groupSelecting
+        })
     }
     
 
@@ -157,23 +438,23 @@ extension HomeMainViewController:UICollectionViewDelegate,UICollectionViewDelega
 }
 
 
-struct HomeViewController_Previews:PreviewProvider{
-    static var previews: some View{
-        Container().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct Container:UIViewControllerRepresentable{
-       
-        
-        func makeUIViewController(context: Context) -> UIViewController {
-            let homeMainViewController = HomeMainViewController()
-            return UINavigationController(rootViewController: homeMainViewController)
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-            
-        }
-        
-        typealias UIViewControllerType = UIViewController
-    }
-}
+//struct HomeViewController_Previews:PreviewProvider{
+//    static var previews: some View{
+//        Container().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct Container:UIViewControllerRepresentable{
+//
+//
+//        func makeUIViewController(context: Context) -> UIViewController {
+//            let homeMainViewController = HomeMainViewController()
+//            return UINavigationController(rootViewController: homeMainViewController)
+//        }
+//
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//
+//        }
+//
+//        typealias UIViewControllerType = UIViewController
+//    }
+//}
