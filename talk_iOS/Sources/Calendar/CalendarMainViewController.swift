@@ -9,26 +9,20 @@ import UIKit
 import SnapKit
 import FSCalendar
 
-class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, UITableViewDelegate, UITableViewDataSource {
     
     static let identifier = "CalendarMainViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendar.delegate = self
+        calendar.dataSource = self
+        
+        
         initNavigation()
         setUpView()
         setConstraints()
-        
-        view.addSubview(calendar)
-        calendar.delegate = self
-        calendar.dataSource = self
-                
-        calendar.snp.makeConstraints { make in
-            make.top.equalTo(self.selectView.snp.bottom).offset(10)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-250)
-            make.width.equalToSuperview()
-        }
     }
     // 네비게이션 바 설정
     func initNavigation() {
@@ -50,7 +44,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CalendarAddViewController") else {
                     return
                 }
-                self.navigationController?.pushViewController(uvc, animated: true)
+        self.navigationController?.pushViewController(uvc, animated: true)
     }
     
     // 모임 선택하는 뷰
@@ -133,24 +127,44 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         calendar.calendarWeekdayView.weekdayLabels[0].textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         calendar.calendarWeekdayView.weekdayLabels[6].textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         
-        
-        
         return calendar
     }()
     
-    fileprivate lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
+    lazy var scheduleList: UITableView = {
+        let scheduleList = UITableView()
+        scheduleList.rowHeight = 90
+        return scheduleList
     }()
-
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(dateFormatter.string(from: date))
-        //self.dismiss(animated: true, completion: nil)
+    
+    let testData: [scheduleListData] = [
+                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "일정 내용", timeLabel: "2월 2일 10:00 ~ 2월 3일 11:00"),
+                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00"),
+                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00")
+                                        ]
+    
+    func attribute() {
+        scheduleList.register(ScheduleListCell.classForCoder(), forCellReuseIdentifier: ScheduleListCell.scheduleListCell)
+        scheduleList.delegate = self
+        scheduleList.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return testData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ScheduleListCell.scheduleListCell, for: indexPath) as! ScheduleListCell
+        cell.groupNameLabel.text = testData[indexPath.row].groupNameLabel
+        cell.scheduleLabel.text = testData[indexPath.row].scheduleLabel
+        cell.timeLabel.text = testData[indexPath.row].timeLabel
+        return cell
     }
     
     func setUpView() {
         self.view.addSubview(selectView)
+        self.view.addSubview(calendar)
+        self.attribute()
+        self.view.addSubview(scheduleList)
     }
     
     func setConstraints() {
@@ -168,12 +182,20 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
             make.centerY.equalToSuperview()
             make.left.equalTo(self.allgroupLabel.snp.right).offset(5)
         }
-        
+        calendar.snp.makeConstraints { make in
+            make.top.equalTo(self.selectView.snp.bottom).offset(10)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-250)
+            make.width.equalToSuperview()
+        }
+        scheduleList.snp.makeConstraints { make in
+            make.top.equalTo(self.calendar.snp.bottom)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.width.equalToSuperview()
+        }
     }
     
     
 }
-
 /*
 import SwiftUI
 
@@ -193,4 +215,5 @@ struct ViewPreview: PreviewProvider {
     static var previews: some View {
             ViewControllerRepresentable()
     }
-}*/
+}
+*/
