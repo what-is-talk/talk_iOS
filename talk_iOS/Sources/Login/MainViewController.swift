@@ -159,7 +159,7 @@ class MainViewController: UIViewController {
 
     @objc private func tapAppleLoginButton(sender:UITapGestureRecognizer){
         print("apple")
-        goNextScene(storyBoardName: "MainTabBar", identifier: MainTabBarController.identifier)
+        goNextScene(storyBoardName: "HomeNoGroup", identifier: HomeNoGroupViewController.identifier, target: self)
     }
     
     @objc private func tapKakaoLoginButton(sender:UITapGestureRecognizer){
@@ -190,12 +190,6 @@ class MainViewController: UIViewController {
         print("naver")
     }
     
-    private func goNextScene(storyBoardName:String, identifier:String){
-        let storyBoard = UIStoryboard(name: storyBoardName, bundle: nil)
-        let afterVC = storyBoard.instantiateViewController(withIdentifier: identifier)
-        afterVC.modalPresentationStyle = .fullScreen
-        afterVC.modalTransitionStyle = .crossDissolve
-        self.present(afterVC, animated: true)
-    }
+   
 
 }
