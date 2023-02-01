@@ -46,6 +46,8 @@
 		5AB68D852987C2090075203A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB68D842987C2090075203A /* CustomView.swift */; };
 		5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */; };
 		D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */; };
+		D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F055AF298AF061000B1C15 /* MemberViewController.swift */; };
+		D2F055B2298AF316000B1C15 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F055B1298AF316000B1C15 /* Member.storyboard */; };
 		D95917809B2B4F8534E9CB1C /* Pods_talk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingroomViewController.swift; sourceTree = "<group>"; };
 		86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChattingTable.storyboard; sourceTree = "<group>"; };
+		D2F055AF298AF061000B1C15 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		D2F055B1298AF316000B1C15 /* Member.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Member.storyboard; sourceTree = "<group>"; };
 		D85FC97A712F73F7A6502D45 /* Pods-talk_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk_iOS.release.xcconfig"; path = "Target Support Files/Pods-talk_iOS/Pods-talk_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		DB3340AD52661E0631DFC930 /* Pods-talk_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk_iOS.debug.xcconfig"; path = "Target Support Files/Pods-talk_iOS/Pods-talk_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,6 +298,7 @@
 		09F8A3BE2966CFE000BE850F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D2F055AE298AF046000B1C15 /* Member */,
 				09D42FCC2968409D00E70F80 /* Chatting */,
 				09D42FC62968292800E70F80 /* HomeMain.storyboard */,
 				09D42FC82968296700E70F80 /* HomeMainViewController.swift */,
@@ -316,6 +321,15 @@
 				09D42FD12968415700E70F80 /* ChattingTableViewController.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		D2F055AE298AF046000B1C15 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				D2F055AF298AF061000B1C15 /* MemberViewController.swift */,
+				D2F055B1298AF316000B1C15 /* Member.storyboard */,
+			);
+			path = Member;
 			sourceTree = "<group>";
 		};
 		FA3045F92BEE51ED7CB7C4BF /* Frameworks */ = {
@@ -400,6 +414,7 @@
 				D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */,
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09588A80297177EF0046F869 /* MypageMain.storyboard in Resources */,
+				D2F055B2298AF316000B1C15 /* Member.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +485,7 @@
 				09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */,
 				09588A902972D67B0046F869 /* TalkRollBox.swift in Sources */,
 				09588A86297180FD0046F869 /* MainTabBarController.swift in Sources */,
+				D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */,
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
 				5A8C0937298A25EC00A6CF61 /* ScheduleListCell.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,

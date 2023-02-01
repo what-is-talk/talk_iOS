@@ -9,11 +9,10 @@ import UIKit
 import SwiftUI
 import SnapKit
 
-class HomeMainViewController:UIViewController {
+class HomeMainViewController : UIViewController {
     static let identifier = "HomeMainViewController"
     
     let btn = UIView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +24,14 @@ class HomeMainViewController:UIViewController {
             $0.width.height.equalTo(100)
         }
         btn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBtn)))
-        tapToChattingButton()
+        view.addSubview(tapToChattingButton)
+        view.addSubview(tapToMemberButton)
+        tapToChattingButton.snp.makeConstraints{
+            $0.top.equalToSuperview().inset(100)
+        }
+        tapToMemberButton.snp.makeConstraints{
+            $0.top.equalToSuperview().inset(500)
+        }
         
     }
     
@@ -47,43 +53,47 @@ class HomeMainViewController:UIViewController {
        afterVC.modalTransitionStyle = .crossDissolve
        target.navigationController?.pushViewController(afterVC, animated: true)
    }
+
     
 
     
-    func tapToChattingButton() {
+    var tapToChattingButton:UIButton = {
         let testButton = UIButton()
         testButton.setTitle("채팅으로 임시 버튼!", for: .normal)
         testButton.frame = CGRect(x: 0, y: 0, width: 375, height: 140)
         testButton.backgroundColor = .black
-
         testButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(testButton)
-        
-        testButton.snp.makeConstraints{
-            $0.top.equalTo(btn.snp.bottom).inset(-2)
-
-        }
-
         testButton.layer.cornerRadius = 8
+        testButton.addTarget(self, action: #selector(btnSend1), for: .touchUpInside)
+        return testButton
+    }()
+    
+    
+    var tapToMemberButton:UIButton = {
+        let testButton = UIButton()
+        testButton.setTitle("멤버로 임시 버튼!", for: .normal)
+        testButton.frame = CGRect(x: 0, y: 0, width: 375, height: 140)
+        testButton.backgroundColor = .black
+        testButton.translatesAutoresizingMaskIntoConstraints = false
+        testButton.layer.cornerRadius = 8
+        testButton.addTarget(self, action: #selector(btnSend2), for: .touchUpInside)
+        return testButton
+    }()
 
-        testButton.addTarget(self, action: #selector(self.btnSend), for: .touchUpInside)
-        
-//        ChattingTableViewController
-
-    }
-
-    @IBAction func btnSend(_ sender: UIButton) {
+    @objc func btnSend1(){
         let chattingTableVC = UIStoryboard.init(name: "ChattingTable", bundle: nil)
         guard let viewController = chattingTableVC.instantiateViewController(identifier: "ChattingTableViewController") as? ChattingTableViewController else {
             return
         }
         self.navigationController?.pushViewController(viewController, animated: true)
-//        self.present(nextVC, animated: true, completion: nil)
     }
-
-   
-
+    
+    @objc func btnSend2(){
+        let memberViewVC = UIStoryboard.init(name: "Member", bundle: nil)
+        guard let viewController = memberViewVC.instantiateViewController(identifier: "MemberViewController") as? MemberViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+        
 }
-
-
