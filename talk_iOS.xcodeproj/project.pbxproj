@@ -43,6 +43,8 @@
 		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
 		5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
+		5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A804E5D298845C000916B13 /* FSCalendarEx.swift */; };
+		5A8C0937298A25EC00A6CF61 /* ScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */; };
 		5A90CB462982781600561FC8 /* Chattingroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A90CB452982781600561FC8 /* Chattingroom.storyboard */; };
 		5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */; };
 		5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */; };
@@ -50,6 +52,8 @@
 		5AB68D852987C2090075203A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB68D842987C2090075203A /* CustomView.swift */; };
 		5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */; };
 		D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */; };
+		D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F055AF298AF061000B1C15 /* MemberViewController.swift */; };
+		D2F055B2298AF316000B1C15 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F055B1298AF316000B1C15 /* Member.storyboard */; };
 		D95917809B2B4F8534E9CB1C /* Pods_talk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +96,8 @@
 		09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainGroupData.swift; sourceTree = "<group>"; };
 		09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainCollectionViewCell.swift; sourceTree = "<group>"; };
 		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
+		5A804E5D298845C000916B13 /* FSCalendarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarEx.swift; sourceTree = "<group>"; };
+		5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
 		5A90CB452982781600561FC8 /* Chattingroom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chattingroom.storyboard; sourceTree = "<group>"; };
 		5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
 		5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 		5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingroomViewController.swift; sourceTree = "<group>"; };
 		86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChattingTable.storyboard; sourceTree = "<group>"; };
+		D2F055AF298AF061000B1C15 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		D2F055B1298AF316000B1C15 /* Member.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Member.storyboard; sourceTree = "<group>"; };
 		D85FC97A712F73F7A6502D45 /* Pods-talk_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk_iOS.release.xcconfig"; path = "Target Support Files/Pods-talk_iOS/Pods-talk_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		DB3340AD52661E0631DFC930 /* Pods-talk_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talk_iOS.debug.xcconfig"; path = "Target Support Files/Pods-talk_iOS/Pods-talk_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +265,8 @@
 				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
 				5AB68D842987C2090075203A /* CustomView.swift */,
 				09D5340829893B0000A1F4EF /* Utils.swift */,
+				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
+				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +312,7 @@
 		09F8A3BE2966CFE000BE850F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D2F055AE298AF046000B1C15 /* Member */,
 				09D42FCC2968409D00E70F80 /* Chatting */,
 				09D42FC62968292800E70F80 /* HomeMain.storyboard */,
 				09D42FC82968296700E70F80 /* HomeMainViewController.swift */,
@@ -328,6 +339,15 @@
 				09D42FD12968415700E70F80 /* ChattingTableViewController.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		D2F055AE298AF046000B1C15 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				D2F055AF298AF061000B1C15 /* MemberViewController.swift */,
+				D2F055B1298AF316000B1C15 /* Member.storyboard */,
+			);
+			path = Member;
 			sourceTree = "<group>";
 		};
 		FA3045F92BEE51ED7CB7C4BF /* Frameworks */ = {
@@ -413,6 +433,7 @@
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09588A80297177EF0046F869 /* MypageMain.storyboard in Resources */,
 				09D53405298939B400A1F4EF /* HomeNoGroup.storyboard in Resources */,
+				D2F055B2298AF316000B1C15 /* Member.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,9 +507,12 @@
 				09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */,
 				09588A902972D67B0046F869 /* TalkRollBox.swift in Sources */,
 				09588A86297180FD0046F869 /* MainTabBarController.swift in Sources */,
+				D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */,
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
+				5A8C0937298A25EC00A6CF61 /* ScheduleListCell.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
+				5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */,
 				5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */,
 				09D53407298939CB00A1F4EF /* HomeNoGroupViewController.swift in Sources */,
 				5AB68D852987C2090075203A /* CustomView.swift in Sources */,
