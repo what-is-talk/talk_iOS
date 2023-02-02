@@ -10,6 +10,7 @@
 		0927E049296EF13600B16CE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0927E048296EF13600B16CE4 /* Main.storyboard */; };
 		0927E04B296EF17600B16CE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927E04A296EF17600B16CE4 /* MainViewController.swift */; };
 		0927E04D296F960300B16CE4 /* ChattingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927E04C296F960300B16CE4 /* ChattingTableViewController.swift */; };
+		094E87A9298396FD00CB2444 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 094E87A7298396FD00CB2444 /* DataModel.xcdatamodeld */; };
 		09588A73297174480046F869 /* CalendarMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09588A72297174480046F869 /* CalendarMain.storyboard */; };
 		09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A74297174580046F869 /* CalendarMainViewController.swift */; };
 		09588A77297175590046F869 /* TodoMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09588A76297175590046F869 /* TodoMain.storyboard */; };
@@ -34,6 +35,11 @@
 		09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BED39E2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift */; };
 		09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D42FC62968292800E70F80 /* HomeMain.storyboard */; };
 		09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
+		09D53405298939B400A1F4EF /* HomeNoGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D53404298939B400A1F4EF /* HomeNoGroup.storyboard */; };
+		09D53407298939CB00A1F4EF /* HomeNoGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D53406298939CB00A1F4EF /* HomeNoGroupViewController.swift */; };
+		09D5340929893B0000A1F4EF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5340829893B0000A1F4EF /* Utils.swift */; };
+		09D5340B2989586100A1F4EF /* HomeMainGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */; };
+		09D5340D2989765900A1F4EF /* HomeMainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */; };
 		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
 		5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
@@ -55,6 +61,7 @@
 		0927E048296EF13600B16CE4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0927E04A296EF17600B16CE4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0927E04C296F960300B16CE4 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
+		094E87A8298396FD00CB2444 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		09588A72297174480046F869 /* CalendarMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarMain.storyboard; sourceTree = "<group>"; };
 		09588A74297174580046F869 /* CalendarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainViewController.swift; sourceTree = "<group>"; };
 		09588A76297175590046F869 /* TodoMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodoMain.storyboard; sourceTree = "<group>"; };
@@ -83,6 +90,11 @@
 		09D42FC82968296700E70F80 /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		09D42FD12968415700E70F80 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
 		09D42FD3296A8FCD00E70F80 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		09D53404298939B400A1F4EF /* HomeNoGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeNoGroup.storyboard; sourceTree = "<group>"; };
+		09D53406298939CB00A1F4EF /* HomeNoGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoGroupViewController.swift; sourceTree = "<group>"; };
+		09D5340829893B0000A1F4EF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainGroupData.swift; sourceTree = "<group>"; };
+		09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainCollectionViewCell.swift; sourceTree = "<group>"; };
 		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
 		5A804E5D298845C000916B13 /* FSCalendarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarEx.swift; sourceTree = "<group>"; };
 		5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
@@ -179,6 +191,7 @@
 				09F8A3B22966CC8B00BE850F /* Application */,
 				0990394829645C3D0007CCB5 /* Info.plist */,
 				09D42FD3296A8FCD00E70F80 /* env.xcconfig */,
+				094E87A7298396FD00CB2444 /* DataModel.xcdatamodeld */,
 			);
 			path = talk_iOS;
 			sourceTree = "<group>";
@@ -251,6 +264,7 @@
 				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
 				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
 				5AB68D842987C2090075203A /* CustomView.swift */,
+				09D5340829893B0000A1F4EF /* Utils.swift */,
 				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
 				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 			);
@@ -302,6 +316,10 @@
 				09D42FCC2968409D00E70F80 /* Chatting */,
 				09D42FC62968292800E70F80 /* HomeMain.storyboard */,
 				09D42FC82968296700E70F80 /* HomeMainViewController.swift */,
+				09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */,
+				09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */,
+				09D53404298939B400A1F4EF /* HomeNoGroup.storyboard */,
+				09D53406298939CB00A1F4EF /* HomeNoGroupViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -414,6 +432,7 @@
 				D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */,
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09588A80297177EF0046F869 /* MypageMain.storyboard in Resources */,
+				09D53405298939B400A1F4EF /* HomeNoGroup.storyboard in Resources */,
 				D2F055B2298AF316000B1C15 /* Member.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,11 +486,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09D5340D2989765900A1F4EF /* HomeMainCollectionViewCell.swift in Sources */,
 				5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */,
 				5A90CB4E2982930D00561FC8 /* CalendarAddViewController.swift in Sources */,
 				0927E04B296EF17600B16CE4 /* MainViewController.swift in Sources */,
+				09D5340929893B0000A1F4EF /* Utils.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */,
 				5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */,
@@ -481,6 +502,7 @@
 				09588A82297177FB0046F869 /* MyPageViewController.swift in Sources */,
 				09588A7E2971777D0046F869 /* NoticeMainViewController.swift in Sources */,
 				09588A79297175670046F869 /* TodoMainViewController.swift in Sources */,
+				09D5340B2989586100A1F4EF /* HomeMainGroupData.swift in Sources */,
 				09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */,
 				09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */,
 				09588A902972D67B0046F869 /* TalkRollBox.swift in Sources */,
@@ -492,9 +514,11 @@
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
 				5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */,
 				5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */,
+				09D53407298939CB00A1F4EF /* HomeNoGroupViewController.swift in Sources */,
 				5AB68D852987C2090075203A /* CustomView.swift in Sources */,
 				09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */,
 				0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */,
+				094E87A9298396FD00CB2444 /* DataModel.xcdatamodeld in Sources */,
 				5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */,
 				0927E04D296F960300B16CE4 /* ChattingTableViewController.swift in Sources */,
 			);
@@ -712,6 +736,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		094E87A7298396FD00CB2444 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				094E87A8298396FD00CB2444 /* Model.xcdatamodel */,
+			);
+			currentVersion = 094E87A8298396FD00CB2444 /* Model.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0990392F29645C3C0007CCB5 /* Project object */;
 }

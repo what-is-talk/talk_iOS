@@ -12,8 +12,16 @@ import UIKit
 import SnapKit
 import KakaoSDKAuth
 import KakaoSDKUser
+import CoreData
+
+//struct NoticeData{
+//    let
+//}
 
 class MainViewController: UIViewController {
+    var container:NSPersistentContainer!
+    var noticeEntity:NSEntityDescription?
+    
     let subTitleLabel = UILabel()
     let mainTitleLabel = UILabel()
     let logoImage = UIImageView(image: .init(named: "LoginImage"))
@@ -26,8 +34,15 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        noticeTest()
         configureView()
-        print(self.view.frame)
+    }
+    
+    private func noticeTest(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.container = appDelegate.persistentContainer
+        self.noticeEntity = NSEntityDescription.entity(forEntityName: "Notification", in: self.container.viewContext)
+        
     }
     
     private func configureView(){
@@ -88,7 +103,8 @@ class MainViewController: UIViewController {
         }
         let appleLoginLabel = UILabel()
 //        appleLoginLabel.text = "Apple로 계속하기"
-        appleLoginLabel.text = "이거 누르면 홈으로 넘어가여"
+//        appleLoginLabel.text = "이거 누르면 홈으로 넘어가여"
+        appleLoginLabel.text = "Apple로 계속하기"
         appleLoginLabel.font = .systemFont(ofSize: 16, weight: .regular)
         appleLoginLabel.textColor = loginButtonLabelColor
         appleLoginButton.addSubview(appleLoginLabel)
@@ -144,7 +160,7 @@ class MainViewController: UIViewController {
 
     @objc private func tapAppleLoginButton(sender:UITapGestureRecognizer){
         print("apple")
-        goNextScene(storyBoardName: "MainTabBar", identifier: MainTabBarController.identifier)
+        goNextScene( target: self, storyBoardName: "HomeNoGroup", identifier: HomeNoGroupViewController.identifier)
     }
     
     @objc private func tapKakaoLoginButton(sender:UITapGestureRecognizer){
@@ -175,12 +191,6 @@ class MainViewController: UIViewController {
         print("naver")
     }
     
-    private func goNextScene(storyBoardName:String, identifier:String){
-        let storyBoard = UIStoryboard(name: storyBoardName, bundle: nil)
-        let afterVC = storyBoard.instantiateViewController(withIdentifier: identifier)
-        afterVC.modalPresentationStyle = .fullScreen
-        afterVC.modalTransitionStyle = .crossDissolve
-        self.present(afterVC, animated: true)
-    }
+   
 
 }

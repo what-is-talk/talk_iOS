@@ -15,6 +15,7 @@ class MemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.title = "모임명"
         view.addSubview(upperView)
         upperView.snp.makeConstraints{

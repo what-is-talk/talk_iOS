@@ -8,15 +8,36 @@
 import UIKit
 import KakaoSDKCommon
 import KakaoSDKAuth
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window:UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // window
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // 카카오톡 초기화
         debugPrint("카카오톡 초기화")
         KakaoSDK.initSDK(appKey: "07992e426111200c0ab521541d0392f6")
-
+        
+        // CoreData
+//        if let rootVC = window?.rootViewController as? MainViewController {
+//            rootVC.container = persistentContainer
+//        }
+        
+        
+        
+//        if let rootVC = window?.rootViewController as? HomeMainViewController{
+//            rootVC.container = persistentContainer
+//            print("CoreData 설정 완료")
+//        }
+//        let vc = HomeMainViewController()
+//        vc.container = persistentContainer
+        
         
         return true
     }
@@ -36,6 +57,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+    
+    // MARK: Core Data Stck
+    lazy var persistentContainer: NSPersistentContainer = {
+            let container = NSPersistentContainer(name: "DataModel")
+            container.loadPersistentStores { description, error in
+                if let error = error {
+                    fatalError("Unable to load persistent stores: \(error)")
+                }
+            }
+            return container
+        }()
     
 }
 
