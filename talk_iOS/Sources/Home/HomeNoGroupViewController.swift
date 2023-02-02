@@ -106,7 +106,7 @@ class HomeNoGroupViewController: UIViewController {
     
     @objc private func tapJoinBtn(sender:UITapGestureRecognizer){
         print("클릭")
-        goNextScene(storyBoardName: "MainTabBar", identifier: MainTabBarController.identifier, target: self)
+        goNextScene(target: self, storyBoardName: "MainTabBar", identifier: MainTabBarController.identifier )
     }
  
 

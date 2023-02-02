@@ -9,6 +9,8 @@ import UIKit
 import CoreData
 
 class ChattingTableViewController: UIViewController {
+    
+    static let identifier = "ChattingTableViewController"
 
     var container: NSPersistentContainer!
     let table =  UITableView()
@@ -37,7 +39,7 @@ class ChattingTableViewController: UIViewController {
         table.register(ChattingTableViewControllerCell.classForCoder()
                        , forCellReuseIdentifier: "cell")
     }
-        var sampleData: [DataModel] = [
+    var sampleData: [DataModel] = [
         DataModel(roomName: "모임톡", memberNumber: 8, latestMessage: "ddd", latestMessageTime: "12:58", unreadMessageNumber: 3 ,  alarm : true, fix: true),
         DataModel(roomName: "모임톡프론트", memberNumber: 3, latestMessage: "어케함?", latestMessageTime: "1:32", unreadMessageNumber: 32,  alarm : false, fix: true),
         DataModel(roomName: "모임톡백엔드", memberNumber: 5, latestMessage: "응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응응", latestMessageTime: "2:58", unreadMessageNumber: 189,  alarm : true, fix: true),
@@ -60,6 +62,7 @@ class ChattingTableViewController: UIViewController {
         super.viewDidLoad()
         titleStackView.addArrangedSubview(label1)
         titleStackView.addArrangedSubview(label2)
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.titleView = titleStackView
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnAdd"),
             style: UIBarButtonItem.Style.plain, target: self, action: #selector(addButton))
@@ -150,19 +153,14 @@ class ChattingTableViewController: UIViewController {
     }()
     
     @objc fileprivate func backButton(){
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc fileprivate func refresh(){
 
     }
-    func btnSend(){
-        let chattingTableVC = UIStoryboard.init(name: "InviteChattingPartner", bundle: nil)
-        guard let viewController = chattingTableVC.instantiateViewController(identifier: "InviteChattingPartnerViewController") as? InviteChattingPartnerViewController else {
-            return
-        }
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
+  
     
     @objc fileprivate func addButton(){
         let num = Int.random(in: 0...1)
@@ -173,7 +171,7 @@ class ChattingTableViewController: UIViewController {
             permission = false
         }
         if(permission){
-                btnSend()
+            pushViewController(target: self, storyBoardName: "InviteChattingPartner", identifier: InviteChattingPartnerViewController.identifier)
 
         }else{
             let alert = UIAlertController(title:nil, message: nil, preferredStyle: .alert)

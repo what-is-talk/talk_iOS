@@ -103,7 +103,8 @@ class MainViewController: UIViewController {
         }
         let appleLoginLabel = UILabel()
 //        appleLoginLabel.text = "Apple로 계속하기"
-        appleLoginLabel.text = "이거 누르면 홈으로 넘어가여"
+//        appleLoginLabel.text = "이거 누르면 홈으로 넘어가여"
+        appleLoginLabel.text = "Apple로 계속하기"
         appleLoginLabel.font = .systemFont(ofSize: 16, weight: .regular)
         appleLoginLabel.textColor = loginButtonLabelColor
         appleLoginButton.addSubview(appleLoginLabel)
@@ -159,7 +160,7 @@ class MainViewController: UIViewController {
 
     @objc private func tapAppleLoginButton(sender:UITapGestureRecognizer){
         print("apple")
-        goNextScene(storyBoardName: "HomeNoGroup", identifier: HomeNoGroupViewController.identifier, target: self)
+        goNextScene( target: self, storyBoardName: "HomeNoGroup", identifier: HomeNoGroupViewController.identifier)
     }
     
     @objc private func tapKakaoLoginButton(sender:UITapGestureRecognizer){
