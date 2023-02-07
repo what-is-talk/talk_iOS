@@ -23,7 +23,6 @@ func goNextScene(target:UIViewController, storyBoardName:String, identifier:Stri
 // 사용법
 // pushViewController(target:VC.self, storyBoardName:스토리보드 파일명, identifier:스토리보드에 연결되어 있는 VC 이름)
 func pushViewController(target:UIViewController, storyBoardName:String, identifier:String){
-    print("여기")
    let storyBoard = UIStoryboard(name: storyBoardName, bundle: nil)
    let afterVC = storyBoard.instantiateViewController(withIdentifier: identifier)
    afterVC.modalPresentationStyle = .fullScreen
