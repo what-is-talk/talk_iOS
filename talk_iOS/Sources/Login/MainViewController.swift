@@ -12,7 +12,9 @@ import UIKit
 import SnapKit
 import KakaoSDKAuth
 import KakaoSDKUser
+import AuthenticationServices
 import CoreData
+import Alamofire
 
 //struct NoticeData{
 //    let
@@ -21,7 +23,6 @@ import CoreData
 class MainViewController: UIViewController {
     var container:NSPersistentContainer!
     var noticeEntity:NSEntityDescription?
-    
     let subTitleLabel = UILabel()
     let mainTitleLabel = UILabel()
     let logoImage = UIImageView(image: .init(named: "LoginImage"))
@@ -68,10 +69,13 @@ class MainViewController: UIViewController {
         }
         
         // logoImage
+        // iphone 14 pro screen height -> 852
+        // iphone se 2 -> 667
+        let screenHeight = UIScreen.main.bounds.size.height
+        let imageHeight = screenHeight > 800 ? 270 : screenHeight > 700 ? 250 : 200
         self.view.addSubview(self.logoImage)
         logoImage.snp.makeConstraints{
-//            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(38)
-            $0.width.height.equalTo(270)
+            $0.width.height.equalTo(imageHeight)
             $0.top.equalTo(mainTitleLabel.snp.bottom).inset(-50)
             $0.centerX.equalTo(self.view)
         }
@@ -159,36 +163,72 @@ class MainViewController: UIViewController {
     }
 
     @objc private func tapAppleLoginButton(sender:UITapGestureRecognizer){
-        print("apple")
-        goNextScene( target: self, storyBoardName: "HomeNoGroup", identifier: HomeNoGroupViewController.identifier)
+//        goNextScene( target: self, storyBoardName: "HomeNoGroup", identifier: HomeNoGroupViewController.identifier)
+//        let navigationController = UINavigationController(rootViewController: self)
+//        present(navigationController, animated: true)
+        let nextVC = JoinViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc private func tapKakaoLoginButton(sender:UITapGestureRecognizer){
-        if(UserApi.isKakaoTalkLoginAvailable()){
-            UserApi.shared.loginWithKakaoTalk{(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("loginWithKakaoTalk() success.")
-                    print(oauthToken ?? "")
-                }
+        guard UserApi.isKakaoTalkLoginAvailable() else{
+            self.alertLoginIsUnavailable(title: "Failed", msg: "카카오톡을 실행할 수 없음")
+            return
+        }
+        UserApi.shared.loginWithKakaoTalk{(oauthToken, error) in
+            if let error = error {
+                print(error)
             }
-            UserApi.shared.me{(user, error) in
-                if let error = error {
-                        print(error)
-                    }
-                else{
-                    print("me 진입")
-                    guard let user = user else {return}
-                    print(user.kakaoAccount?.profile?.nickname ?? "없음")
-                }
+            else {
+                print("loginWithKakaoTalk() success.")
+                print(oauthToken ?? "")
             }
         }
+        UserApi.shared.me{(user, error) in
+            if let error = error {
+                    print(error)
+                }
+            else{
+                print("me 진입")
+                guard let user = user else {return}
+                
+            }
+        }
+        
     }
     
     @objc private func tapNaverLoginButton(sender:UITapGestureRecognizer){
         print("naver")
+    }
+    
+    private func alertLoginIsUnavailable(title:String, msg:String){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        present(alert, animated: true)
+    }
+    
+  
+    
+    private func fetchLoginRequest(id:String){
+        
+        let header: HTTPHeaders = ["Content-Type" : "application/json"]
+        let params = ["id":id]
+        let url = ""
+        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
+            .responseData{ response in
+                switch response.result{
+                case .success(let data):
+                    // decode
+                    do{
+                        let result = try JSONDecoder().decode(UserData.self, from: data)
+                        // 유저 로그인 처리
+                    } catch{
+                        print(error)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
     
    
