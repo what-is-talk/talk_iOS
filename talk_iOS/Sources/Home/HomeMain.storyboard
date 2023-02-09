@@ -29,7 +29,7 @@
         <!--Home-->
         <scene sceneID="Fic-Xo-uMd">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="T7s-hY-p2e" customClass="HomeMainViewController" customModule="talk_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeMainViewController" id="T7s-hY-p2e" customClass="HomeMainViewController" customModule="talk_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NeD-gI-glk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

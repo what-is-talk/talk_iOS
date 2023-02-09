@@ -106,7 +106,7 @@ class InviteChattingPartnerViewController: UIViewController {
     
     private func setUpNaviBar(){
         self.navigationItem.title = "대화 상대 초대"
-        self.navigationItem.leftBarButtonItem = .init(image: UIImage(named: "btnClose"), style: .plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = .init(image: UIImage(named: "btnClose"), style: .plain, target: self, action: #selector(backButton))
         self.navigationItem.rightBarButtonItem = .init(image: UIImage(named: "btnNext"), style: .plain, target: self, action: nil)
     }
     
@@ -202,6 +202,10 @@ class InviteChattingPartnerViewController: UIViewController {
         }
         
         self.tableView.reloadData()
+    }
+    @objc fileprivate func backButton(){
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

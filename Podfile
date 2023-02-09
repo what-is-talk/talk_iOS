@@ -9,6 +9,7 @@ target 'talk_iOS' do
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'
   pod 'FSCalendar'
+  pod 'naveridlogin-sdk-ios'
 
   # Pods for talk_iOS
 
