@@ -241,45 +241,6 @@ class HomeMainViewController : UIViewController {
         collectionView.register(HomeMainCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainCollectionViewCell.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-        let client = CoreDataClient()
-        let user = UserData(id: 2, email: "naver.com", name: "박상민", loggedFrom: "kakao", personalColor: "000000", profileImage: "123")
-        let meetings:[MeetingData] = [
-            MeetingData(id: 1, inviteCode: "XS34ER", name: "모임톡", joinedDate: Date(timeIntervalSinceNow: 0), memberCount: 8),
-            MeetingData(id: 2, inviteCode: "XU34ER", name: "등산회", joinedDate: Date(timeIntervalSinceNow: 3), memberCount: 10),
-            MeetingData(id: 3, inviteCode: "XSI4ER", name: "축구회", joinedDate: Date(timeIntervalSinceNow: 5), memberCount: 20)
-        ]
-        let schedule = ScheduleData(id: 1, title: "설날", desc: nil, startDate: .init(timeIntervalSinceNow: 0), endDate: nil, includingTime: false, includingEndDate: false, reminder: nil, meeting: meetings[0])
-        let positions:[PositionData] = [
-            .init(id: 1, name: "안드", meeting: meetings[0]),
-            .init(id: 2, name: "프론트", meeting: meetings[0]),
-            .init(id: 3, name: "백", meeting: meetings[0]),
-            .init(id: 4, name: "기획", meeting: meetings[1]),
-            .init(id: 5, name: "홍보", meeting: meetings[1]),
-            .init(id: 6, name: "총무", meeting: meetings[2]),
-            .init(id: 7, name: "치어리더", meeting: meetings[2]),
-        ]
-        do{
-//            for meeting in meetings{
-//                try client.createOrUpdateMeeting(meeting)
-//            }
-//            for p in positions{
-//                try client.createOrUpdatePosition(p)
-//            }
-//            try client.deletePositions(meetingId:meetings[0].id)
-//            print(client.getMeetings())
-//            for m in meetings{
-//                print(client.getPositions(meetingId: m.id))
-//            }
-            try client.resetUser()
-            try client.resetMeeting()
-            try client.resetSchedule()
-            try client.resetPosition()
-            print(client.getUser() ?? [])
-            print(client.getMeetings())
-            
-        } catch{
-            print("Catch")
-        }
         
     }
     

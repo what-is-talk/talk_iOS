@@ -249,7 +249,6 @@
 				09F8A3B22966CC8B00BE850F /* Application */,
 				0990394829645C3D0007CCB5 /* Info.plist */,
 				09D42FD3296A8FCD00E70F80 /* env.xcconfig */,
-				09E66310299818A900095D3F /* DataModel.xcdatamodeld */,
 			);
 			path = talk_iOS;
 			sourceTree = "<group>";
@@ -257,6 +256,7 @@
 		09999BB4299360D600F3B3E3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				09E66310299818A900095D3F /* DataModel.xcdatamodeld */,
 				09E6631729981B0000095D3F /* MappingModel */,
 				09999BD62995DF2100F3B3E3 /* CoreDataClient */,
 				09999BD52995DEFF00F3B3E3 /* CoreDataClass */,
