@@ -189,6 +189,9 @@
 				5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */,
 				5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */,
 				5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */,
+				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
+				5AB68D842987C2090075203A /* CustomView.swift */,
+				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -371,10 +374,7 @@
 				09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */,
 				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
 				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
-				5AB68D842987C2090075203A /* CustomView.swift */,
 				09D5340829893B0000A1F4EF /* Utils.swift */,
-				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
-				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -830,7 +830,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

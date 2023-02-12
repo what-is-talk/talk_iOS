@@ -56,7 +56,6 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         //self.present(uvc, animated: true, completion: nil)
         
         self.navigationController?.pushViewController(uvc, animated: true)
-        
     }
     
     // 모임 선택하는 뷰
@@ -159,7 +158,8 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
      */
     
     let testData: [scheduleListData] = [
-                                        
+                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "일정 내용", timeLabel: "2월 2일 10:00 ~ 2월 3일 11:00"),
+                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00")
                                         ]
     
     func attribute() {
@@ -178,6 +178,12 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         cell.scheduleLabel.text = testData[indexPath.row].scheduleLabel
         cell.timeLabel.text = testData[indexPath.row].timeLabel
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarContentViewController") as? CalendarContentViewController else { return }
+        
+        self.navigationController?.pushViewController(cVC, animated: true)
     }
     
     func setUpView() {
