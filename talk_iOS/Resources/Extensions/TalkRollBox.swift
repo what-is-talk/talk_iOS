@@ -2,7 +2,7 @@
 //  RollBox.swift
 //  talk_iOS
 //
-//  Created by User on 2023/01/14.
+//  Created by 박지수 on 2023/01/14.
 //
 
 import UIKit

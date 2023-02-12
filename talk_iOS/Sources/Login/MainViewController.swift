@@ -164,6 +164,7 @@ class MainViewController: UIViewController {
 
     @objc private func tapAppleLoginButton(sender:UITapGestureRecognizer){
         goNextScene( target: self, storyBoardName: "HomeNoGroup", identifier: HomeNoGroupViewController.identifier)
+
 //        let navigationController = UINavigationController(rootViewController: self)
 //        present(navigationController, animated: true)
 

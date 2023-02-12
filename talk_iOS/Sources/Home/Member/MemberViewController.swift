@@ -330,21 +330,21 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //클릭한 셀의 이벤트 처리
-        let member = self.members[indexPath.row]
-        tableView.deselectRow(at: indexPath, animated: true)
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "MemberPageViewController") as? MemberPageViewController else {
-                return
-            }
-        vc.userName = member.name
-        for i in 0...member.rolls.count-1 {
-            vc.roleData[i] = member.rolls[i].title
-            vc.roleColor[i] = member.rolls[i].color
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
-
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        //클릭한 셀의 이벤트 처리
+//        let member = self.members[indexPath.row]
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        guard let vc = self.storyboard?.instantiateViewController(identifier: "MemberPageViewController") as? MemberPageViewController else {
+//                return
+//            }
+//        vc.userName = member.name
+//        for i in 0...member.rolls.count-1 {
+//            vc.roleData[i] = member.rolls[i].title
+//            vc.roleColor[i] = member.rolls[i].color
+//        }
+//        self.navigationController?.pushViewController(vc, animated: true)
+//
+//    }
     
     
 
