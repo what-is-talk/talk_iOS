@@ -241,7 +241,6 @@ class HomeMainViewController : UIViewController {
         collectionView.register(HomeMainCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainCollectionViewCell.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-
         
     }
     
@@ -257,13 +256,13 @@ class HomeMainViewController : UIViewController {
     private func getGroupData(){
         // 서버에서 Group Data 받아와야 됨
         groupList.append(contentsOf: [
-            .init(groupName: "모임톡", imageName: "", selecting: true),
-            .init(groupName: "모임톡", imageName: "", selecting: false),
-            .init(groupName: "모임톡", imageName: "", selecting: false),
-            .init(groupName: "모임톡", imageName: "", selecting: false),
-            .init(groupName: "모임톡", imageName: "", selecting: false),
-            .init(groupName: "모임톡", imageName: "", selecting: false),
-            .init(groupName: "모임톡", imageName: "", selecting: false),
+            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: true),
+            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
+            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
+            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
+            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
+            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
+            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
         ])
     }
 
