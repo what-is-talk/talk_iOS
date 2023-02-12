@@ -1,39 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Join" representedClassName="Join" syncable="YES" codeGenerationType="class">
-        <attribute name="joined_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="group_id" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meeting"/>
-        <relationship name="member_id" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Member"/>
-    </entity>
-    <entity name="Meeting" representedClassName="Meeting" syncable="YES" codeGenerationType="class">
+    <entity name="Meeting" representedClassName="Meeting" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="inviteCode" optional="YES" attributeType="String"/>
+        <attribute name="joinedDate" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="memberCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="leader_id" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Member"/>
-    </entity>
-    <entity name="Member" representedClassName="Member" syncable="YES" codeGenerationType="class">
-        <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="loggedFrom" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="personalColor" optional="YES" attributeType="String"/>
         <attribute name="profileImage" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Member_Meeting" representedClassName="Member_Meeting" syncable="YES" codeGenerationType="class">
-        <attribute name="joinedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="meetingId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meeting"/>
-        <relationship name="memberId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Member"/>
-    </entity>
-    <entity name="Member_Roll" representedClassName="Member_Roll" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="rollId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Roll"/>
-    </entity>
-    <entity name="Roll" representedClassName="Roll" syncable="YES" codeGenerationType="class">
+    <entity name="Position" representedClassName="Position" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="meetingId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meeting"/>
+        <relationship name="meeting" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Meeting"/>
     </entity>
-    <entity name="Schedule" representedClassName="Schedule" syncable="YES" codeGenerationType="class">
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -42,6 +22,14 @@
         <attribute name="reminder" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="meetingId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meeting"/>
+        <relationship name="meeting" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Meeting"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="loggedFrom" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="personalColor" optional="YES" attributeType="String"/>
+        <attribute name="profileImage" optional="YES" attributeType="String"/>
     </entity>
 </model>
