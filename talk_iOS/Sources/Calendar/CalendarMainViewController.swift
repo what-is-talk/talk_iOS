@@ -196,24 +196,4 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
     
     
 }
-/*
-import SwiftUI
 
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = CalendarMainViewController
-    
-    func makeUIViewController(context: Context) -> CalendarMainViewController {
-            return CalendarMainViewController()
-        }
-
-        func updateUIViewController(_ uiViewController: CalendarMainViewController, context: Context) {
-        }
-}
-
-@available(iOS 16.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-            ViewControllerRepresentable()
-    }
-}
-*/
