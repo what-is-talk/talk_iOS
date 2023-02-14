@@ -10,11 +10,9 @@
 		091317272990069700EF8012 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091317262990069700EF8012 /* JoinViewController.swift */; };
 		0913172929911F4E00EF8012 /* JoinViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913172829911F4E00EF8012 /* JoinViewController+Delegate.swift */; };
 		0913172B299169A600EF8012 /* JoinDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913172A299169A600EF8012 /* JoinDataModel.swift */; };
-		0913172F29923A7B00EF8012 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913172E29923A7B00EF8012 /* DataModel.swift */; };
 		0927E049296EF13600B16CE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0927E048296EF13600B16CE4 /* Main.storyboard */; };
 		0927E04B296EF17600B16CE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927E04A296EF17600B16CE4 /* MainViewController.swift */; };
 		0927E04D296F960300B16CE4 /* ChattingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0927E04C296F960300B16CE4 /* ChattingTableViewController.swift */; };
-		094E87A9298396FD00CB2444 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 094E87A7298396FD00CB2444 /* DataModel.xcdatamodeld */; };
 		09588A73297174480046F869 /* CalendarMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09588A72297174480046F869 /* CalendarMain.storyboard */; };
 		09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A74297174580046F869 /* CalendarMainViewController.swift */; };
 		09588A77297175590046F869 /* TodoMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09588A76297175590046F869 /* TodoMain.storyboard */; };
@@ -34,6 +32,16 @@
 		0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393C29645C3C0007CCB5 /* SceneDelegate.swift */; };
 		0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0990394329645C3D0007CCB5 /* Assets.xcassets */; };
 		0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0990394529645C3D0007CCB5 /* LaunchScreen.storyboard */; };
+		09999BBF2993610F00F3B3E3 /* Meeting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BB92993610F00F3B3E3 /* Meeting+CoreDataClass.swift */; };
+		09999BC02993610F00F3B3E3 /* Meeting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BBA2993610F00F3B3E3 /* Meeting+CoreDataProperties.swift */; };
+		09999BC22993715600F3B3E3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BC12993715600F3B3E3 /* CoreDataStack.swift */; };
+		09999BC62994071A00F3B3E3 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BC52994071A00F3B3E3 /* DataModels.swift */; };
+		09999BCD2995542500F3B3E3 /* Schedule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BC72995542500F3B3E3 /* Schedule+CoreDataClass.swift */; };
+		09999BCE2995542500F3B3E3 /* Schedule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BC82995542500F3B3E3 /* Schedule+CoreDataProperties.swift */; };
+		09999BD12995542500F3B3E3 /* Position+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BCB2995542500F3B3E3 /* Position+CoreDataClass.swift */; };
+		09999BD22995542500F3B3E3 /* Position+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BCC2995542500F3B3E3 /* Position+CoreDataProperties.swift */; };
+		09999BD42995DC9C00F3B3E3 /* CoreDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BD32995DC9C00F3B3E3 /* CoreDataClient.swift */; };
+		09999BD82995DF6000F3B3E3 /* CoreDataClient+Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BD72995DF6000F3B3E3 /* CoreDataClient+Meeting.swift */; };
 		09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */; };
 		09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */; };
 		09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BED39E2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift */; };
@@ -44,6 +52,14 @@
 		09D5340929893B0000A1F4EF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5340829893B0000A1F4EF /* Utils.swift */; };
 		09D5340B2989586100A1F4EF /* HomeMainGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */; };
 		09D5340D2989765900A1F4EF /* HomeMainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */; };
+		09E6630829960EA100095D3F /* CoreDataClient+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6630729960EA100095D3F /* CoreDataClient+User.swift */; };
+		09E6630A299668EE00095D3F /* CoreDataClient+Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E66309299668EE00095D3F /* CoreDataClient+Schedule.swift */; };
+		09E6630D2996946300095D3F /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6630B2996946300095D3F /* User+CoreDataClass.swift */; };
+		09E6630E2996946300095D3F /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6630C2996946300095D3F /* User+CoreDataProperties.swift */; };
+		09E66314299818A900095D3F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09E66310299818A900095D3F /* DataModel.xcdatamodeld */; };
+		09E6631929981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631829981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel */; };
+		09E6631B2998229C00095D3F /* CoreDataClient+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631A2998229C00095D3F /* CoreDataClient+Position.swift */; };
+		09E6631D2998827100095D3F /* DataModels+Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631C2998827100095D3F /* DataModels+Initializer.swift */; };
 		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
 		5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
@@ -68,11 +84,9 @@
 		0913172829911F4E00EF8012 /* JoinViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JoinViewController+Delegate.swift"; sourceTree = "<group>"; };
 		0913172A299169A600EF8012 /* JoinDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDataModel.swift; sourceTree = "<group>"; };
 		0913172D29921F7100EF8012 /* talk_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = talk_iOS.entitlements; sourceTree = "<group>"; };
-		0913172E29923A7B00EF8012 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataModel.swift; path = talk_iOS/Sources/Login/DataModel.swift; sourceTree = SOURCE_ROOT; };
 		0927E048296EF13600B16CE4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0927E04A296EF17600B16CE4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0927E04C296F960300B16CE4 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
-		094E87A8298396FD00CB2444 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		09588A72297174480046F869 /* CalendarMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarMain.storyboard; sourceTree = "<group>"; };
 		09588A74297174580046F869 /* CalendarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainViewController.swift; sourceTree = "<group>"; };
 		09588A76297175590046F869 /* TodoMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodoMain.storyboard; sourceTree = "<group>"; };
@@ -94,6 +108,16 @@
 		0990394329645C3D0007CCB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0990394629645C3D0007CCB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0990394829645C3D0007CCB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09999BB92993610F00F3B3E3 /* Meeting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09999BBA2993610F00F3B3E3 /* Meeting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09999BC12993715600F3B3E3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		09999BC52994071A00F3B3E3 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		09999BC72995542500F3B3E3 /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09999BC82995542500F3B3E3 /* Schedule+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09999BCB2995542500F3B3E3 /* Position+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09999BCC2995542500F3B3E3 /* Position+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09999BD32995DC9C00F3B3E3 /* CoreDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
+		09999BD72995DF6000F3B3E3 /* CoreDataClient+Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataClient+Meeting.swift"; sourceTree = "<group>"; };
 		09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkUIColor.swift; sourceTree = "<group>"; };
 		09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkCheckBox.swift; sourceTree = "<group>"; };
 		09BED39E2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteChattingPartnerTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,6 +130,16 @@
 		09D5340829893B0000A1F4EF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainGroupData.swift; sourceTree = "<group>"; };
 		09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainCollectionViewCell.swift; sourceTree = "<group>"; };
+		09E6630729960EA100095D3F /* CoreDataClient+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataClient+User.swift"; sourceTree = "<group>"; };
+		09E66309299668EE00095D3F /* CoreDataClient+Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataClient+Schedule.swift"; sourceTree = "<group>"; };
+		09E6630B2996946300095D3F /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09E6630C2996946300095D3F /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09E66311299818A900095D3F /* Model 2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.0.xcdatamodel"; sourceTree = "<group>"; };
+		09E66312299818A900095D3F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		09E66313299818A900095D3F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		09E6631829981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = ModelToModel_2.0MappingModel.xcmappingmodel; path = talk_iOS/ModelToModel_2.0MappingModel.xcmappingmodel; sourceTree = SOURCE_ROOT; };
+		09E6631A2998229C00095D3F /* CoreDataClient+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataClient+Position.swift"; sourceTree = "<group>"; };
+		09E6631C2998827100095D3F /* DataModels+Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataModels+Initializer.swift"; sourceTree = "<group>"; };
 		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
 		5A804E5D298845C000916B13 /* FSCalendarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarEx.swift; sourceTree = "<group>"; };
 		5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
@@ -155,6 +189,9 @@
 				5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */,
 				5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */,
 				5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */,
+				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
+				5AB68D842987C2090075203A /* CustomView.swift */,
+				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -215,9 +252,49 @@
 				09F8A3B22966CC8B00BE850F /* Application */,
 				0990394829645C3D0007CCB5 /* Info.plist */,
 				09D42FD3296A8FCD00E70F80 /* env.xcconfig */,
-				094E87A7298396FD00CB2444 /* DataModel.xcdatamodeld */,
 			);
 			path = talk_iOS;
+			sourceTree = "<group>";
+		};
+		09999BB4299360D600F3B3E3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				09E66310299818A900095D3F /* DataModel.xcdatamodeld */,
+				09E6631729981B0000095D3F /* MappingModel */,
+				09999BD62995DF2100F3B3E3 /* CoreDataClient */,
+				09999BD52995DEFF00F3B3E3 /* CoreDataClass */,
+				09999BC12993715600F3B3E3 /* CoreDataStack.swift */,
+				09999BC52994071A00F3B3E3 /* DataModels.swift */,
+				09E6631C2998827100095D3F /* DataModels+Initializer.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		09999BD52995DEFF00F3B3E3 /* CoreDataClass */ = {
+			isa = PBXGroup;
+			children = (
+				09E6630B2996946300095D3F /* User+CoreDataClass.swift */,
+				09E6630C2996946300095D3F /* User+CoreDataProperties.swift */,
+				09999BB92993610F00F3B3E3 /* Meeting+CoreDataClass.swift */,
+				09999BBA2993610F00F3B3E3 /* Meeting+CoreDataProperties.swift */,
+				09999BCB2995542500F3B3E3 /* Position+CoreDataClass.swift */,
+				09999BCC2995542500F3B3E3 /* Position+CoreDataProperties.swift */,
+				09999BC72995542500F3B3E3 /* Schedule+CoreDataClass.swift */,
+				09999BC82995542500F3B3E3 /* Schedule+CoreDataProperties.swift */,
+			);
+			path = CoreDataClass;
+			sourceTree = "<group>";
+		};
+		09999BD62995DF2100F3B3E3 /* CoreDataClient */ = {
+			isa = PBXGroup;
+			children = (
+				09999BD32995DC9C00F3B3E3 /* CoreDataClient.swift */,
+				09999BD72995DF6000F3B3E3 /* CoreDataClient+Meeting.swift */,
+				09E6630729960EA100095D3F /* CoreDataClient+User.swift */,
+				09E66309299668EE00095D3F /* CoreDataClient+Schedule.swift */,
+				09E6631A2998229C00095D3F /* CoreDataClient+Position.swift */,
+			);
+			path = CoreDataClient;
 			sourceTree = "<group>";
 		};
 		09D42FCC2968409D00E70F80 /* Chatting */ = {
@@ -232,6 +309,14 @@
 				09BED39E2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift */,
 			);
 			path = Chatting;
+			sourceTree = "<group>";
+		};
+		09E6631729981B0000095D3F /* MappingModel */ = {
+			isa = PBXGroup;
+			children = (
+				09E6631829981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel */,
+			);
+			path = MappingModel;
 			sourceTree = "<group>";
 		};
 		09F8A3B02966CC4C00BE850F /* Sources */ = {
@@ -273,6 +358,7 @@
 		09F8A3B32966CD4600BE850F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				09999BB4299360D600F3B3E3 /* CoreData */,
 				09F8A3B52966CDC000BE850F /* Fonts */,
 				09F8A3B42966CDB400BE850F /* Extensions */,
 				0990394329645C3D0007CCB5 /* Assets.xcassets */,
@@ -288,10 +374,7 @@
 				09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */,
 				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
 				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
-				5AB68D842987C2090075203A /* CustomView.swift */,
 				09D5340829893B0000A1F4EF /* Utils.swift */,
-				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
-				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -313,7 +396,6 @@
 		09F8A3B72966CDE700BE850F /* API */ = {
 			isa = PBXGroup;
 			children = (
-				0913172E29923A7B00EF8012 /* DataModel.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -514,18 +596,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09999BD22995542500F3B3E3 /* Position+CoreDataProperties.swift in Sources */,
+				09E6630D2996946300095D3F /* User+CoreDataClass.swift in Sources */,
 				09D5340D2989765900A1F4EF /* HomeMainCollectionViewCell.swift in Sources */,
+				09999BC62994071A00F3B3E3 /* DataModels.swift in Sources */,
+				09999BC22993715600F3B3E3 /* CoreDataStack.swift in Sources */,
 				5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */,
 				5A90CB4E2982930D00561FC8 /* CalendarAddViewController.swift in Sources */,
 				0927E04B296EF17600B16CE4 /* MainViewController.swift in Sources */,
+				09999BD42995DC9C00F3B3E3 /* CoreDataClient.swift in Sources */,
+				09E6630A299668EE00095D3F /* CoreDataClient+Schedule.swift in Sources */,
 				09D5340929893B0000A1F4EF /* Utils.swift in Sources */,
+				09999BD82995DF6000F3B3E3 /* CoreDataClient+Meeting.swift in Sources */,
 				0913172B299169A600EF8012 /* JoinDataModel.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
+				09999BCE2995542500F3B3E3 /* Schedule+CoreDataProperties.swift in Sources */,
 				09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */,
 				5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */,
 				5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */,
+				09E6630829960EA100095D3F /* CoreDataClient+User.swift in Sources */,
+				09999BD12995542500F3B3E3 /* Position+CoreDataClass.swift in Sources */,
 				5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */,
 				D2CF6B9729964E0B00FFB4C6 /* MemberPageViewController.swift in Sources */,
 				09588A922972DEF80046F869 /* UIColor.swift in Sources */,
@@ -536,7 +628,9 @@
 				09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */,
 				09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */,
 				09588A902972D67B0046F869 /* TalkRollBox.swift in Sources */,
+				09999BCD2995542500F3B3E3 /* Schedule+CoreDataClass.swift in Sources */,
 				09588A86297180FD0046F869 /* MainTabBarController.swift in Sources */,
+				09E6631D2998827100095D3F /* DataModels+Initializer.swift in Sources */,
 				D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */,
 				091317272990069700EF8012 /* JoinViewController.swift in Sources */,
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
@@ -544,17 +638,21 @@
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
 				5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */,
+				09E6631B2998229C00095D3F /* CoreDataClient+Position.swift in Sources */,
 				5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */,
 				D2CF6B992996907600FFB4C6 /* MemberInviteViewController.swift in Sources */,
 				09D53407298939CB00A1F4EF /* HomeNoGroupViewController.swift in Sources */,
+				09E6631929981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel in Sources */,
+				09E6630E2996946300095D3F /* User+CoreDataProperties.swift in Sources */,
 				5AB68D852987C2090075203A /* CustomView.swift in Sources */,
-				0913172F29923A7B00EF8012 /* DataModel.swift in Sources */,
 				09BEA92829752C3A00AABDA0 /* TalkUIColor.swift in Sources */,
+				09999BC02993610F00F3B3E3 /* Meeting+CoreDataProperties.swift in Sources */,
 				0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */,
-				094E87A9298396FD00CB2444 /* DataModel.xcdatamodeld in Sources */,
 				0913172929911F4E00EF8012 /* JoinViewController+Delegate.swift in Sources */,
 				5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */,
+				09E66314299818A900095D3F /* DataModel.xcdatamodeld in Sources */,
 				0927E04D296F960300B16CE4 /* ChattingTableViewController.swift in Sources */,
+				09999BBF2993610F00F3B3E3 /* Meeting+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +798,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -732,7 +830,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -774,12 +872,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		094E87A7298396FD00CB2444 /* DataModel.xcdatamodeld */ = {
+		09E66310299818A900095D3F /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				094E87A8298396FD00CB2444 /* Model.xcdatamodel */,
+				09E66311299818A900095D3F /* Model 2.0.xcdatamodel */,
+				09E66312299818A900095D3F /* DataModel.xcdatamodel */,
+				09E66313299818A900095D3F /* Model.xcdatamodel */,
 			);
-			currentVersion = 094E87A8298396FD00CB2444 /* Model.xcdatamodel */;
+			currentVersion = 09E66311299818A900095D3F /* Model 2.0.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

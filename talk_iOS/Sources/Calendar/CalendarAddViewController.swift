@@ -41,7 +41,7 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate, SendDele
     let selectedFormatter = DateFormatter()
 
     func initNavigation() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "btnBack"), style: .plain, target: self, action: #selector(backMain))
+        let backButton = UIBarButtonItem(image: UIImage(named: "btnBack"), style: .plain, target: self, action: #selector(backMainPage))
         backButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         
         let titleLabel = UILabel()
@@ -57,8 +57,8 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate, SendDele
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 0.922, green: 0.184, blue: 0.188, alpha: 1)
     }
     
-    @objc func backMain() {
-        _ = self.navigationController?.popViewController(animated: true)
+    @objc func backMainPage() {
+        self.navigationController?.popViewController(animated: true)
         print("페이지 pop") // pop 표시
     }
     
@@ -66,7 +66,7 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate, SendDele
         /*
          백에 데이터 전송
          */
-        _ = self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
         print("페이지 pop")
     }
     

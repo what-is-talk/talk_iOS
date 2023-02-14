@@ -314,7 +314,7 @@ for: .touchUpInside)
 extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
     
     func convertColor(color: String) -> UIColor {
-        var dic: [String: UIColor] = ["red" : .TalkRed, "yellow" : .TalkYellow, "blue" : .TalkBlue, "orange" : .TalkOrange, "pink" : .TalkPink]
+        let dic: [String: UIColor] = ["red" : .TalkRed, "yellow" : .TalkYellow, "blue" : .TalkBlue, "orange" : .TalkOrange, "pink" : .TalkPink]
         
         return dic[color]!
     }
@@ -392,7 +392,6 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
 
     }
-    
     
 
 }

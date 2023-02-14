@@ -7,8 +7,4 @@
 
 import Foundation
 
-struct UserData:Codable{
-    let userId:Int
-    let userName:String
-    let token:String
-}
+
