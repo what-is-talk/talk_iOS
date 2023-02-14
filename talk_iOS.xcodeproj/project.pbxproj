@@ -60,6 +60,8 @@
 		09E6631929981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631829981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel */; };
 		09E6631B2998229C00095D3F /* CoreDataClient+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631A2998229C00095D3F /* CoreDataClient+Position.swift */; };
 		09E6631D2998827100095D3F /* DataModels+Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631C2998827100095D3F /* DataModels+Initializer.swift */; };
+		09E6631F299A14E400095D3F /* HomeMainViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631E299A14E400095D3F /* HomeMainViewController+Delegate.swift */; };
+		09E66325299BBCE600095D3F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E66324299BBCE600095D3F /* UIImageView.swift */; };
 		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
 		5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
@@ -140,6 +142,8 @@
 		09E6631829981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = ModelToModel_2.0MappingModel.xcmappingmodel; path = talk_iOS/ModelToModel_2.0MappingModel.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		09E6631A2998229C00095D3F /* CoreDataClient+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataClient+Position.swift"; sourceTree = "<group>"; };
 		09E6631C2998827100095D3F /* DataModels+Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataModels+Initializer.swift"; sourceTree = "<group>"; };
+		09E6631E299A14E400095D3F /* HomeMainViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeMainViewController+Delegate.swift"; sourceTree = "<group>"; };
+		09E66324299BBCE600095D3F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
 		5A804E5D298845C000916B13 /* FSCalendarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarEx.swift; sourceTree = "<group>"; };
 		5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
@@ -375,6 +379,7 @@
 				09D5340829893B0000A1F4EF /* Utils.swift */,
 				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
 				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
+				09E66324299BBCE600095D3F /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				09D42FCC2968409D00E70F80 /* Chatting */,
 				09D42FC62968292800E70F80 /* HomeMain.storyboard */,
 				09D42FC82968296700E70F80 /* HomeMainViewController.swift */,
+				09E6631E299A14E400095D3F /* HomeMainViewController+Delegate.swift */,
 				09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */,
 				09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */,
 				09D53404298939B400A1F4EF /* HomeNoGroup.storyboard */,
@@ -613,6 +619,7 @@
 				0913172B299169A600EF8012 /* JoinDataModel.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09999BCE2995542500F3B3E3 /* Schedule+CoreDataProperties.swift in Sources */,
+				09E6631F299A14E400095D3F /* HomeMainViewController+Delegate.swift in Sources */,
 				09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */,
 				5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */,
 				5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */,
@@ -635,6 +642,7 @@
 				091317272990069700EF8012 /* JoinViewController.swift in Sources */,
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
 				5A8C0937298A25EC00A6CF61 /* ScheduleListCell.swift in Sources */,
+				09E66325299BBCE600095D3F /* UIImageView.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
 				5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */,

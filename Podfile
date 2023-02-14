@@ -10,6 +10,7 @@ target 'talk_iOS' do
   pod 'KakaoSDKUser'
   pod 'FSCalendar'
   pod 'naveridlogin-sdk-ios'
+  pod 'Kingfisher', '~> 7.0'
 
   # Pods for talk_iOS
 

@@ -2,11 +2,9 @@
 //  Meeting+CoreDataProperties.swift
 //  talk_iOS
 //
-//  Created by 박지수 on 2023/02/08.
+//  Created by User on 2023/02/14.
 //
 //
-
-// fetchRequest -> Persistent store 에서
 
 import Foundation
 import CoreData
@@ -19,15 +17,15 @@ extension Meeting {
     }
 
     @NSManaged public var id: Int32
-    @NSManaged public var inviteCode: String
-    @NSManaged public var name: String
-    @NSManaged public var profileImage:String
-    @NSManaged public var joinedDate:Date?
-    @NSManaged public var memberCount:Int16
+    @NSManaged public var inviteCode: String?
+    @NSManaged public var joinedDate: Date?
+    @NSManaged public var memberCount: Int16
+    @NSManaged public var name: String?
+    @NSManaged public var profileImage: String?
+    @NSManaged public var currentMeetingId: Int32
+
 }
 
 extension Meeting : Identifiable {
 
-    
-    
 }

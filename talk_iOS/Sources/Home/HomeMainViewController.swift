@@ -3,12 +3,14 @@
 //  talk_iOS
 //
 //  Created by User on 2023/01/06.
-//
+
 
 import UIKit
 import SwiftUI
 import SnapKit
 import CoreData
+
+
 
 class HomeMainViewController : UIViewController {
     static let identifier = "HomeMainViewController"
@@ -16,9 +18,32 @@ class HomeMainViewController : UIViewController {
     let COLLECTIONVIEW_HEIGHT:CGFloat = 190
     let COLLECTIONVIEW_CELL_SIZE = CGSize(width: 134, height: 183)
     
-    var groupList:[HomeMainGroup] = []
-    var groupDetail:HomeMainGroupDetail?
-    var groupSelecting = false
+    let client = CoreDataClient()
+    var user:UserData?
+    
+    // 이거 그냥 ID 말고 meeting으로 바꾸는게 나을 듯
+    var currentMeetingId:Int32?{
+        didSet{
+            print(self.currentMeetingId ?? "없다")
+            let meeting = meetingList.filter{$0.id == currentMeetingId}
+            self.memberCount.text = "\(meeting[0].memberCount)"
+        }
+    }
+    var meetingList:[MeetingData] = []{
+        didSet{
+            let currentMeeting = self.meetingList.filter{$0.id == self.currentMeetingId}
+            // currentMeeting을 새로 지정
+            if currentMeeting.count == 0{
+                self.currentMeetingId = self.meetingList[0].id
+            } else{
+                self.currentMeetingId = currentMeeting[0].id
+            }
+            
+            self.collectionView.reloadData()
+        }
+    }
+    var meetingScrolled = false
+    var selectedGroup:Int?
     
     let groupChangeTitle:UILabel = {
         let label = UILabel()
@@ -47,9 +72,6 @@ class HomeMainViewController : UIViewController {
         view.backgroundColor = .white
         return view
     }()
-    
-    
-//    var testViewTopConstraint:Constraint?
     
     private let scrollView: UIView = {
         let scrollView = UIView()
@@ -175,6 +197,12 @@ class HomeMainViewController : UIViewController {
         }
         return view
     }()
+    let memberCount:UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.font = .systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
     let calenderView:UIView = {
         let view = UILabel()
         view.backgroundColor = .white
@@ -236,12 +264,14 @@ class HomeMainViewController : UIViewController {
         self.setUpNaviBar()
         self.configureCollectionView()
         self.configureScrollView()
-        self.getGroupData()
-        self.getGroupDetail()
         collectionView.register(HomeMainCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainCollectionViewCell.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        fetchDataFromCoreData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setUpNaviBar(){
@@ -252,25 +282,37 @@ class HomeMainViewController : UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    // 가입되어 있는 Group의 정보를 받아오는 함수
-    private func getGroupData(){
-        // 서버에서 Group Data 받아와야 됨
-        groupList.append(contentsOf: [
-            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: true),
-            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
-            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
-            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
-            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
-            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
-            .init(groupName: "모임톡", imageName: "appleLoginLogo", selecting: false),
-        ])
+
+    // 처음에 Meeting 정보를 CoreData에서 받아옴(서버에서 받아오지 않는다)
+    // 받아오는데 실패하면 서버에서 받아오기(새로고침이랑 같은 로직 적용)
+    private func fetchDataFromCoreData(){
+        let meetings = client.getMeetings()
+        guard meetings.count > 0 else {return} // 서버 fetch
+        func fetch() throws -> [MeetingData] {
+            self.user = client.getUser() // 유저 받아오기
+            let meetings = client.getMeetings()
+            if meetings.count > 0 {return meetings}
+            throw CoreDataClient.CoreDataError.coreDataError(message: "알 수 없는 이유로 Meeting 데이터가 빈값으로 나옴")
+        }
+        func completionHandler<T>(_ result:Result<T, Error>) -> Void{
+            switch result{
+            case let .success(data):
+                guard let meetings = data as? [MeetingData] else {return} // refresh
+                self.meetingList = meetings
+                let currentMeetingId = self.user?.currentMeetingId
+                self.currentMeetingId = currentMeetingId ?? meetings[0].id
+            case let .failure(error):
+                print(error) // refresh
+            }
+        }
+        fetchData(fetch: fetch, completion: completionHandler(_:))
+    }
+    
+    // 모임이 바뀌면 그에 따라 화면 내용 바꾸기
+    private func updateViewFromCurrentMeeting(_ meeting:MeetingData){
+        
     }
 
-    
-    private func getGroupDetail(){
-        // O 읽지않음 데이터 받아와야 됨
-        self.groupDetail = .init(newAnno: 1, newChat: 2, newVote: 3, memberCount: 4, newSchedule: 5, newTodo: 6)
-    }
     
     private func configureCollectionView(){
         
@@ -346,7 +388,8 @@ class HomeMainViewController : UIViewController {
             $0.leading.equalToSuperview().inset(8)
             $0.width.equalTo(178.5)
         }
-
+        
+        // memberView
         memberView.snp.makeConstraints{
             $0.top.equalTo(chattingView.snp.bottom).inset(-20)
             $0.height.equalTo(140)
@@ -354,7 +397,19 @@ class HomeMainViewController : UIViewController {
             $0.width.equalTo(178.5)
         }
         
-        
+        memberView.addSubview(memberCount)
+        memberCount.snp.makeConstraints{ make in
+            make.leading.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(15)
+        }
+        let 명 = UILabel()
+        명.text = "명"
+        명.font = .systemFont(ofSize: 10, weight: .regular)
+        memberView.addSubview(명)
+        명.snp.makeConstraints{ make in
+            make.leading.equalTo(memberCount.snp.trailing).inset(-4)
+            make.bottom.equalToSuperview().inset(18)
+        }
         
         calenderView.snp.makeConstraints{
             $0.top.equalTo(voteView.snp.bottom).inset(-20)
@@ -378,11 +433,17 @@ class HomeMainViewController : UIViewController {
     
     @objc func tapGroupChangeStackView(){
 //        self.view.layoutIfNeeded()
-        if self.groupSelecting{
+        if self.meetingScrolled{
             groupChangeTitle.text = "모임명"
             groupChangeTitle.font = .systemFont(ofSize: 24, weight: .bold)
         } else{
-            groupChangeTitle.text = "OO님 어느 모임에 참가하시겠습니까?"
+            var text = ""
+            if let user = self.user{
+                text = "\(user.name)님 어느 모임에 참가하시겠습니까?"
+            } else{
+                text = "어느 모임에 참가하시겠습니까?"
+            }
+            groupChangeTitle.text = text
             groupChangeTitle.font = .systemFont(ofSize: 16, weight: .bold)
         }
         
@@ -391,7 +452,7 @@ class HomeMainViewController : UIViewController {
             delay: 0,
             animations: {
 //                self.testViewTopConstraint?.update(inset: 100)
-                if self.groupSelecting{
+                if self.meetingScrolled{
                     self.scrollView.snp.remakeConstraints{ make in
                         make.top.equalTo(self.groupChangeStackView.snp.bottom).inset(-17)
                         make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
@@ -405,7 +466,7 @@ class HomeMainViewController : UIViewController {
                 }
                 
                 self.view.layoutIfNeeded()
-                self.groupSelecting = !self.groupSelecting
+                self.meetingScrolled = !self.meetingScrolled
         })
     }
     
@@ -421,41 +482,7 @@ class HomeMainViewController : UIViewController {
 
 }
 
-extension HomeMainViewController:UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return groupList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainCollectionViewCell.reuseIdentifier, for: indexPath) as? HomeMainCollectionViewCell else {return UICollectionViewCell()}
-        cell.groupImage = groupList[indexPath.row].image
-        cell.groupName = groupList[indexPath.row].groupName
-        cell.selecting = groupList[indexPath.row].selecting
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let vInset = (COLLECTIONVIEW_HEIGHT - COLLECTIONVIEW_CELL_SIZE.width) / 2
-        return UIEdgeInsets(top: vInset, left: 0, bottom: vInset, right: 0)
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return COLLECTIONVIEW_CELL_SIZE
-    }
-    
-    // cell 선택되었을 때 동작할 함수
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("클릭:\(indexPath.row)")
-        for i in 0..<groupList.count{
-            groupList[i].selecting = false
-        }
-        groupList[indexPath.row].selecting = true
-        collectionView.reloadData()
-    }
-    
- 
-}
+
 
 
 //struct HomeViewController_Previews:PreviewProvider{
@@ -478,4 +505,5 @@ extension HomeMainViewController:UICollectionViewDelegate,UICollectionViewDelega
 //        typealias UIViewControllerType = UIViewController
 //    }
 //}
+
 

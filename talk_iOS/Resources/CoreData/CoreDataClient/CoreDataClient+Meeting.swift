@@ -56,6 +56,30 @@ extension CoreDataClient{
         try ctx.save()
     }
     
+    func createOrUpdateMeeting(_ meetings:[MeetingData]) throws {
+        for meeting in meetings {
+            let fetchRequest = Meeting.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %d", meeting.id)
+            if let existingMeeting = try? ctx.fetch(fetchRequest).first {
+                existingMeeting.name = meeting.name
+                existingMeeting.inviteCode = meeting.inviteCode
+                existingMeeting.profileImage = meeting.profileImage
+                existingMeeting.joinedDate = meeting.joinedDate
+                existingMeeting.memberCount = meeting.memberCount
+            } else {
+                let meetingEntity = Meeting(context: ctx)
+                meetingEntity.id = meeting.id
+                meetingEntity.name = meeting.name
+                meetingEntity.inviteCode = meeting.inviteCode
+                meetingEntity.profileImage = meeting.profileImage
+                meetingEntity.joinedDate = meeting.joinedDate
+                meetingEntity.memberCount = meeting.memberCount
+            }
+        }
+        try ctx.save()
+    }
+
+    
     /**
      Deletes a meeting with a given `meetingId` from the Core Data storage.
      

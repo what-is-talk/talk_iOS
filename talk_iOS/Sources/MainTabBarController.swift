@@ -10,7 +10,7 @@ import CoreData
 
 class MainTabBarController: UITabBarController {
     static let identifier = "MainTabBarController"
-    
+    var meetings:MeetingData?
     
     override func viewDidLoad() {
         super.viewDidLoad()

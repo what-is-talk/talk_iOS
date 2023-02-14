@@ -2,7 +2,7 @@
 //  Schedule+CoreDataClass.swift
 //  talk_iOS
 //
-//  Created by User on 2023/02/10.
+//  Created by 박지수 on 2023/02/10.
 //
 //
 

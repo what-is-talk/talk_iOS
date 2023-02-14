@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  talk_iOS
 //
-//  Created by User on 2023/02/11.
+//  Created by 박지수 on 2023/02/11.
 //
 //
 
@@ -19,9 +19,11 @@ extension User {
     @NSManaged public var email: String
     @NSManaged public var id: Int32
     @NSManaged public var loggedFrom: String
+    @NSManaged public var token:String
     @NSManaged public var name: String
     @NSManaged public var personalColor: String
     @NSManaged public var profileImage: String
+    @NSManaged public var currentMeetingId:Int32
 
 }
 

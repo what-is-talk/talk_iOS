@@ -24,8 +24,10 @@ extension UserData{
         self.email = user.email
         self.name = user.name
         self.loggedFrom = user.loggedFrom
+        self.token = user.token
         self.personalColor = user.personalColor
         self.profileImage = user.profileImage
+        self.currentMeetingId = user.currentMeetingId
     }
 }
 

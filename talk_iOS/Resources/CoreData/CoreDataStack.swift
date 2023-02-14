@@ -6,17 +6,7 @@
 //
 
 // CoreData를 사용하기 위한 Class
-// ex) Meeting 데이터 불러오기
-// fetchRequest() 메소드는 Meeting+CoreDataProperties.swift에 작성되어 있음
 
-// let fetchRequest = Meeting.fetchRequest()
-
-//do {
-//    let meetings = try CoreDataStack.shared.meetingViewContext.fetch(fetchRequest)
-    // do something with meetings
-// } catch let error as NSError {
-    // handle error
-// }
 
 import Foundation
 import CoreData
