@@ -186,7 +186,12 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: ScheduleListCell.scheduleListCell, for: indexPath) as! ScheduleListCell
+        /*
+        let myFormatter = DateFormatter()
+        myFormatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+        let stringDate = myFormatter.string(from: dataSource[indexPath.row].startDate)*/
         cell.groupNameLabel.text = dataSource[indexPath.row].title
         cell.scheduleLabel.text = dataSource[indexPath.row].desc
         cell.timeLabel.text = dataSource[indexPath.row].startDate
@@ -233,9 +238,9 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
             make.width.equalToSuperview()
         }
     }
-    /*
+    
     func fetchCalendarOverView() {
-        let url = "https://what-is-talk-test.vercel.app/api/schedule/detail?scheduleId=2"
+        let url = "https://what-is-talk-test.vercel.app/api/schedule/detail?scheduleId=1"
         AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
             .responseData{ response in
                 switch response.result {
@@ -251,8 +256,8 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
                     print(err)
                 }
             }
-    }*/
-    
+    }
+    /*
     func fetchCalendarOverView() {
         let url = "https://what-is-talk-test.vercel.app/api/schedule?groupId=1&year=2023/detail?scheduleId~=1"
         AF.request(url)
@@ -275,7 +280,27 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
                     print(err)
                 }
             }
-    }
+    }*/
+    /*
+    func fetchCalendarOverView() {
+            let url = "https://what-is-talk-test.vercel.app/api/schedule?groupId=1"
+            AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
+                .responseData{ response in
+                    switch response.result {
+                    case let .success(data):
+                        do{
+                            let result = try JSONDecoder().decode(Root.self, from: data).data
+                            self.dataSource = result
+                            self.scheduleList.reloadData()
+                        } catch{
+                            print(error)
+                        }
+                        
+                    case .failure(let err):
+                        print(err)
+                    }
+                }
+    }*/
 }
 
 class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
