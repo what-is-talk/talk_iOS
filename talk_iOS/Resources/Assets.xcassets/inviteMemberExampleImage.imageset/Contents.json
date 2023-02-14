@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "inviteMemberExampleImage.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "inviteMemberExampleImage 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "boston-public-library-ML4e0FZPn10-unsplash 2 (1).png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

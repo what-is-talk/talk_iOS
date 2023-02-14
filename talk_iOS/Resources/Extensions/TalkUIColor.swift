@@ -16,6 +16,8 @@ extension UIColor{
     static let TalkOrange = UIColor(red: 0.988, green: 0.502, blue: 0.227, alpha: 1)
     static let TalkYellow = UIColor(red: 0.976, green: 0.788, blue: 0.286, alpha: 1)
     static let TalkBlue = UIColor(red: 0.271, green: 0.553, blue: 0.784, alpha: 1)
+    static let TalkLightGray = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1) // D9D9D9
+    static let TalkFontBlack = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1) // 181441
 }
 
 

@@ -9,16 +9,26 @@ import UIKit
 import SnapKit
 import FSCalendar
 
-class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, UITableViewDelegate, UITableViewDataSource {
+protocol SendGroupDelegate: AnyObject {
+    func sendGroup(groupname: String)
+}
+
+class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, UITableViewDelegate, UITableViewDataSource, SendGroupDelegate {
+    
+    func sendGroup(groupname: String) {
+        self.allgroupLabel.text = groupname
+    }
+    
     
     static let identifier = "CalendarMainViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         calendar.delegate = self
         calendar.dataSource = self
-        
         
         initNavigation()
         setUpView()
@@ -41,9 +51,10 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
     }
     
     @objc func scheduleAddOpen() {
-        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CalendarAddViewController") else {
-                    return
-                }
+        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "CalendarAddViewController") as? CalendarAddViewController else { return }
+        uvc.selectedDateData = selectedDate
+        //self.present(uvc, animated: true, completion: nil)
+        
         self.navigationController?.pushViewController(uvc, animated: true)
     }
     
@@ -59,7 +70,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         selectView.layer.shadowOpacity = 0.1
         
         selectView.addSubview(allgroupLabel)
-        selectView.addSubview(downButton)
+        selectView.addSubview(nextButton)
         return selectView
     }()
     
@@ -70,19 +81,22 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         return allgroupLabel
     }()
     
-    lazy var downButton: UIButton = {
-        let downButton = UIButton()
-        let downBtnImg = UIImage(named: "btnDown")
-        downButton.setBackgroundImage(downBtnImg, for: .normal)
-        downButton.addTarget(self, action: #selector(openView), for: .touchUpInside)
-        return downButton
+    lazy var nextButton: UIButton = {
+        let nextButton = UIButton()
+        let nextButtonImg = UIImage(named: "btnDown")
+        nextButton.setBackgroundImage(nextButtonImg, for: .normal)
+        nextButton.addTarget(self, action: #selector(modalGroupView), for: .touchUpInside)
+        return nextButton
     }()
     
-    @objc func openView() {
-        
+    @objc func modalGroupView() {
+        let groupVC = GroupViewController()
+        groupVC.delegate = self
+        self.present(groupVC, animated: true, completion: nil)
     }
     
-    var selectedDate: Date = Date()
+    var selectedDate: String = ""
+    let dateFormatter = DateFormatter()
     
     // 캘린더 뷰
     private let calendar: FSCalendar = {
@@ -130,15 +144,21 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         return calendar
     }()
     
+    let eventsArray = [Date]()
+    
     lazy var scheduleList: UITableView = {
         let scheduleList = UITableView()
         scheduleList.rowHeight = 90
         return scheduleList
     }()
+    /*
+     scheduleListData(groupNameLabel: "UMC", scheduleLabel: "일정 내용", timeLabel: "2월 2일 10:00 ~ 2월 3일 11:00"),
+     scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00"),
+     scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00")
+     */
     
     let testData: [scheduleListData] = [
                                         scheduleListData(groupNameLabel: "UMC", scheduleLabel: "일정 내용", timeLabel: "2월 2일 10:00 ~ 2월 3일 11:00"),
-                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00"),
                                         scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00")
                                         ]
     
@@ -160,6 +180,12 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarContentViewController") as? CalendarContentViewController else { return }
+        
+        self.navigationController?.pushViewController(cVC, animated: true)
+    }
+    
     func setUpView() {
         self.view.addSubview(selectView)
         self.view.addSubview(calendar)
@@ -178,9 +204,10 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(23)
         }
-        downButton.snp.makeConstraints { make in
+        nextButton.snp.makeConstraints { make in
+            make.height.width.equalTo(18.18)
             make.centerY.equalToSuperview()
-            make.left.equalTo(self.allgroupLabel.snp.right).offset(5)
+            make.left.equalTo(allgroupLabel.snp.right).offset(7)
         }
         calendar.snp.makeConstraints { make in
             make.top.equalTo(self.selectView.snp.bottom).offset(10)
@@ -193,7 +220,168 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
             make.width.equalToSuperview()
         }
     }
+}
+
+class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var groupname: String?
+    weak var delegate: SendGroupDelegate?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        view.addSubview(groupTopView)
+        view.addSubview(groupTableView)
+        
+        groupTopView.snp.makeConstraints { make in
+            make.height.equalTo(60)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
+        }
+        groupTableView.snp.makeConstraints { make in
+            make.top.equalTo(self.groupTopView.snp.bottom)
+            make.bottom.left.right.equalToSuperview()
+        }
+        attribute()
+    }
+    
+    lazy var groupBackBtn: UIButton = {
+        let groupBackBtn = UIButton()
+        groupBackBtn.setBackgroundImage(UIImage(named: "btnBack"), for: .normal)
+        groupBackBtn.addTarget(self, action: #selector(backToMainPage), for: .touchUpInside)
+        return groupBackBtn
+    }()
+    
+    @objc func backToMainPage() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    lazy var groupTopLabel: UILabel = {
+        let groupTopLabel = UILabel()
+        groupTopLabel.text = "모임 이름"
+        groupTopLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        return groupTopLabel
+    }()
+    
+    lazy var groupDoneBtn: UIButton = {
+        let groupDoneBtn = UIButton()
+        groupDoneBtn.setTitle("완료", for: .normal)
+        groupDoneBtn.setTitleColor(UIColor.TalkRed, for: .normal)
+        groupDoneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        groupDoneBtn.addTarget(self, action: #selector(doneAndBackToMainPage), for: .touchUpInside)
+        return groupDoneBtn
+    }()
+    
+    @objc func doneAndBackToMainPage() {
+        self.delegate?.sendGroup(groupname: selectedGroup)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+    }
+    
+    lazy var groupTopView: UIView = {
+        let groupTopView = UIView()
+        groupTopView.addSubview(groupBackBtn)
+        groupTopView.addSubview(groupDoneBtn)
+        groupTopView.addSubview(groupTopLabel)
+        
+        groupDoneBtn.alpha = 0
+        
+        groupBackBtn.snp.makeConstraints { make in
+            make.height.equalTo(18.93)
+            make.width.equalTo(10.9)
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(10.14)
+        }
+        groupTopLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(60)
+        }
+        groupDoneBtn.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-20)
+        }
+        return groupTopView
+    }()
+    
+    lazy var groupTableView: UITableView = {
+        let groupTableView = UITableView()
+        groupTableView.separatorStyle = .none
+        groupTableView.rowHeight = 50
+        return groupTableView
+    }()
+    
+    let group: [Group] = [Group(groupLabel: "모든 모임", groupCheckImg: UIImage(named: "btnCheckBox")!),
+                          Group(groupLabel: "모임 1", groupCheckImg: UIImage(named: "btnCheckBox")!),
+                          Group(groupLabel: "모임 2",groupCheckImg: UIImage(named: "btnCheckBox")!),
+                          Group(groupLabel: "모임 3",groupCheckImg: UIImage(named: "btnCheckBox")!),
+                          Group(groupLabel: "모임 4",groupCheckImg: UIImage(named: "btnCheckBox")!)
+                        ]
+    
+    func attribute() {
+        groupTableView.register(GroupTableViewCell.self, forCellReuseIdentifier: GroupTableViewCell.groupCell)
+        groupTableView.delegate = self
+        groupTableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return group.count
+    }
+    
+    var selectedGroup: String = ""
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = groupTableView.dequeueReusableCell(withIdentifier: GroupTableViewCell.groupCell, for: indexPath) as! GroupTableViewCell
+        cell.groupLabel.text = group[indexPath.row].groupLabel
+        cell.selectionStyle = .none
+        
+        if cell.groupLabel.text == selectedGroup {
+            cell.groupCheckImg.alpha = 1
+        }
+        else {
+            cell.groupCheckImg.alpha = 0
+        }
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        groupDoneBtn.alpha = 1 //윗부분 완료 버튼 나타남
+        selectedGroup = group[indexPath.row].groupLabel
+        print(selectedGroup)
+        tableView.reloadData()
+    }
+}
+
+struct Group {
+    let groupLabel: String
+    let groupCheckImg: UIImage
+}
+
+class GroupTableViewCell: UITableViewCell {
+    
+    static let groupCell = "groupCell"
+    let groupLabel = UILabel()
+    let groupCheckImg = UIImageView()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        groupCheckImg.image = UIImage(named: "btnCheckBox")
+        addSubview(groupLabel)
+        addSubview(groupCheckImg)
+            
+        groupLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(60)
+        }
+        groupCheckImg.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-20)
+        }
+    }
+        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 

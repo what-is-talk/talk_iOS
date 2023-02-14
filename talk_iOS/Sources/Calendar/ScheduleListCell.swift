@@ -27,10 +27,10 @@ class ScheduleListCell: UITableViewCell {
     
     private func setUI() {
         verticalLine = UIView()
-        verticalLine.backgroundColor = UIColor.TalkBlue
+        verticalLine.backgroundColor = UIColor(red: 0.988, green: 0.447, blue: 0.447, alpha: 1)
         
         groupNameLabel = UILabel()
-        groupNameLabel.textColor = UIColor.TalkBlue
+        groupNameLabel.textColor = UIColor(red: 0.988, green: 0.447, blue: 0.447, alpha: 1)
         groupNameLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         
         scheduleLabel = UILabel()
