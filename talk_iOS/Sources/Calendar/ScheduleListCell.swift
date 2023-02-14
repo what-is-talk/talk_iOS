@@ -72,8 +72,4 @@ class ScheduleListCell: UITableViewCell {
     }
 }
 
-struct scheduleListData {
-    let groupNameLabel: String
-    let scheduleLabel: String
-    let timeLabel: String
-}
+

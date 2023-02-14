@@ -63,6 +63,7 @@
 		09E6631F299A14E400095D3F /* HomeMainViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631E299A14E400095D3F /* HomeMainViewController+Delegate.swift */; };
 		09E66325299BBCE600095D3F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E66324299BBCE600095D3F /* UIImageView.swift */; };
 		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
+		5A24BA6F299A203500947693 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A24BA6E299A203500947693 /* CalendarData.swift */; };
 		5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A804E5D298845C000916B13 /* FSCalendarEx.swift */; };
@@ -145,6 +146,7 @@
 		09E6631E299A14E400095D3F /* HomeMainViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeMainViewController+Delegate.swift"; sourceTree = "<group>"; };
 		09E66324299BBCE600095D3F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
+		5A24BA6E299A203500947693 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		5A804E5D298845C000916B13 /* FSCalendarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarEx.swift; sourceTree = "<group>"; };
 		5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
 		5A90CB452982781600561FC8 /* Chattingroom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chattingroom.storyboard; sourceTree = "<group>"; };
@@ -193,6 +195,10 @@
 				5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */,
 				5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */,
 				5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */,
+				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
+				5AB68D842987C2090075203A /* CustomView.swift */,
+				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
+				5A24BA6E299A203500947693 /* CalendarData.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -375,7 +381,6 @@
 				09BEA92729752C3A00AABDA0 /* TalkUIColor.swift */,
 				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
 				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
-				5AB68D842987C2090075203A /* CustomView.swift */,
 				09D5340829893B0000A1F4EF /* Utils.swift */,
 				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
 				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
@@ -607,6 +612,7 @@
 				09D5340D2989765900A1F4EF /* HomeMainCollectionViewCell.swift in Sources */,
 				09999BC62994071A00F3B3E3 /* DataModels.swift in Sources */,
 				09999BC22993715600F3B3E3 /* CoreDataStack.swift in Sources */,
+				5A24BA6F299A203500947693 /* CalendarData.swift in Sources */,
 				5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */,
@@ -806,7 +812,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -838,7 +844,7 @@
 				INFOPLIST_FILE = talk_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
