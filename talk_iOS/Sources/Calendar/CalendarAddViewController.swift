@@ -63,9 +63,8 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate, SendDele
     }
     
     @objc func sendData() {
-        /*
-         백에 데이터 전송
-         */
+        // 백에 데이터 전송 & 로컬 DB에 저장
+        
         self.navigationController?.popViewController(animated: true)
         print("페이지 pop")
     }
@@ -841,6 +840,7 @@ class ReminderTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 
 /*
 import SwiftUI

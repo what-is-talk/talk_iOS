@@ -434,6 +434,23 @@ class CalendarEditViewController: UIViewController, EditPageDelegate {
             make.left.equalTo(reminderLabel.snp.right).offset(36)
         }
     }
+    
+    // 화면 터치시 키보드 내려가기
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
+        sender.cancelsTouchesInView = false
+    }
+    
+    // Return키 눌렀을 때 키보드 내려가게
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder() // TextField 비활성화
+            return true
+    }
 }
 
 class EditPageGroupListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -598,6 +615,7 @@ class EditPageGroupListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 
 /*
 import SwiftUI

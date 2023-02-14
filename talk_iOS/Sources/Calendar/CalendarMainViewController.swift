@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import FSCalendar
+import Alamofire
 
 protocol SendGroupDelegate: AnyObject {
     func sendGroup(groupname: String)
@@ -15,12 +16,9 @@ protocol SendGroupDelegate: AnyObject {
 
 class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, UITableViewDelegate, UITableViewDataSource, SendGroupDelegate {
     
-    func sendGroup(groupname: String) {
-        self.allgroupLabel.text = groupname
-    }
-    
-    
     static let identifier = "CalendarMainViewController"
+    
+    var dataSource: [ScheduleResponse] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +32,20 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         setUpView()
         setConstraints()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        /*
+        fetchCalendarOverView(completionHandler: { result in
+            switch result {
+            case let .success(data):
+                print(result)
+            case let .failure(error):
+                print("에러")
+            }
+        })*/
+        fetchCalendarOverView()
+    }
+    
     // 네비게이션 바 설정
     func initNavigation() {
         let leftLabel = UILabel()
@@ -93,6 +105,10 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         let groupVC = GroupViewController()
         groupVC.delegate = self
         self.present(groupVC, animated: true, completion: nil)
+    }
+    
+    func sendGroup(groupname: String) {
+        self.allgroupLabel.text = groupname
     }
     
     var selectedDate: String = ""
@@ -157,10 +173,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
      scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00")
      */
     
-    let testData: [scheduleListData] = [
-                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "일정 내용", timeLabel: "2월 2일 10:00 ~ 2월 3일 11:00"),
-                                        scheduleListData(groupNameLabel: "UMC", scheduleLabel: "내용", timeLabel: "14:00")
-                                        ]
+    
     
     func attribute() {
         scheduleList.register(ScheduleListCell.classForCoder(), forCellReuseIdentifier: ScheduleListCell.scheduleListCell)
@@ -169,14 +182,14 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testData.count
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ScheduleListCell.scheduleListCell, for: indexPath) as! ScheduleListCell
-        cell.groupNameLabel.text = testData[indexPath.row].groupNameLabel
-        cell.scheduleLabel.text = testData[indexPath.row].scheduleLabel
-        cell.timeLabel.text = testData[indexPath.row].timeLabel
+        cell.groupNameLabel.text = dataSource[indexPath.row].title
+        cell.scheduleLabel.text = dataSource[indexPath.row].desc
+        cell.timeLabel.text = dataSource[indexPath.row].startDate
         return cell
     }
     
@@ -219,6 +232,49 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
             make.width.equalToSuperview()
         }
+    }
+    /*
+    func fetchCalendarOverView() {
+        let url = "https://what-is-talk-test.vercel.app/api/schedule/detail?scheduleId=2"
+        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
+            .responseData{ response in
+                switch response.result {
+                case let .success(data):
+                    do {
+                        let result = try JSONDecoder().decode(Root.self, from: data).data
+                        print(result)
+                    } catch {
+                        print(error)
+                    }
+                    
+                case .failure(let err):
+                    print(err)
+                }
+            }
+    }*/
+    
+    func fetchCalendarOverView() {
+        let url = "https://what-is-talk-test.vercel.app/api/schedule?groupId=1&year=2023/detail?scheduleId~=1"
+        AF.request(url)
+            .responseJSON { response in
+                switch response.result {
+                case let .success(res):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
+                        let json = try JSONDecoder().decode(Root.self, from: jsonData).data
+                        print(json)
+                        self.dataSource = json
+                        DispatchQueue.main.async {
+                            self.scheduleList.reloadData()
+                        }
+                    } catch {
+                        print(error)
+                    }
+                    
+                case .failure(let err):
+                    print(err)
+                }
+            }
     }
 }
 
@@ -383,7 +439,10 @@ class GroupTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
+
+
 /*
 import SwiftUI
 
