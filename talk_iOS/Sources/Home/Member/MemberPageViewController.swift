@@ -31,7 +31,6 @@ class MemberPageViewController: UIViewController {
         userNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         userNameLabel.textColor = .TalkRed
         userNameLabel.text = userName
-//        joinTimeValue.text =
         let roleBox1 = TalkRollBox(title: roleData[0], color: roleColor[0], selected: true)
         let roleBox2 = TalkRollBox(title: roleData[1], color: roleColor[1], selected: true)
         let roleBox3 = TalkRollBox(title: roleData[2], color: roleColor[2], selected: true)
@@ -123,13 +122,14 @@ class MemberPageViewController: UIViewController {
         memberTaskButton2.memberLayout()
     }
     
-    var profileImage:UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        view.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
-        view.layer.cornerRadius = view.frame.height/2
-        return view
-        
+    var profileImage:UIImageView = {
+        let profileImage = UIImageView()
+        profileImage.backgroundColor = .gray
+        profileImage.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.clipsToBounds = true
+        return profileImage
     }()
     
     

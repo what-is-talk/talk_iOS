@@ -62,27 +62,6 @@ class MemberViewController: UIViewController {
         self.navigationItem.title = "모임명"
         self.navigationController?.isNavigationBarHidden = false
         getTest()
-        self.members.append(contentsOf: [
-            .init(name: "김희윤", rolls: [rolls[1],rolls[2],rolls[4]]),
-            .init(name: "박상민", rolls: [rolls[2]]),
-            .init(name: "장우석", rolls: [rolls[3],rolls[4]]),
-            .init(name: "박지수", rolls: [rolls[4]]),
-            .init(name: "김혜연", rolls: [rolls[2],rolls[3],rolls[4]]),
-            .init(name: "박시영", rolls: [rolls[1],rolls[3]]),
-            .init(name: "경유진", rolls: [rolls[1],rolls[2],rolls[4]]),
-            .init(name: "안채은", rolls: [rolls[2]]),
-            .init(name: "안녕", rolls: [rolls[3],rolls[4]]),
-            .init(name: "하세", rolls: [rolls[3]]),
-            .init(name: "요구", rolls: [rolls[2],rolls[3]]),
-            .init(name: "르트", rolls: [rolls[1],rolls[3]]),
-            .init(name: "트럼프", rolls: [rolls[1],rolls[2],rolls[4]]),
-            .init(name: "프랑스", rolls: [rolls[2]]),
-            .init(name: "스위스", rolls: [rolls[3],rolls[4]]),
-            .init(name: "스키", rolls: [rolls[4]]),
-            .init(name: "키러기", rolls: [rolls[2],rolls[3]]),
-            .init(name: "기술자", rolls: [rolls[1],rolls[3]]),
-        ])
-        
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 295))
         table.tableHeaderView = header
 
@@ -193,14 +172,6 @@ class MemberViewController: UIViewController {
     var testMembers : [SimpleResponse] = []
 
     
-    var rolls:[Role] = [
-        .init(name: "공통리더", color: .TalkRed),
-        .init(name: "기획", color: .TalkBlue),
-        .init(name: "프론트", color: .TalkYellow),
-        .init(name: "백엔드", color: .TalkOrange),
-        .init(name: "디자인", color: .TalkPink),
-    ]
-
     
     func attribute(){
         table.register(MemberViewControllerTableViewCell.classForCoder()
@@ -340,7 +311,6 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
             return TalkRollBox.init(title: $0.name, color: convertColor(color: $0.color), selected: true)
         }
         cell.rolls = rollBoxes
-        // MyView
         cell.contentView.addSubview(cell.myView)
         cell.myView.snp.makeConstraints{
             $0.top.bottom.leading.trailing.equalToSuperview()
@@ -385,6 +355,13 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
             }
         vc.userName = member.name
         vc.joined_date = String(member.joined_date.prefix(9))
+        let url: URL! = URL(string: member.url)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                vc.profileImage.image = UIImage(data: data!)
+            }
+        }
         for i in 0...member.role.count-1 {
             vc.roleData[i] = member.role[i].name
             vc.roleColor[i] = convertColor(color: member.role[i].color)
@@ -418,6 +395,8 @@ class MemberViewControllerTableViewCell:UITableViewCell{
         profileImage.backgroundColor = .gray
         profileImage.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
         profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.clipsToBounds = true
         return profileImage
     }()
     var memberNameBox : UIView = {
