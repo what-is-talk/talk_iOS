@@ -3,7 +3,7 @@
 //  talk_iOS
 //
 //  Created by User on 2023/01/06.
-
+//  진짜 박상민 죽여버린다 
 
 import UIKit
 import SwiftUI
