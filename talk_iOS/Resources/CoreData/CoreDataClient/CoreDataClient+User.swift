@@ -2,7 +2,7 @@
 //  CoreDataClient+Member.swift
 //  talk_iOS
 //
-//  Created by User on 2023/02/10.
+//  Created by 박지수 on 2023/02/10.
 //
 
 import Foundation
@@ -40,7 +40,9 @@ extension CoreDataClient{
             existingUser.email = user.email
             existingUser.profileImage = user.profileImage
             existingUser.loggedFrom = user.loggedFrom
+            existingUser.token = user.token
             existingUser.personalColor = user.personalColor
+            existingUser.currentMeetingId = user.currentMeetingId
             
         // User가 없다면 새로 생성
         } else{
@@ -50,7 +52,9 @@ extension CoreDataClient{
             newUser.email = user.email
             newUser.profileImage = user.profileImage
             newUser.loggedFrom = user.loggedFrom
+            newUser.token = user.token
             newUser.personalColor = user.personalColor
+            newUser.currentMeetingId = user.currentMeetingId
         }
         try ctx.save()
     }

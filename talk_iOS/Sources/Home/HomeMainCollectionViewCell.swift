@@ -7,14 +7,23 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class HomeMainCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "HomeMainCollectionViewCell"
     
-    var groupImage:UIImage?
     var groupName:String = ""
     var selecting = false
-    var imageView = UIImageView()
+    var imageView:UIImageView = {
+        let view = UIImageView(image: UIImage(named: "profileBasic"))
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    var imageUrl = URL(string:""){
+        didSet{
+            self.imageView.kf.setImage(with: self.imageUrl)
+        }
+    }
     let groupNameView = UIView()
     let groupNameLabel:UILabel = {
         let label = UILabel()
@@ -35,21 +44,12 @@ class HomeMainCollectionViewCell: UICollectionViewCell {
     }
     
     private func setGroupImage(){
-        if let groupImage = self.groupImage{ 
-            imageView = UIImageView(image:groupImage)
-            self.addSubview(imageView)
-            imageView.snp.makeConstraints{ make in
-                make.top.leading.trailing.equalToSuperview()
-                make.height.equalTo(135)
-            }
-        } else{
-            let customView = UIView()
-            self.addSubview(customView)
-            customView.snp.makeConstraints{ make in
-                make.top.leading.trailing.equalToSuperview()
-                make.height.equalTo(135)
-            }
+        self.addSubview(imageView)
+        imageView.snp.makeConstraints{ make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(135)
         }
+            
     }
     
     private func setGroupNameView(){

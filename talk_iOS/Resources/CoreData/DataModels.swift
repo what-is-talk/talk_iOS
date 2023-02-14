@@ -14,8 +14,10 @@ struct UserData:Codable{
     let email: String
     var name: String
     let loggedFrom: String
+    var token:String
     var personalColor:String
     var profileImage:String
+    var currentMeetingId:Int32
 }
 
 
@@ -23,8 +25,8 @@ struct MeetingData:Codable{
     let id: Int32
     let inviteCode: String
     var name: String
-    var profileImage:String?
-    let joinedDate:Date
+    var profileImage:String
+    let joinedDate:Date?
     var memberCount:Int16
 }
 

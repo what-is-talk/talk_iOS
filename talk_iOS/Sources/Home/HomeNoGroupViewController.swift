@@ -11,6 +11,8 @@ import SnapKit
 class HomeNoGroupViewController: UIViewController {
     static let identifier = "HomeNoGroupViewController"
     
+    var user:UserData?
+    
     let label:UILabel = {
         let l = UILabel()
         l.text = "아직 가입 중인 모임이 없어요"

@@ -21,8 +21,12 @@ import Alamofire
 //}
 
 class MainViewController: UIViewController {
+    static let identifier = "MainViewController"
     var container:NSPersistentContainer!
     var noticeEntity:NSEntityDescription?
+    
+    let indicator = UIActivityIndicatorView(style: .large)
+    
     let subTitleLabel = UILabel()
     let mainTitleLabel = UILabel()
     let logoImage = UIImageView(image: .init(named: "LoginImage"))
@@ -32,6 +36,8 @@ class MainViewController: UIViewController {
     
     let kakaoLogo = UIImageView()
     let naverLogo = UIImageView()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

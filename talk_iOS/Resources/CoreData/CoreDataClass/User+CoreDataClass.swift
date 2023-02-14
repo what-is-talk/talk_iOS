@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  talk_iOS
 //
-//  Created by User on 2023/02/11.
+//  Created by 박지수 on 2023/02/11.
 //
 //
 
