@@ -238,7 +238,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
             make.width.equalToSuperview()
         }
     }
-    
+    /*
     func fetchCalendarOverView() {
         let url = "https://what-is-talk-test.vercel.app/api/schedule/detail?scheduleId=1"
         AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
@@ -256,7 +256,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
                     print(err)
                 }
             }
-    }
+    }*/
     /*
     func fetchCalendarOverView() {
         let url = "https://what-is-talk-test.vercel.app/api/schedule?groupId=1&year=2023/detail?scheduleId~=1"
@@ -281,9 +281,9 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
                 }
             }
     }*/
-    /*
+    
     func fetchCalendarOverView() {
-            let url = "https://what-is-talk-test.vercel.app/api/schedule?groupId=1"
+            let url = "https://what-is-talk-test.vercel.app/api/schedule/detail?scheduleId=1"
             AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
                 .responseData{ response in
                     switch response.result {
@@ -300,7 +300,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
                         print(err)
                     }
                 }
-    }*/
+    }
 }
 
 class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
