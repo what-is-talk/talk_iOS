@@ -161,7 +161,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func fetchVerifyUser(user:UserData, completionHandler:@escaping (Result<ResponseData,Error>) -> Void){
 //        let url = "https://what-is-talk-test.vercel.app/api/verify"
-        let url = "http://localhost:3000/api/verify"
+        let url = "https://what-is-talk-test.vercel.app/api/verify"
         let parameters:[String:Any] = [
             "userId":user.id,
             "token":user.token
