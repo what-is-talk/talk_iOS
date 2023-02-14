@@ -30,7 +30,6 @@
 		09588A922972DEF80046F869 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09588A912972DEF80046F869 /* UIColor.swift */; };
 		0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393A29645C3C0007CCB5 /* AppDelegate.swift */; };
 		0990393D29645C3C0007CCB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990393C29645C3C0007CCB5 /* SceneDelegate.swift */; };
-		0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0990394329645C3D0007CCB5 /* Assets.xcassets */; };
 		0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0990394529645C3D0007CCB5 /* LaunchScreen.storyboard */; };
 		09999BBF2993610F00F3B3E3 /* Meeting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BB92993610F00F3B3E3 /* Meeting+CoreDataClass.swift */; };
 		09999BC02993610F00F3B3E3 /* Meeting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09999BBA2993610F00F3B3E3 /* Meeting+CoreDataProperties.swift */; };
@@ -71,6 +70,10 @@
 		5A90CB4E2982930D00561FC8 /* CalendarAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */; };
 		5AB68D852987C2090075203A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB68D842987C2090075203A /* CustomView.swift */; };
 		5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */; };
+		8F0E21D7299B59B600C7BFD3 /* AnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0E21D6299B59B600C7BFD3 /* AnnouncementViewController.swift */; };
+		8F0E21DC299B64F400C7BFD3 /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F0E21DB299B64F400C7BFD3 /* Announcement.storyboard */; };
+		8F0E21DE299B8AAD00C7BFD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F0E21DD299B8AAD00C7BFD3 /* Assets.xcassets */; };
+		8FABA03B299297D000AD3CFA /* HomMainViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FABA03A299297D000AD3CFA /* HomMainViewController+UICollectionViewDelegate.swift */; };
 		D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */; };
 		D2CF6B9729964E0B00FFB4C6 /* MemberPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF6B9629964E0B00FFB4C6 /* MemberPageViewController.swift */; };
 		D2CF6B992996907600FFB4C6 /* MemberInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF6B982996907600FFB4C6 /* MemberInviteViewController.swift */; };
@@ -105,7 +108,6 @@
 		0990393729645C3C0007CCB5 /* talk_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talk_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0990393A29645C3C0007CCB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0990393C29645C3C0007CCB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0990394329645C3D0007CCB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0990394629645C3D0007CCB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0990394829645C3D0007CCB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09999BB92993610F00F3B3E3 /* Meeting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -150,6 +152,10 @@
 		5AB68D842987C2090075203A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingroomViewController.swift; sourceTree = "<group>"; };
 		86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F0E21D6299B59B600C7BFD3 /* AnnouncementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementViewController.swift; sourceTree = "<group>"; };
+		8F0E21DB299B64F400C7BFD3 /* Announcement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Announcement.storyboard; sourceTree = "<group>"; };
+		8F0E21DD299B8AAD00C7BFD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
+		8FABA03A299297D000AD3CFA /* HomMainViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomMainViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChattingTable.storyboard; sourceTree = "<group>"; };
 		D2CF6B9629964E0B00FFB4C6 /* MemberPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberPageViewController.swift; sourceTree = "<group>"; };
 		D2CF6B982996907600FFB4C6 /* MemberInviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInviteViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 				09F8A3B32966CD4600BE850F /* Resources */,
 				09F8A3B22966CC8B00BE850F /* Application */,
 				0990394829645C3D0007CCB5 /* Info.plist */,
+				8F0E21DD299B8AAD00C7BFD3 /* Assets.xcassets */,
 				09D42FD3296A8FCD00E70F80 /* env.xcconfig */,
 			);
 			path = talk_iOS;
@@ -361,7 +368,6 @@
 				09999BB4299360D600F3B3E3 /* CoreData */,
 				09F8A3B52966CDC000BE850F /* Fonts */,
 				09F8A3B42966CDB400BE850F /* Extensions */,
-				0990394329645C3D0007CCB5 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -420,10 +426,12 @@
 		09F8A3BE2966CFE000BE850F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8F0E21D8299B5A9900C7BFD3 /* Announcement */,
 				D2F055AE298AF046000B1C15 /* Member */,
 				09D42FCC2968409D00E70F80 /* Chatting */,
 				09D42FC62968292800E70F80 /* HomeMain.storyboard */,
 				09D42FC82968296700E70F80 /* HomeMainViewController.swift */,
+				8FABA03A299297D000AD3CFA /* HomMainViewController+UICollectionViewDelegate.swift */,
 				09D5340C2989765900A1F4EF /* HomeMainCollectionViewCell.swift */,
 				09D5340A2989586100A1F4EF /* HomeMainGroupData.swift */,
 				09D53404298939B400A1F4EF /* HomeNoGroup.storyboard */,
@@ -447,6 +455,15 @@
 				09D42FD12968415700E70F80 /* ChattingTableViewController.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		8F0E21D8299B5A9900C7BFD3 /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				8F0E21DB299B64F400C7BFD3 /* Announcement.storyboard */,
+				8F0E21D6299B59B600C7BFD3 /* AnnouncementViewController.swift */,
+			);
+			path = Announcement;
 			sourceTree = "<group>";
 		};
 		D2F055AE298AF046000B1C15 /* Member */ = {
@@ -532,17 +549,17 @@
 				09588A882971859A0046F869 /* MainTabBar.storyboard in Resources */,
 				09588A77297175590046F869 /* TodoMain.storyboard in Resources */,
 				0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */,
-				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
+				8F0E21DC299B64F400C7BFD3 /* Announcement.storyboard in Resources */,
 				5A90CB462982781600561FC8 /* Chattingroom.storyboard in Resources */,
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09588A7C2971768F0046F869 /* NoticeMain.storyboard in Resources */,
 				0927E049296EF13600B16CE4 /* Main.storyboard in Resources */,
-				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
 				09588A8C2972AFA20046F869 /* InviteChattingPartner.storyboard in Resources */,
 				D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */,
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09588A80297177EF0046F869 /* MypageMain.storyboard in Resources */,
 				09D53405298939B400A1F4EF /* HomeNoGroup.storyboard in Resources */,
+				8F0E21DE299B8AAD00C7BFD3 /* Assets.xcassets in Resources */,
 				D2F055B2298AF316000B1C15 /* Member.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,6 +632,7 @@
 				09999BCE2995542500F3B3E3 /* Schedule+CoreDataProperties.swift in Sources */,
 				09D42FC92968296700E70F80 /* HomeMainViewController.swift in Sources */,
 				5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */,
+				8FABA03B299297D000AD3CFA /* HomMainViewController+UICollectionViewDelegate.swift in Sources */,
 				5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */,
 				09E6630829960EA100095D3F /* CoreDataClient+User.swift in Sources */,
 				09999BD12995542500F3B3E3 /* Position+CoreDataClass.swift in Sources */,
@@ -622,6 +640,7 @@
 				D2CF6B9729964E0B00FFB4C6 /* MemberPageViewController.swift in Sources */,
 				09588A922972DEF80046F869 /* UIColor.swift in Sources */,
 				09588A82297177FB0046F869 /* MyPageViewController.swift in Sources */,
+				8F0E21D7299B59B600C7BFD3 /* AnnouncementViewController.swift in Sources */,
 				09588A7E2971777D0046F869 /* NoticeMainViewController.swift in Sources */,
 				09588A79297175670046F869 /* TodoMainViewController.swift in Sources */,
 				09D5340B2989586100A1F4EF /* HomeMainGroupData.swift in Sources */,
