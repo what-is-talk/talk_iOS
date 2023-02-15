@@ -226,7 +226,7 @@ class HomeMainViewController : UIViewController {
         view.layer.cornerRadius = 8
         
         let title = UILabel()
-        title.text = "멤버"
+        title.text = "멤버dsdd"
         title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
         title.font = .systemFont(ofSize: 16, weight: .bold)
         view.addSubview(title)
