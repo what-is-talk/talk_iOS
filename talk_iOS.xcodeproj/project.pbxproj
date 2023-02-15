@@ -62,12 +62,14 @@
 		09E6631D2998827100095D3F /* DataModels+Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631C2998827100095D3F /* DataModels+Initializer.swift */; };
 		09E6631F299A14E400095D3F /* HomeMainViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6631E299A14E400095D3F /* HomeMainViewController+Delegate.swift */; };
 		09E66325299BBCE600095D3F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E66324299BBCE600095D3F /* UIImageView.swift */; };
+		09E6632E299C92FB00095D3F /* AnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E6632D299C92FB00095D3F /* AnnouncementViewController.swift */; };
+		09E66330299C930300095D3F /* Announcement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E6632F299C930300095D3F /* Announcement.storyboard */; };
+		09E66333299C964100095D3F /* ScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E66331299C964100095D3F /* ScheduleListCell.swift */; };
+		09E66334299C964100095D3F /* FSCalendarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E66332299C964100095D3F /* FSCalendarEx.swift */; };
 		5A080F6B297E8762004DF4C7 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A080F6A297E8762004DF4C7 /* CALayer.swift */; };
 		5A24BA6F299A203500947693 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A24BA6E299A203500947693 /* CalendarData.swift */; };
 		5A2DD75629819176004F907A /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
 		5A6438A8296E9D0F00860AEA /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D42FC82968296700E70F80 /* HomeMainViewController.swift */; };
-		5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A804E5D298845C000916B13 /* FSCalendarEx.swift */; };
-		5A8C0937298A25EC00A6CF61 /* ScheduleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */; };
 		5A90CB462982781600561FC8 /* Chattingroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A90CB452982781600561FC8 /* Chattingroom.storyboard */; };
 		5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */; };
 		5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */; };
@@ -145,10 +147,12 @@
 		09E6631C2998827100095D3F /* DataModels+Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataModels+Initializer.swift"; sourceTree = "<group>"; };
 		09E6631E299A14E400095D3F /* HomeMainViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeMainViewController+Delegate.swift"; sourceTree = "<group>"; };
 		09E66324299BBCE600095D3F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		09E6632D299C92FB00095D3F /* AnnouncementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementViewController.swift; sourceTree = "<group>"; };
+		09E6632F299C930300095D3F /* Announcement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Announcement.storyboard; sourceTree = "<group>"; };
+		09E66331299C964100095D3F /* ScheduleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleListCell.swift; path = ../../../../../../../../Downloads/Calendar/ScheduleListCell.swift; sourceTree = "<group>"; };
+		09E66332299C964100095D3F /* FSCalendarEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FSCalendarEx.swift; path = ../../../../../../../../Downloads/Calendar/FSCalendarEx.swift; sourceTree = "<group>"; };
 		5A080F6A297E8762004DF4C7 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = talk_iOS/Sources/Home/Chatting/CALayer.swift; sourceTree = SOURCE_ROOT; };
 		5A24BA6E299A203500947693 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
-		5A804E5D298845C000916B13 /* FSCalendarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarEx.swift; sourceTree = "<group>"; };
-		5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListCell.swift; sourceTree = "<group>"; };
 		5A90CB452982781600561FC8 /* Chattingroom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chattingroom.storyboard; sourceTree = "<group>"; };
 		5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentViewController.swift; sourceTree = "<group>"; };
 		5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEditViewController.swift; sourceTree = "<group>"; };
@@ -195,9 +199,7 @@
 				5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */,
 				5A90CB492982897D00561FC8 /* CalendarContentViewController.swift */,
 				5A90CB4B2982899600561FC8 /* CalendarEditViewController.swift */,
-				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
 				5AB68D842987C2090075203A /* CustomView.swift */,
-				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 				5A24BA6E299A203500947693 /* CalendarData.swift */,
 			);
 			path = Calendar;
@@ -326,6 +328,15 @@
 			path = MappingModel;
 			sourceTree = "<group>";
 		};
+		09E6632C299C92DB00095D3F /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				09E6632D299C92FB00095D3F /* AnnouncementViewController.swift */,
+				09E6632F299C930300095D3F /* Announcement.storyboard */,
+			);
+			path = Announcement;
+			sourceTree = "<group>";
+		};
 		09F8A3B02966CC4C00BE850F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,9 +393,9 @@
 				09588A8F2972D67B0046F869 /* TalkRollBox.swift */,
 				09BEA92929753DF000AABDA0 /* TalkCheckBox.swift */,
 				09D5340829893B0000A1F4EF /* Utils.swift */,
-				5A804E5D298845C000916B13 /* FSCalendarEx.swift */,
-				5A8C0936298A25EC00A6CF61 /* ScheduleListCell.swift */,
 				09E66324299BBCE600095D3F /* UIImageView.swift */,
+				09E66332299C964100095D3F /* FSCalendarEx.swift */,
+				09E66331299C964100095D3F /* ScheduleListCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -430,6 +441,7 @@
 		09F8A3BE2966CFE000BE850F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				09E6632C299C92DB00095D3F /* Announcement */,
 				D2F055AE298AF046000B1C15 /* Member */,
 				09D42FCC2968409D00E70F80 /* Chatting */,
 				09D42FC62968292800E70F80 /* HomeMain.storyboard */,
@@ -545,6 +557,7 @@
 				0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
 				5A90CB462982781600561FC8 /* Chattingroom.storyboard in Resources */,
+				09E66330299C930300095D3F /* Announcement.storyboard in Resources */,
 				09D42FC72968292800E70F80 /* HomeMain.storyboard in Resources */,
 				09588A7C2971768F0046F869 /* NoticeMain.storyboard in Resources */,
 				0927E049296EF13600B16CE4 /* Main.storyboard in Resources */,
@@ -609,6 +622,7 @@
 			files = (
 				09999BD22995542500F3B3E3 /* Position+CoreDataProperties.swift in Sources */,
 				09E6630D2996946300095D3F /* User+CoreDataClass.swift in Sources */,
+				09E66334299C964100095D3F /* FSCalendarEx.swift in Sources */,
 				09D5340D2989765900A1F4EF /* HomeMainCollectionViewCell.swift in Sources */,
 				09999BC62994071A00F3B3E3 /* DataModels.swift in Sources */,
 				09999BC22993715600F3B3E3 /* CoreDataStack.swift in Sources */,
@@ -636,6 +650,8 @@
 				09588A922972DEF80046F869 /* UIColor.swift in Sources */,
 				09588A82297177FB0046F869 /* MyPageViewController.swift in Sources */,
 				09588A7E2971777D0046F869 /* NoticeMainViewController.swift in Sources */,
+				09E6632E299C92FB00095D3F /* AnnouncementViewController.swift in Sources */,
+				09E66333299C964100095D3F /* ScheduleListCell.swift in Sources */,
 				09588A79297175670046F869 /* TodoMainViewController.swift in Sources */,
 				09D5340B2989586100A1F4EF /* HomeMainGroupData.swift in Sources */,
 				09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */,
@@ -647,11 +663,9 @@
 				D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */,
 				091317272990069700EF8012 /* JoinViewController.swift in Sources */,
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
-				5A8C0937298A25EC00A6CF61 /* ScheduleListCell.swift in Sources */,
 				09E66325299BBCE600095D3F /* UIImageView.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
-				5A804E5E298845C000916B13 /* FSCalendarEx.swift in Sources */,
 				09E6631B2998229C00095D3F /* CoreDataClient+Position.swift in Sources */,
 				5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */,
 				D2CF6B992996907600FFB4C6 /* MemberInviteViewController.swift in Sources */,
