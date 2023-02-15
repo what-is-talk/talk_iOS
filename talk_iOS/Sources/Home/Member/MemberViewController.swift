@@ -5,38 +5,63 @@
 //  Created by 김희윤 on 2023/02/01.
 //
 import UIKit
+import Alamofire
 
 class MemberViewController: UIViewController {
     
     static let identifier = "MemberViewController"
     let table =  UITableView()
-    
+                  
+    struct Root: Decodable {
+        let member_list : [SimpleResponse]
+    }
 
+    struct SimpleResponse: Decodable {
+        let id : Int
+        let url : String
+        let name : String
+        let joined_date : String
+        let role : [roleStruct]
+
+      enum CodingKeys: String, CodingKey {
+          case id
+          case url = "profile_url"
+          case name
+          case joined_date
+          case role
+      }
+    }
+    
+    struct roleStruct : Decodable{
+        let name : String
+        let color : String
+    }
+    
+    func getTest() {
+        let url = "https://what-is-talk-test.vercel.app/api/member?groupId=1"
+        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
+            .responseData{ response in
+                switch response.result {
+                case let .success(data):
+                    do{
+                        let result = try JSONDecoder().decode(Root.self, from: data).member_list
+                        self.testMembers = result
+                        self.table.reloadData()
+                    } catch{
+                        print(error)
+                    }
+                    
+                case .failure(let err):
+                    print(err)
+                }
+            }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "모임명"
         self.navigationController?.isNavigationBarHidden = false
-        self.members.append(contentsOf: [
-            .init(name: "김희윤", rolls: [rolls[1],rolls[2],rolls[4]]),
-            .init(name: "박상민", rolls: [rolls[2]]),
-            .init(name: "장우석", rolls: [rolls[3],rolls[4]]),
-            .init(name: "박지수", rolls: [rolls[4]]),
-            .init(name: "김혜연", rolls: [rolls[2],rolls[3],rolls[4]]),
-            .init(name: "박시영", rolls: [rolls[1],rolls[3]]),
-            .init(name: "경유진", rolls: [rolls[1],rolls[2],rolls[4]]),
-            .init(name: "안채은", rolls: [rolls[2]]),
-            .init(name: "안녕", rolls: [rolls[3],rolls[4]]),
-            .init(name: "하세", rolls: [rolls[3]]),
-            .init(name: "요구", rolls: [rolls[2],rolls[3]]),
-            .init(name: "르트", rolls: [rolls[1],rolls[3]]),
-            .init(name: "트럼프", rolls: [rolls[1],rolls[2],rolls[4]]),
-            .init(name: "프랑스", rolls: [rolls[2]]),
-            .init(name: "스위스", rolls: [rolls[3],rolls[4]]),
-            .init(name: "스키", rolls: [rolls[4]]),
-            .init(name: "키러기", rolls: [rolls[2],rolls[3]]),
-            .init(name: "기술자", rolls: [rolls[1],rolls[3]]),
-        ])
-        
+        getTest()
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 295))
         table.tableHeaderView = header
 
@@ -55,6 +80,7 @@ class MemberViewController: UIViewController {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(23)
         }
+        
         upperViewIcon.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(upperViewLabel.snp.trailing).inset(-5)
@@ -138,36 +164,19 @@ class MemberViewController: UIViewController {
     }
     
     struct Role{
-        let title:String
+        let name:String
         let color:UIColor
     }
     var members:[Member] = []
+    
+    var testMembers : [SimpleResponse] = []
 
     
-    var rolls:[Role] = [
-        .init(title: "공통리더", color: .TalkRed),
-        .init(title: "기획", color: .TalkBlue),
-        .init(title: "프론트", color: .TalkYellow),
-        .init(title: "백엔드", color: .TalkOrange),
-        .init(title: "디자인", color: .TalkPink),
-    ]
-
     
     func attribute(){
         table.register(MemberViewControllerTableViewCell.classForCoder()
                        , forCellReuseIdentifier: "cell")
     }
-        var sampleData: [memberDataModel] = [
-            memberDataModel(memberName: "김희윤", memberColor: "red"),
-            memberDataModel(memberName: "박상민", memberColor: "blue"),
-            memberDataModel(memberName: "박지수", memberColor: "yellow"),
-            memberDataModel(memberName: "경유진", memberColor: "orange"),
-            memberDataModel(memberName: "장우석", memberColor: "pink"),
-            memberDataModel(memberName: "박시영", memberColor: "red"),
-            memberDataModel(memberName: "채은", memberColor: "blue"),
-            memberDataModel(memberName: "김혜연", memberColor: "yellow")
-        ]
-
     
     var upperView : UIView = {
         let upperView = UIView()
@@ -274,19 +283,34 @@ for: .touchUpInside)
 }
 
 extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
+    
+    func convertColor(color: String) -> UIColor {
+        let dic: [String: UIColor] = ["red" : .TalkRed, "yellow" : .TalkYellow, "blue" : .TalkBlue, "orange" : .TalkOrange, "pink" : .TalkPink]
+        
+        return dic[color]!
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return members.count
+            return testMembers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MemberViewControllerTableViewCell.identifier, for:indexPath) as? MemberViewControllerTableViewCell else {return UITableViewCell()}
-        let member = self.members[indexPath.row]
+        let member = self.testMembers[indexPath.row]
         cell.memberName.text = member.name
-        let rollBoxes:[TalkRollBox] = self.members[indexPath.row].rolls.map{
-            return TalkRollBox.init(title: $0.title, color: $0.color, selected: true)
+        
+    
+        let url: URL! = URL(string: member.url)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                cell.profileImage.image = UIImage(data: data!)
+            }
+        }
+        
+        let rollBoxes:[TalkRollBox] = member.role.map{
+            return TalkRollBox.init(title: $0.name, color: convertColor(color: $0.color), selected: true)
         }
         cell.rolls = rollBoxes
-        // MyView
         cell.contentView.addSubview(cell.myView)
         cell.myView.snp.makeConstraints{
             $0.top.bottom.leading.trailing.equalToSuperview()
@@ -312,14 +336,6 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
             $0.centerX.equalToSuperview()
         }
         tableView.rowHeight = 56
-        cell.myView.addSubview(cell.memberColor)
-        cell.memberColor.snp.makeConstraints{
-            $0.centerY.equalTo(cell.profileImage.snp.centerY)
-            $0.leading.equalTo(cell.memberNameBox.snp.trailing).inset(-8)
-            $0.width.equalTo(53)
-            $0.height.equalTo(20)
-        }
-        
         cell.myView.addSubview(cell.rollStackView)
         cell.rollStackView.snp.makeConstraints{
             $0.leading.equalTo(cell.memberNameBox.snp.trailing).inset(-8)
@@ -330,22 +346,29 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //클릭한 셀의 이벤트 처리
-//        let member = self.members[indexPath.row]
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        guard let vc = self.storyboard?.instantiateViewController(identifier: "MemberPageViewController") as? MemberPageViewController else {
-//                return
-//            }
-//        vc.userName = member.name
-//        for i in 0...member.rolls.count-1 {
-//            vc.roleData[i] = member.rolls[i].title
-//            vc.roleColor[i] = member.rolls[i].color
-//        }
-//        self.navigationController?.pushViewController(vc, animated: true)
-//
-//    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //클릭한 셀의 이벤트 처리
+        let member = self.testMembers[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "MemberPageViewController") as? MemberPageViewController else {
+                return
+            }
+        vc.userName = member.name
+        vc.joined_date = String(member.joined_date.prefix(9))
+        let url: URL! = URL(string: member.url)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                vc.profileImage.image = UIImage(data: data!)
+            }
+        }
+        for i in 0...member.role.count-1 {
+            vc.roleData[i] = member.role[i].name
+            vc.roleColor[i] = convertColor(color: member.role[i].color)
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
     
 
 }
@@ -367,13 +390,14 @@ class MemberViewControllerTableViewCell:UITableViewCell{
         return view
     }()
     
-    var profileImage:UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        view.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
-        view.layer.cornerRadius = view.frame.height/2
-        return view
-        
+    var profileImage:UIImageView = {
+        let profileImage = UIImageView()
+        profileImage.backgroundColor = .gray
+        profileImage.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.clipsToBounds = true
+        return profileImage
     }()
     var memberNameBox : UIView = {
         let view = UIView()
@@ -388,11 +412,7 @@ class MemberViewControllerTableViewCell:UITableViewCell{
     }()
 
     
-    var memberColor : TalkRollBox = {
-        let roleBox = TalkRollBox(title: "공통 리더", color: .TalkRed, selected: true)
-        return roleBox
-    }()
-    
+
     var rolls:[TalkRollBox] = []{
         didSet{
             self.rolls.forEach{
