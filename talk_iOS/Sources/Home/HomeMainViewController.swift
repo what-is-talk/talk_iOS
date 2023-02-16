@@ -200,7 +200,7 @@ class HomeMainViewController : UIViewController {
         subtitle.font = .systemFont(ofSize: 11, weight: .light)
         view.addSubview(subtitle)
         subtitle.snp.makeConstraints{ make in
-            make.top.equalToSuperview().inset(52)
+            make.top.equalTo(title).inset(32)
             make.leading.equalToSuperview().inset(16)
         }
         
@@ -215,9 +215,9 @@ class HomeMainViewController : UIViewController {
         return view
     }()
     
-    //멤버View
+    
     let memberView:UIView = {
-        let view = UILabel()
+        let view = UIView()
         view.backgroundColor = .white
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 8.0
@@ -232,6 +232,16 @@ class HomeMainViewController : UIViewController {
         view.addSubview(title)
         title.snp.makeConstraints{ make in
             make.top.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        let subtitle = UILabel()
+        subtitle.text = "최근 투표 제목"
+        subtitle.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
+        subtitle.font = .systemFont(ofSize: 11, weight: .light)
+        view.addSubview(subtitle)
+        subtitle.snp.makeConstraints{ make in
+            make.top.equalTo(title).inset(32)
             make.leading.equalToSuperview().inset(16)
         }
         
@@ -254,7 +264,7 @@ class HomeMainViewController : UIViewController {
     }()
     
     let calenderView:UIView = {
-        let view = UILabel()
+        let view = UIView()
         view.backgroundColor = .white
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 8.0
@@ -263,7 +273,7 @@ class HomeMainViewController : UIViewController {
         view.layer.cornerRadius = 8
         
         let title = UILabel()
-        title.text = "일정"
+        title.text = "투표"
         title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
         title.font = .systemFont(ofSize: 16, weight: .bold)
         view.addSubview(title)
@@ -278,7 +288,7 @@ class HomeMainViewController : UIViewController {
         subtitle.font = .systemFont(ofSize: 11, weight: .light)
         view.addSubview(subtitle)
         subtitle.snp.makeConstraints{ make in
-            make.top.equalToSuperview().inset(52)
+            make.top.equalTo(title).inset(32)
             make.leading.equalToSuperview().inset(16)
         }
         
@@ -293,8 +303,9 @@ class HomeMainViewController : UIViewController {
         return view
     }()
     
+    
     let todoView:UIView = {
-        let view = UILabel()
+        let view = UIView()
         view.backgroundColor = .white
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 8.0
@@ -318,7 +329,7 @@ class HomeMainViewController : UIViewController {
         subtitle.font = .systemFont(ofSize: 11, weight: .light)
         view.addSubview(subtitle)
         subtitle.snp.makeConstraints{ make in
-            make.top.equalToSuperview().inset(52)
+            make.top.equalTo(title).inset(32)
             make.leading.equalToSuperview().inset(16)
         }
         
@@ -446,29 +457,27 @@ class HomeMainViewController : UIViewController {
         [announcementView, chattingView, memberView, calenderView, voteView, todoView].forEach{
             contentView.addSubview($0)
         }
-        
-        
+
+
         announcementView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(10)
             $0.height.equalTo(140)
             $0.leading.trailing.equalToSuperview().inset(8)
         }
-        
+
         chattingView.snp.makeConstraints{
             $0.top.equalTo(announcementView.snp.bottom).inset(-20)
             $0.height.equalTo(140)
             $0.leading.trailing.equalToSuperview().inset(8)
         }
-        
-        
-        
+
         voteView.snp.makeConstraints{
             $0.top.equalTo(chattingView.snp.bottom).inset(-20)
             $0.height.equalTo(140)
             $0.leading.equalToSuperview().inset(8)
             $0.width.equalTo(VOTE_WIDTH)
         }
-        
+
         // memberView
         memberView.snp.makeConstraints{
             $0.top.equalTo(chattingView.snp.bottom).inset(-20)
@@ -476,7 +485,7 @@ class HomeMainViewController : UIViewController {
             $0.trailing.equalToSuperview().inset(8)
             $0.width.equalTo(VOTE_WIDTH)
         }
-        
+
         memberView.addSubview(memberCount)
         memberCount.snp.makeConstraints{ make in
             make.leading.equalToSuperview().inset(16)
@@ -490,7 +499,7 @@ class HomeMainViewController : UIViewController {
             make.leading.equalTo(memberCount.snp.trailing).inset(-4)
             make.bottom.equalToSuperview().inset(18)
         }
-        
+
         //캘린더view autolayout 설정
         calenderView.snp.makeConstraints{
             $0.top.equalTo(voteView.snp.bottom).inset(-20)
@@ -498,7 +507,7 @@ class HomeMainViewController : UIViewController {
             $0.leading.equalToSuperview().inset(8)
             $0.width.equalTo(VOTE_WIDTH)
         }
-        
+
         //할일view autolayout 설정
         todoView.snp.makeConstraints{
             $0.top.equalTo(memberView.snp.bottom).inset(-20)
@@ -506,11 +515,14 @@ class HomeMainViewController : UIViewController {
             $0.trailing.equalToSuperview().inset(8)
             $0.width.equalTo(VOTE_WIDTH)
         }
-        
+
         chattingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapChattingView)))
-        memberView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMemberView)))
         announcementView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAnnouncementView)))
-        
+        voteView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapVoteView)))
+        memberView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMemberView)))
+        calenderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCalenderView)))
+        todoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToDoView)))
+
     }
     
     
@@ -563,16 +575,28 @@ class HomeMainViewController : UIViewController {
         pushViewController(target: self, storyBoardName: "ChattingTable", identifier: ChattingTableViewController.identifier)
     }
     
+    @objc func tapAnnouncementView(){
+        print("공지사항 클릭")
+        pushViewController(target: self, storyBoardName: "Announcement", identifier: AnnouncementViewController.identifier)
+    }
+    
+    @objc func tapVoteView(){
+        print("투표뷰 클릭")
+    }
+    
     @objc func tapMemberView(){
         print("멤버뷰 클릭")
         pushViewController(target: self, storyBoardName: "Member", identifier: MemberViewController.identifier)
     }
-    @objc func tapAnnouncementView(){
-        print("공지사항 클릭")
-//        pushViewController(target: self, storyBoardName: "Announcement", identifier: AnnouncementViewController.identifier)
-        pushViewController(target: self, storyBoardName: "Member", identifier: MemberViewController.identifier)
-        
+    
+    @objc func tapCalenderView(){
+        print("캘린더뷰 클릭")
     }
+    
+    @objc func tapToDoView(){
+        print("투두뷰 클릭")
+    }
+    
 }
 
 

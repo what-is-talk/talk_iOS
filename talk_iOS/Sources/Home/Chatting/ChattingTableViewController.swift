@@ -60,9 +60,10 @@ class ChattingTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         titleStackView.addArrangedSubview(label1)
         titleStackView.addArrangedSubview(label2)
-        self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.titleView = titleStackView
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnAdd"),
             style: UIBarButtonItem.Style.plain, target: self, action: #selector(addButton))
