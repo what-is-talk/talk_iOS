@@ -15,8 +15,9 @@ class AnnouncementViewController:UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.title = "공지사항"
+        self.navigationController?.isNavigationBarHidden = false
+//        self.navigationController?.navigationBar.isHidden = false
         view.addSubview(upperView)
         upperView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(120)
@@ -25,12 +26,13 @@ class AnnouncementViewController:UIViewController{
             $0.trailing.equalToSuperview().inset(8)
         }
 
+    }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     let upperView : UIView = {
-
         let view = UIView()
         view.backgroundColor = .white
         view.layer.shadowOpacity = 1
@@ -38,7 +40,6 @@ class AnnouncementViewController:UIViewController{
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         view.layer.cornerRadius = 8.0
-
 
         let upperViewLabel = UILabel()
         upperViewLabel.font = UIFont.boldSystemFont(ofSize: 16)
@@ -72,7 +73,6 @@ class AnnouncementViewController:UIViewController{
             $0.trailing.equalToSuperview()
         }
             
-        
     return view
     }()
             
