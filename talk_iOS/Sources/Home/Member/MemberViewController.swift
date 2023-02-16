@@ -137,6 +137,10 @@ class MemberViewController: UIViewController {
         attribute()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     
     func tableSetter() {
         view.addSubview(table)

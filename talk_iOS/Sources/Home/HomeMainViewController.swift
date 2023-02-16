@@ -226,7 +226,7 @@ class HomeMainViewController : UIViewController {
         view.layer.cornerRadius = 8
         
         let title = UILabel()
-        title.text = "멤버dsdd"
+        title.text = "멤버"
         title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
         title.font = .systemFont(ofSize: 16, weight: .bold)
         view.addSubview(title)
@@ -569,7 +569,9 @@ class HomeMainViewController : UIViewController {
     }
     @objc func tapAnnouncementView(){
         print("공지사항 클릭")
-        pushViewController(target: self, storyBoardName: "Announcement", identifier: AnnouncementViewController.identifier)
+//        pushViewController(target: self, storyBoardName: "Announcement", identifier: AnnouncementViewController.identifier)
+        pushViewController(target: self, storyBoardName: "Member", identifier: MemberViewController.identifier)
+        
     }
 }
 

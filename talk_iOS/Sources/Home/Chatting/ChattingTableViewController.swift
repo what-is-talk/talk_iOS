@@ -62,7 +62,7 @@ class ChattingTableViewController: UIViewController {
         super.viewDidLoad()
         titleStackView.addArrangedSubview(label1)
         titleStackView.addArrangedSubview(label2)
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.titleView = titleStackView
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnAdd"),
             style: UIBarButtonItem.Style.plain, target: self, action: #selector(addButton))
@@ -74,6 +74,10 @@ class ChattingTableViewController: UIViewController {
         table.dataSource = self
         layout()
         attribute()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     
