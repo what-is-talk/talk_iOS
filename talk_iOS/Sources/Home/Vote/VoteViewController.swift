@@ -15,21 +15,30 @@ class VoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "모임명"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnAdd"),
+            style: UIBarButtonItem.Style.plain, target: self, action: #selector(addButton))
         self.navigationController?.isNavigationBarHidden = false
         getTest()
         tableSetter()
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 170))
         table.tableHeaderView = header
-        header.addSubview(upperView)
+        header.addSubview(headerView)
         upperViewLayout()
         table.delegate = self
         table.dataSource = self
         table.register(VoteViewControllerTableViewCell.classForCoder()
                            , forCellReuseIdentifier: "cell")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    @objc func addButton(){
+        print("클릭했다.")
+        pushViewController(target: self, storyBoardName: "Vote", identifier: voteCreateViewController
+            .identifier)
     }
     
     struct Root: Decodable {
@@ -74,6 +83,7 @@ class VoteViewController: UIViewController {
                     do{
                         let result = try JSONDecoder().decode(Root.self, from: data).votes
                         self.voteData = result
+                        self.completeVoteValue.text = "0/\(self.voteData.count)"
                         self.table.reloadData()
                     } catch{
                         print(error)
@@ -84,6 +94,13 @@ class VoteViewController: UIViewController {
                 }
             }
     }
+    
+    var headerView : UIView = {
+        let upperView = UIView()
+        upperView.backgroundColor = .white
+        upperView.frame = CGRect(x: 0, y: 0, width: 375, height: 56)
+        return upperView
+    }()
     
     var upperView : UIView = {
         let upperView = UIView()
@@ -137,7 +154,6 @@ class VoteViewController: UIViewController {
         let completeVoteValue = UILabel()
         completeVoteValue.font = UIFont.boldSystemFont(ofSize: 16)
         completeVoteValue.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
-        completeVoteValue.text = "0/0"
         return completeVoteValue
     }()
     
@@ -145,25 +161,36 @@ class VoteViewController: UIViewController {
     
     func tableSetter (){
         view.addSubview(table)
+        table.estimatedRowHeight = 355;
+        table.rowHeight = UITableView.automaticDimension
         table.snp.makeConstraints{
-            $0.top.bottom.leading.trailing.equalToSuperview()
+            $0.top.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
             table.showsVerticalScrollIndicator = false
         }
     }
     
     
     func upperViewLayout(){
-        upperView.snp.makeConstraints{
+        headerView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(32)
-            $0.height.equalTo(56)
-            $0.leading.equalToSuperview().inset(8)
-            $0.trailing.equalToSuperview().inset(8)
+            $0.height.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(8)
         }
 
-        [upperViewLabel, upperViewIcon].forEach{
+        [upperView,upperVoteView].forEach{
+            headerView.addSubview($0)
+        }
+        
+        upperView.snp.makeConstraints{
+            $0.top.equalToSuperview()
+            $0.height.equalTo(56)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        [upperViewLabel,upperViewIcon].forEach{
             upperView.addSubview($0)
         }
-
         upperViewLabel.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(23)
@@ -173,12 +200,11 @@ class VoteViewController: UIViewController {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(upperViewLabel.snp.trailing).inset(-5)
         }
-        view.addSubview(upperVoteView)
+        
         upperVoteView.snp.makeConstraints{
             $0.top.equalTo(upperView.snp.bottom).inset(-14)
             $0.height.equalTo(56)
-            $0.leading.equalToSuperview().inset(8)
-            $0.trailing.equalToSuperview().inset(8)
+            $0.leading.trailing.equalToSuperview()
         }
         [completeVoteLabel, completeVoteValue].forEach{
             upperVoteView.addSubview($0)
@@ -199,6 +225,12 @@ class VoteViewController: UIViewController {
 
 
 extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
+    
+    @objc func tapSpecifyButton(){
+        print("클릭했다.")
+        pushViewController(target: self, storyBoardName: "Vote", identifier: VoteSpecifyViewController
+            .identifier)
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -231,10 +263,12 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
 //        cell.voteCategoryLabel.text = self.voteData[0].categories[indexPath.row].name
 //        cell.selectCount.text = String(self.voteData[0].categories[indexPath.row].memberCount)
         
-            cell.contentView.addSubview(cell.myView)
-            cell.myView.snp.makeConstraints{
-                $0.top.bottom.leading.trailing.equalToSuperview()
+        cell.contentView.addSubview(cell.myView)
+        cell.myView.snp.makeConstraints{
+                $0.top.bottom.equalToSuperview()
+                $0.leading.trailing.equalToSuperview().inset(8)
             }
+
         [cell.profileImage,cell.memberNameLabel,cell.dateLabel,cell.seeMoreLabel, cell.voteInnerView].forEach{
             cell.myView.addSubview($0)
             }
@@ -243,6 +277,7 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
                 $0.leading.equalToSuperview().inset(25)
                 $0.top.equalToSuperview().inset(32)
             }
+
         cell.memberNameLabel.snp.makeConstraints{
             $0.top.equalTo(cell.profileImage)
             $0.leading.equalTo(cell.profileImage.snp.trailing).inset(-16)
@@ -255,6 +290,11 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
             $0.centerY.equalTo(cell.profileImage)
                 $0.trailing.equalToSuperview().inset(25)
             }
+        
+        //seeMoreLabel 이 사용자와 상호작용(터치이벤트 인시식)하는 것을 허용한다.
+        cell.seeMoreLabel.isUserInteractionEnabled = true
+        cell.seeMoreLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSpecifyButton)))
+        
         cell.voteInnerView.snp.makeConstraints{
             $0.top.equalTo(cell.profileImage.snp.bottom).inset(-19)
                 $0.bottom.equalToSuperview().inset(32)
@@ -271,18 +311,13 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
                 $0.leading.equalToSuperview()
             }
         cell.voteDescription.snp.makeConstraints{
-            $0.top.equalTo(cell.voteName.snp.bottom)
-                $0.height.equalTo(60)
-                $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(cell.voteName.snp.bottom).inset(-10)
+            $0.leading.trailing.equalToSuperview()
             }
         cell.voteStackView.snp.makeConstraints{
-            $0.top.equalTo(cell.voteDescription.snp.bottom).inset(-30)
+            $0.top.equalTo(cell.voteDescription.snp.bottom).inset(-19)
             $0.leading.trailing.equalToSuperview()
         }
-
-//        cell.voteStackView.addArrangedSubview(cell.voteStackViewCell1)
-//        cell.voteStackView.addArrangedSubview(cell.voteStackViewCell2)
-
     
        return cell
     }
@@ -318,7 +353,7 @@ class VoteViewControllerTableViewCell:UITableViewCell{
     var profileImage:UIImageView = {
         let profileImage = UIImageView()
         profileImage.backgroundColor = .gray
-        profileImage.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+        profileImage.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.contentMode = .scaleAspectFill
         profileImage.clipsToBounds = true
@@ -349,6 +384,7 @@ class VoteViewControllerTableViewCell:UITableViewCell{
        return label
     }()
     
+    
     var voteInnerView : UIView = {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -368,6 +404,10 @@ class VoteViewControllerTableViewCell:UITableViewCell{
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 2
         label.sizeToFit()
+        // 텍스트에 맞게 조절된 사이즈를 가져와 height만 fit하게 값을 조절.
+        let newSize = label.sizeThatFits( CGSize(width: label.frame.width, height: CGFloat.greatestFiniteMagnitude))
+//        let newSize = label.sizeThatFits(view.frame.size) //3
+        label.frame.size = newSize
         label.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
        label.text = "이번 오프라인 정기 모임 참석 여부 투표 부탁드립니다. 하지만 TMI를 드리자면 이번 모임에는 집에 가고 싶어용~"
        return label
@@ -376,9 +416,7 @@ class VoteViewControllerTableViewCell:UITableViewCell{
     var voteStackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = 10
+        stackView.spacing = 15
         return stackView
     }()
     
@@ -388,8 +426,8 @@ class VoteViewControllerTableViewCell:UITableViewCell{
             self.categories.forEach{
                 voteStackView.addArrangedSubview($0)
                 $0.snp.makeConstraints{ make in
-                    make.width.equalTo(53)
-                    make.height.equalTo(20)
+                    make.width.equalToSuperview()
+                    make.height.equalTo(22)
                 }
             }
         }
@@ -408,16 +446,9 @@ class VoteViewControllerTableViewCell:UITableViewCell{
 
 class voteStackViewCellClass : UIView {
     
-    var voteStackViewCellObject : UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        view.backgroundColor = .TalkPink
-        return view
-    }()
-    
     var checkBox : TalkCheckBox = {
-        let bpx = TalkCheckBox()
-       return bpx
+        let box = TalkCheckBox()
+       return box
         
     }()
     

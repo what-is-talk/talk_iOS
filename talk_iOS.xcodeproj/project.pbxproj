@@ -79,6 +79,8 @@
 		D267857D29A2619A0086043C /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D267857C29A2619A0086043C /* Vote.storyboard */; };
 		D267857F29A261A90086043C /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267857E29A261A90086043C /* VoteViewController.swift */; };
 		D267858129A286C60086043C /* VoteViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267858029A286C60086043C /* VoteViewController+tableView.swift */; };
+		D267858329A345040086043C /* VoteSpecifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267858229A345040086043C /* VoteSpecifyViewController.swift */; };
+		D267858529A346A40086043C /* voteCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267858429A346A40086043C /* voteCreateViewController.swift */; };
 		D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */; };
 		D2CF6B9729964E0B00FFB4C6 /* MemberPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF6B9629964E0B00FFB4C6 /* MemberPageViewController.swift */; };
 		D2CF6B992996907600FFB4C6 /* MemberInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF6B982996907600FFB4C6 /* MemberInviteViewController.swift */; };
@@ -166,6 +168,8 @@
 		D267857C29A2619A0086043C /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
 		D267857E29A261A90086043C /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		D267858029A286C60086043C /* VoteViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VoteViewController+tableView.swift"; sourceTree = "<group>"; };
+		D267858229A345040086043C /* VoteSpecifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSpecifyViewController.swift; sourceTree = "<group>"; };
+		D267858429A346A40086043C /* voteCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voteCreateViewController.swift; sourceTree = "<group>"; };
 		D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChattingTable.storyboard; sourceTree = "<group>"; };
 		D2CF6B9629964E0B00FFB4C6 /* MemberPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberPageViewController.swift; sourceTree = "<group>"; };
 		D2CF6B982996907600FFB4C6 /* MemberInviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInviteViewController.swift; sourceTree = "<group>"; };
@@ -484,6 +488,8 @@
 			children = (
 				D267857C29A2619A0086043C /* Vote.storyboard */,
 				D267857E29A261A90086043C /* VoteViewController.swift */,
+				D267858429A346A40086043C /* voteCreateViewController.swift */,
+				D267858229A345040086043C /* VoteSpecifyViewController.swift */,
 				D267858029A286C60086043C /* VoteViewController+tableView.swift */,
 			);
 			path = Vote;
@@ -655,6 +661,7 @@
 				09E6630A299668EE00095D3F /* CoreDataClient+Schedule.swift in Sources */,
 				09D5340929893B0000A1F4EF /* Utils.swift in Sources */,
 				09999BD82995DF6000F3B3E3 /* CoreDataClient+Meeting.swift in Sources */,
+				D267858529A346A40086043C /* voteCreateViewController.swift in Sources */,
 				0913172B299169A600EF8012 /* JoinDataModel.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09999BCE2995542500F3B3E3 /* Schedule+CoreDataProperties.swift in Sources */,
@@ -680,6 +687,7 @@
 				09588A86297180FD0046F869 /* MainTabBarController.swift in Sources */,
 				09E6631D2998827100095D3F /* DataModels+Initializer.swift in Sources */,
 				D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */,
+				D267858329A345040086043C /* VoteSpecifyViewController.swift in Sources */,
 				091317272990069700EF8012 /* JoinViewController.swift in Sources */,
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
 				09E66325299BBCE600095D3F /* UIImageView.swift in Sources */,
