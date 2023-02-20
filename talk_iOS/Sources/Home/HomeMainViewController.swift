@@ -582,6 +582,8 @@ class HomeMainViewController : UIViewController {
     
     @objc func tapVoteView(){
         print("투표뷰 클릭")
+        pushViewController(target: self, storyBoardName: "Vote", identifier: VoteViewController
+            .identifier)
     }
     
     @objc func tapMemberView(){

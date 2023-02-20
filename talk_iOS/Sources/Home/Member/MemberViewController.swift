@@ -64,8 +64,6 @@ class MemberViewController: UIViewController {
         getTest()
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 295))
         table.tableHeaderView = header
-
-
         header.addSubview(upperView)
         upperView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(32)
@@ -141,7 +139,6 @@ class MemberViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    
     func tableSetter() {
         view.addSubview(table)
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -151,31 +148,9 @@ class MemberViewController: UIViewController {
         table.showsVerticalScrollIndicator = false
 
     }
-
-    struct memberDataModel{
-        var memberName : String
-        var memberColor : String
-    }
-    
-    struct Member{
-        let name:String
-        let profileImage:UIView = {
-            let view = UIView()
-            view.backgroundColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
-            return view
-        }()
-        let rolls:[Role]
-    }
-    
-    struct Role{
-        let name:String
-        let color:UIColor
-    }
-    var members:[Member] = []
     
     var testMembers : [SimpleResponse] = []
 
-    
     
     func attribute(){
         table.register(MemberViewControllerTableViewCell.classForCoder()
