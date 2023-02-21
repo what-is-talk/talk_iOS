@@ -13,45 +13,40 @@ class MemberViewController: UIViewController {
     let table =  UITableView()
                   
     struct Root: Decodable {
-        let member_list : [SimpleResponse]
+        let memberList : [SimpleResponse]
     }
-
+    
     struct SimpleResponse: Decodable {
-        let id : Int
-        let url : String
+        let userId : Int
+        let url : String?
         let name : String
-        let joined_date : String
-        let role : [roleStruct]
+        let role : [String]
 
       enum CodingKeys: String, CodingKey {
-          case id
-          case url = "profile_url"
-          case name
-          case joined_date
-          case role
+          case userId
+          case url = "userImage"
+          case name = "userName"
+          case role = "userPosition"
       }
     }
-    
-    struct roleStruct : Decodable{
-        let name : String
-        let color : String
-    }
-    
+
     func getTest() {
-        let url = "https://what-is-talk-test.vercel.app/api/member?groupId=1"
+        let url = "http://ec2-15-164-47-37.ap-northeast-2.compute.amazonaws.com:8320/member?groupId=2"
         AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
             .responseData{ response in
                 switch response.result {
                 case let .success(data):
                     do{
-                        let result = try JSONDecoder().decode(Root.self, from: data).member_list
+                        let result = try JSONDecoder().decode(Root.self, from: data).memberList
                         self.testMembers = result
                         self.table.reloadData()
                     } catch{
+                        print(" 에러ㅑㄹ마;ㅜㅍㄹ뭎;ㅜㄴㅍ;ㅇㄴ")
                         print(error)
                     }
                     
                 case .failure(let err):
+                    print(" 실패ㅑㄹ마;ㅜㅍㄹ뭎;ㅜㄴㅍ;ㅇㄴ")
                     print(err)
                 }
             }
@@ -61,6 +56,7 @@ class MemberViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "모임명"
         self.navigationController?.isNavigationBarHidden = false
+        print("받기 직전 입니다.")
         getTest()
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 295))
         table.tableHeaderView = header
@@ -264,7 +260,7 @@ for: .touchUpInside)
 extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
     
     func convertColor(color: String) -> UIColor {
-        let dic: [String: UIColor] = ["red" : .TalkRed, "yellow" : .TalkYellow, "blue" : .TalkBlue, "orange" : .TalkOrange, "pink" : .TalkPink]
+        let dic: [String: UIColor] = ["백엔드" : .TalkRed, "디자인" : .TalkYellow, "blue" : .TalkBlue, "orange" : .TalkOrange, "pink" : .TalkPink]
         
         return dic[color]!
     }
@@ -277,17 +273,9 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
         let member = self.testMembers[indexPath.row]
         cell.memberName.text = member.name
         
-    
-        let url: URL! = URL(string: member.url)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                cell.profileImage.image = UIImage(data: data!)
-            }
-        }
-        
+
         let rollBoxes:[TalkRollBox] = member.role.map{
-            return TalkRollBox.init(title: $0.name, color: convertColor(color: $0.color), selected: true)
+            return TalkRollBox.init(title: member.name, color: convertColor(color: String($0)), selected: true)
         }
         cell.rolls = rollBoxes
         cell.contentView.addSubview(cell.myView)
@@ -333,17 +321,10 @@ extension MemberViewController : UITableViewDelegate, UITableViewDataSource{
                 return
             }
         vc.userName = member.name
-        vc.joined_date = String(member.joined_date.prefix(9))
-        let url: URL! = URL(string: member.url)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                vc.profileImage.image = UIImage(data: data!)
+        if(member.role.count != 0){
+            for i in 0...member.role.count-1 {
+                vc.roleData[i] = member.name
             }
-        }
-        for i in 0...member.role.count-1 {
-            vc.roleData[i] = member.role[i].name
-            vc.roleColor[i] = convertColor(color: member.role[i].color)
         }
         self.navigationController?.pushViewController(vc, animated: true)
 
