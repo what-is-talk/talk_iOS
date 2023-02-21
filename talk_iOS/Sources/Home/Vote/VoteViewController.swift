@@ -74,6 +74,8 @@ class VoteViewController: UIViewController {
     
     var voteData : [VoteStruct] = []
     
+    public static var empty : [Int] = []
+    
     func getTest() {
         let url = "https://what-is-talk-test.vercel.app/api/vote"
         AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
@@ -226,12 +228,16 @@ class VoteViewController: UIViewController {
 
 extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
     
+
     @objc func tapSpecifyButton(){
         print("클릭했다.")
         pushViewController(target: self, storyBoardName: "Vote", identifier: VoteSpecifyViewController
             .identifier)
     }
     
+    @objc func tapVoteButton(){
+        print("투표했다.")
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.voteData.count
@@ -244,7 +250,7 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VoteViewControllerTableViewCell.identifier, for:indexPath) as? VoteViewControllerTableViewCell else {return UITableViewCell()}
         
-        table.rowHeight = 356
+        table.rowHeight = 450
         
         //tableView 구분선 없애기
         table.separatorStyle = .none
@@ -254,8 +260,14 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
 
         let vote = self.voteData[indexPath.row]
         
+        var participants : Int = 0
+
+        for countNum in vote.categories {
+            participants = participants + countNum.memberCount
+        }
+                
         let categorData:[voteStackViewCellClass] = vote.categories.map{
-            return voteStackViewCellClass.init(voteCategoryLabel: $0.name, selectCount: String($0.memberCount))
+            return voteStackViewCellClass.init(voteCategoryLabel: $0.name, selectCount: $0.memberCount, participants : participants, multiSelection: vote.multiSelection, categoriesCount : vote.categories.count  )
         }
         cell.categories = categorData
         cell.voteName.text = vote.title
@@ -300,9 +312,9 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
                 $0.bottom.equalToSuperview().inset(32)
                 $0.leading.equalToSuperview().inset(25)
                 $0.trailing.equalToSuperview().inset(25)
-
             }
-        [cell.voteName,cell.voteDescription,cell.voteStackView].forEach{
+        
+        [cell.voteName,cell.voteDescription,cell.voteStackView, cell.voteView].forEach{
             cell.voteInnerView.addSubview($0)
             }
             
@@ -318,7 +330,14 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
             $0.top.equalTo(cell.voteDescription.snp.bottom).inset(-19)
             $0.leading.trailing.equalToSuperview()
         }
-    
+        cell.voteView.snp.makeConstraints{
+            $0.top.equalTo(cell.voteStackView.snp.bottom).inset(-30)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(160)
+            $0.height.equalTo(40)
+        }
+        cell.voteView.addTarget(self, action: #selector(tapVoteButton), for: .touchUpInside)
+                
        return cell
     }
 
@@ -330,12 +349,12 @@ extension VoteViewController : UITableViewDelegate, UITableViewDataSource{
 class VoteViewControllerTableViewCell:UITableViewCell{
     static let identifier = "cell"
     
-    
     // Cell간 간격 조정 메소드
     override func layoutSubviews() {
        super.layoutSubviews()
        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0))
      }
+    
     
     var myView : UIView = {
         let myView = UIView()
@@ -364,7 +383,6 @@ class VoteViewControllerTableViewCell:UITableViewCell{
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
-        label.text = "작성자"
        return label
     }()
     
@@ -372,7 +390,6 @@ class VoteViewControllerTableViewCell:UITableViewCell{
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
-        label.text = "2022.03.12"
        return label
     }()
     
@@ -395,7 +412,6 @@ class VoteViewControllerTableViewCell:UITableViewCell{
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
-        label.text = "3월 15일 정모 참석 여부"
        return label
     }()
     
@@ -406,10 +422,8 @@ class VoteViewControllerTableViewCell:UITableViewCell{
         label.sizeToFit()
         // 텍스트에 맞게 조절된 사이즈를 가져와 height만 fit하게 값을 조절.
         let newSize = label.sizeThatFits( CGSize(width: label.frame.width, height: CGFloat.greatestFiniteMagnitude))
-//        let newSize = label.sizeThatFits(view.frame.size) //3
         label.frame.size = newSize
         label.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
-       label.text = "이번 오프라인 정기 모임 참석 여부 투표 부탁드립니다. 하지만 TMI를 드리자면 이번 모임에는 집에 가고 싶어용~"
        return label
     }()
     
@@ -420,18 +434,32 @@ class VoteViewControllerTableViewCell:UITableViewCell{
         return stackView
     }()
     
+    var voteView : UIButton = {
+        let view = UIButton()
+        view.layer.cornerRadius = 8
+        view.backgroundColor = UIColor(red: 0.922, green: 0.184, blue: 0.188, alpha: 1)
+        view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        view.setTitle("투표하기", for: .normal)
+        return view
+    }()
     
-    var categories:[voteStackViewCellClass] = []{
+    @objc func buttonTapped(){
+        print("버튼 눌렀다")
+    }
+    
+    
+    var categories:[voteStackViewCellClass] = [] {
         didSet{
             self.categories.forEach{
                 voteStackView.addArrangedSubview($0)
                 $0.snp.makeConstraints{ make in
                     make.width.equalToSuperview()
-                    make.height.equalTo(22)
+                    make.height.equalTo(35)
                 }
             }
         }
     }
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -452,12 +480,40 @@ class voteStackViewCellClass : UIView {
         
     }()
     
+    
+    
+    var multiSelection = false
+    var categoriesCount = 0
+    
+    @objc func checkBoxTapped(){
+        print("클릭!")
+//        if(!multiSelection){
+//            for n in categoriesCount
+//        }
+//        VoteViewController.empty = 1
+        checkBox.toggleSelect()
+    }
+    
+
+    
     var voteCategoryLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.textColor = .black
         return label
     }()
+    
+    var progressView : UIProgressView = {
+        let view = UIProgressView()
+        view.progress = 0.5 // Set initial progress value (0.0 ~ 1.0)
+        view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        view.progressTintColor = UIColor(red: 0.922, green: 0.184, blue: 0.188, alpha: 1)
+        view.trackTintColor = UIColor(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)
+
+        return view
+    }()
+    
+
     
     var selectCount : UILabel = {
         let label = UILabel()
@@ -466,9 +522,10 @@ class voteStackViewCellClass : UIView {
         return label
     }()
     
-    init(voteCategoryLabel:String, selectCount:String){
+    init(voteCategoryLabel:String, selectCount:Int, participants : Int, multiSelection : Bool, categoriesCount : Int){
         self.voteCategoryLabel.text = voteCategoryLabel
-        self.selectCount.text = selectCount
+        self.selectCount.text = "\(selectCount)명"
+        self.multiSelection = multiSelection
         super.init(frame: .init(x: 0, y: 0, width: 0, height: 0))
         self.addSubview(checkBox)
         checkBox.snp.makeConstraints{
@@ -482,12 +539,21 @@ class voteStackViewCellClass : UIView {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(checkBox.snp.trailing).inset(-20)
         }
+        self.progressView.progress = Float(selectCount)/Float(participants)
+        self.addSubview(self.progressView)
+        self.progressView.snp.makeConstraints{
+            $0.top.equalTo(checkBox.snp.bottom).inset(-11)
+            $0.leading.trailing.equalToSuperview()
+        }
         
         self.addSubview(self.selectCount)
         self.selectCount.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview()
         }
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped))
+        checkBox.isUserInteractionEnabled = true
+        checkBox.addGestureRecognizer(tapGesture)
     }
     
     
