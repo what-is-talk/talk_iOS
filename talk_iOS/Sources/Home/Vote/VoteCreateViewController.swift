@@ -7,7 +7,7 @@
 
 import UIKit
 
-class voteCreateViewController: UIViewController {
+class VoteCreateViewController: UIViewController {
 
     static let identifier = "voteCreateViewController"
 
