@@ -261,7 +261,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
     }*/
     
     func fetchCalendarOverView() {
-        let url = "http://ec2-15-164-47-37.ap-northeast-2.compute.amazonaws.com:8320/v2/api-docs/schedule"
+        let url = "http://ec2-15-164-47-37.ap-northeast-2.compute.amazonaws.com:8320/schedule"
         let param = ["groupId": 1, "year": 2023]
         AF.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: nil)
             .responseData{ response in
