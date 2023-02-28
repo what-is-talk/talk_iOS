@@ -374,7 +374,12 @@ extension ChattingTableViewController : UITableViewDelegate, UITableViewDataSour
 
 
     }
-        
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let chattingVC = self.storyboard?.instantiateViewController(withIdentifier: "ChattingroomViewController") as? ChattingroomViewController else { return }
+        self.navigationController?.pushViewController(chattingVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 

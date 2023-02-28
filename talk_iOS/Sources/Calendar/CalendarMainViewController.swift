@@ -18,7 +18,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
     
     static let identifier = "CalendarMainViewController"
     
-    var dataSource: [ScheduleResponse] = []
+    var dataSource: [ScheduleDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,9 +192,9 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         let myFormatter = DateFormatter()
         myFormatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
         let stringDate = myFormatter.string(from: dataSource[indexPath.row].startDate)*/
-        cell.groupNameLabel.text = dataSource[indexPath.row].title
-        cell.scheduleLabel.text = dataSource[indexPath.row].desc
-        cell.timeLabel.text = dataSource[indexPath.row].startDate
+        //cell.groupNameLabel.text = dataSource[indexPath.row].title
+        //cell.scheduleLabel.text = dataSource[indexPath.row].desc
+        //cell.timeLabel.text = dataSource[indexPath.row].startDate
         return cell
     }
     
@@ -239,39 +239,17 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
         }
     }
     /*
+    let mainParam: Parameters = [
+        "groupId":2, "year":2023
+    ]
     func fetchCalendarOverView() {
-        let url = "https://what-is-talk-test.vercel.app/api/schedule/detail?scheduleId=1"
-        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
+        AF.request("http://ec2-15-164-47-37.ap-northeast-2.compute.amazonaws.com:8320/v2/api-docs/schedule/get", parameters: mainParam, encoding: URLEncoding.default, headers: nil)
             .responseData{ response in
                 switch response.result {
                 case let .success(data):
                     do {
-                        let result = try JSONDecoder().decode(Root.self, from: data).data
+                        let result = try JSONDecoder().decode(ScheduleMain.self, from: data)
                         print(result)
-                    } catch {
-                        print(error)
-                    }
-                    
-                case .failure(let err):
-                    print(err)
-                }
-            }
-    }*/
-    /*
-    func fetchCalendarOverView() {
-        let url = "https://what-is-talk-test.vercel.app/api/schedule?groupId=1&year=2023/detail?scheduleId~=1"
-        AF.request(url)
-            .responseJSON { response in
-                switch response.result {
-                case let .success(res):
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
-                        let json = try JSONDecoder().decode(Root.self, from: jsonData).data
-                        print(json)
-                        self.dataSource = json
-                        DispatchQueue.main.async {
-                            self.scheduleList.reloadData()
-                        }
                     } catch {
                         print(error)
                     }
@@ -283,15 +261,62 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
     }*/
     
     func fetchCalendarOverView() {
-            let url = "https://what-is-talk-test.vercel.app/api/schedule/detail?scheduleId=1"
+        let url = "http://ec2-15-164-47-37.ap-northeast-2.compute.amazonaws.com:8320/schedule"
+        let param = ["groupId": 1, "year": 2023]
+        AF.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: nil)
+            .responseData{ response in
+                switch response.result {
+                case let .success(data):
+                    do {
+                        let result = try JSONDecoder().decode(ScheduleMain.self, from: data)
+                        print(result)
+                    } catch {
+                        print(error)
+                    }
+                    
+                case .failure(let err):
+                    print(err)
+                }
+            }
+    }
+    /*
+    func fetchCalendarOverView() {
+        let url = "https://what-is-talk-test.vercel.app/api/schedule"
+        AF.request(url)
+            .responseJSON { response in
+                switch response.result {
+                case let .success(res):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
+                        let json = try JSONDecoder().decode(ScheduleMain.self, from: jsonData).scheduleData
+                        print(json)
+                        //self.dataSource = json
+                        /*
+                        DispatchQueue.main.async {
+                            self.scheduleList.reloadData()
+                        }*/
+                    } catch {
+                        print(error)
+                    }
+                    
+                case .failure(let err):
+                    print(err)
+                }
+            }
+    }*/
+    /*
+    func fetchCalendarOverView() {
+            let url = "https://what-is-talk-test.vercel.app/api/schedule?groupId=1"
             AF.request(url, method: .get, encoding: JSONEncoding.default, headers: nil)
                 .responseData{ response in
                     switch response.result {
                     case let .success(data):
                         do{
-                            let result = try JSONDecoder().decode(Root.self, from: data).data
+                            let result = try JSONDecoder().decode(GroupSchedule.self, from: data).schedules
+                            print(result)
+                            /*
                             self.dataSource = result
-                            self.scheduleList.reloadData()
+                            self.scheduleList.reloadData()*/
                         } catch{
                             print(error)
                         }
@@ -300,7 +325,7 @@ class CalendarMainViewController: UIViewController, FSCalendarDelegate, FSCalend
                         print(err)
                     }
                 }
-    }
+    }*/
 }
 
 class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
