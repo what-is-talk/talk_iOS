@@ -63,10 +63,15 @@ class CalendarAddViewController: UIViewController, UITextFieldDelegate, SendDele
     }
     
     @objc func sendData() {
-        // 백에 데이터 전송 & 로컬 DB에 저장
+        // 백에 데이터 전송
+        sendDataToServer()
         
         self.navigationController?.popViewController(animated: true)
         print("페이지 pop")
+    }
+    
+    func sendDataToServer() {
+        
     }
     
     lazy var groupName: UILabel = {
