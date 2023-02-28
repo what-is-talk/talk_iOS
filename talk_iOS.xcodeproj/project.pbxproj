@@ -76,6 +76,13 @@
 		5A90CB4E2982930D00561FC8 /* CalendarAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A90CB4D2982930D00561FC8 /* CalendarAddViewController.swift */; };
 		5AB68D852987C2090075203A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB68D842987C2090075203A /* CustomView.swift */; };
 		5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */; };
+		D267857D29A2619A0086043C /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D267857C29A2619A0086043C /* Vote.storyboard */; };
+		D267857F29A261A90086043C /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267857E29A261A90086043C /* VoteViewController.swift */; };
+		D267858129A286C60086043C /* VoteViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267858029A286C60086043C /* VoteViewController+tableView.swift */; };
+		D267858329A345040086043C /* VoteSpecifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267858229A345040086043C /* VoteSpecifyViewController.swift */; };
+		D267858529A346A40086043C /* VoteCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267858429A346A40086043C /* VoteCreateViewController.swift */; };
+		D2A9475629A721A300CD5E9A /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9475529A721A300CD5E9A /* VoteTableViewCell.swift */; };
+		D2A9475829A721E500CD5E9A /* VoteStackViewCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9475729A721E500CD5E9A /* VoteStackViewCellClass.swift */; };
 		D2BE5E6A2977DA4E0062983F /* ChattingTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */; };
 		D2CF6B9729964E0B00FFB4C6 /* MemberPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF6B9629964E0B00FFB4C6 /* MemberPageViewController.swift */; };
 		D2CF6B992996907600FFB4C6 /* MemberInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF6B982996907600FFB4C6 /* MemberInviteViewController.swift */; };
@@ -160,6 +167,13 @@
 		5AB68D842987C2090075203A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		5AC6CF2A296C029C00CCFAFA /* ChattingroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingroomViewController.swift; sourceTree = "<group>"; };
 		86509861BF680D4C9D1D4CFC /* Pods_talk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D267857C29A2619A0086043C /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
+		D267857E29A261A90086043C /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		D267858029A286C60086043C /* VoteViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VoteViewController+tableView.swift"; sourceTree = "<group>"; };
+		D267858229A345040086043C /* VoteSpecifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSpecifyViewController.swift; sourceTree = "<group>"; };
+		D267858429A346A40086043C /* VoteCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCreateViewController.swift; sourceTree = "<group>"; };
+		D2A9475529A721A300CD5E9A /* VoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
+		D2A9475729A721E500CD5E9A /* VoteStackViewCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteStackViewCellClass.swift; sourceTree = "<group>"; };
 		D2BE5E692977DA4E0062983F /* ChattingTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChattingTable.storyboard; sourceTree = "<group>"; };
 		D2CF6B9629964E0B00FFB4C6 /* MemberPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberPageViewController.swift; sourceTree = "<group>"; };
 		D2CF6B982996907600FFB4C6 /* MemberInviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInviteViewController.swift; sourceTree = "<group>"; };
@@ -441,6 +455,7 @@
 		09F8A3BE2966CFE000BE850F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D267857B29A2618D0086043C /* Vote */,
 				09E6632C299C92DB00095D3F /* Announcement */,
 				D2F055AE298AF046000B1C15 /* Member */,
 				09D42FCC2968409D00E70F80 /* Chatting */,
@@ -470,6 +485,20 @@
 				09D42FD12968415700E70F80 /* ChattingTableViewController.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		D267857B29A2618D0086043C /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				D267857C29A2619A0086043C /* Vote.storyboard */,
+				D267857E29A261A90086043C /* VoteViewController.swift */,
+				D267858029A286C60086043C /* VoteViewController+tableView.swift */,
+				D2A9475529A721A300CD5E9A /* VoteTableViewCell.swift */,
+				D267858229A345040086043C /* VoteSpecifyViewController.swift */,
+				D267858429A346A40086043C /* VoteCreateViewController.swift */,
+				D2A9475729A721E500CD5E9A /* VoteStackViewCellClass.swift */,
+			);
+			path = Vote;
 			sourceTree = "<group>";
 		};
 		D2F055AE298AF046000B1C15 /* Member */ = {
@@ -553,6 +582,7 @@
 			files = (
 				09588A73297174480046F869 /* CalendarMain.storyboard in Resources */,
 				09588A882971859A0046F869 /* MainTabBar.storyboard in Resources */,
+				D267857D29A2619A0086043C /* Vote.storyboard in Resources */,
 				09588A77297175590046F869 /* TodoMain.storyboard in Resources */,
 				0990394729645C3D0007CCB5 /* LaunchScreen.storyboard in Resources */,
 				0990394429645C3D0007CCB5 /* Assets.xcassets in Resources */,
@@ -631,11 +661,13 @@
 				09588A75297174580046F869 /* CalendarMainViewController.swift in Sources */,
 				5A90CB4E2982930D00561FC8 /* CalendarAddViewController.swift in Sources */,
 				0927E04B296EF17600B16CE4 /* MainViewController.swift in Sources */,
+				D267858129A286C60086043C /* VoteViewController+tableView.swift in Sources */,
 				09999BD42995DC9C00F3B3E3 /* CoreDataClient.swift in Sources */,
 				09D38795299C9E64005129B2 /* ScheduleListCell.swift in Sources */,
 				09E6630A299668EE00095D3F /* CoreDataClient+Schedule.swift in Sources */,
 				09D5340929893B0000A1F4EF /* Utils.swift in Sources */,
 				09999BD82995DF6000F3B3E3 /* CoreDataClient+Meeting.swift in Sources */,
+				D267858529A346A40086043C /* VoteCreateViewController.swift in Sources */,
 				0913172B299169A600EF8012 /* JoinDataModel.swift in Sources */,
 				0990393B29645C3C0007CCB5 /* AppDelegate.swift in Sources */,
 				09999BCE2995542500F3B3E3 /* Schedule+CoreDataProperties.swift in Sources */,
@@ -645,6 +677,7 @@
 				09D38794299C9E64005129B2 /* FSCalendarEx.swift in Sources */,
 				5A90CB4C2982899600561FC8 /* CalendarEditViewController.swift in Sources */,
 				09E6630829960EA100095D3F /* CoreDataClient+User.swift in Sources */,
+				D2A9475629A721A300CD5E9A /* VoteTableViewCell.swift in Sources */,
 				09999BD12995542500F3B3E3 /* Position+CoreDataClass.swift in Sources */,
 				5AC6CF2B296C029C00CCFAFA /* ChattingroomViewController.swift in Sources */,
 				D2CF6B9729964E0B00FFB4C6 /* MemberPageViewController.swift in Sources */,
@@ -655,12 +688,14 @@
 				09588A79297175670046F869 /* TodoMainViewController.swift in Sources */,
 				09D5340B2989586100A1F4EF /* HomeMainGroupData.swift in Sources */,
 				09BEA92A29753DF000AABDA0 /* TalkCheckBox.swift in Sources */,
+				D2A9475829A721E500CD5E9A /* VoteStackViewCellClass.swift in Sources */,
 				09BED39F2977E86B00F5385D /* InviteChattingPartnerTableViewCell.swift in Sources */,
 				09588A902972D67B0046F869 /* TalkRollBox.swift in Sources */,
 				09999BCD2995542500F3B3E3 /* Schedule+CoreDataClass.swift in Sources */,
 				09588A86297180FD0046F869 /* MainTabBarController.swift in Sources */,
 				09E6631D2998827100095D3F /* DataModels+Initializer.swift in Sources */,
 				D2F055B0298AF061000B1C15 /* MemberViewController.swift in Sources */,
+				D267858329A345040086043C /* VoteSpecifyViewController.swift in Sources */,
 				091317272990069700EF8012 /* JoinViewController.swift in Sources */,
 				09588A8E2972AFB70046F869 /* InviteChattingPartnerViewController.swift in Sources */,
 				09E66325299BBCE600095D3F /* UIImageView.swift in Sources */,
@@ -668,6 +703,7 @@
 				09588A8A29719C720046F869 /* TalkNavigationBar.swift in Sources */,
 				09E6631B2998229C00095D3F /* CoreDataClient+Position.swift in Sources */,
 				5A90CB4A2982897D00561FC8 /* CalendarContentViewController.swift in Sources */,
+				D267857F29A261A90086043C /* VoteViewController.swift in Sources */,
 				D2CF6B992996907600FFB4C6 /* MemberInviteViewController.swift in Sources */,
 				09D53407298939CB00A1F4EF /* HomeNoGroupViewController.swift in Sources */,
 				09E6631929981B2300095D3F /* ModelToModel_2.0MappingModel.xcmappingmodel in Sources */,

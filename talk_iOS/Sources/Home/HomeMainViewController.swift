@@ -273,7 +273,7 @@ class HomeMainViewController : UIViewController {
         view.layer.cornerRadius = 8
         
         let title = UILabel()
-        title.text = "투표"
+        title.text = "일정"
         title.textColor = UIColor(red: 0.094, green: 0.078, blue: 0.255, alpha: 1)
         title.font = .systemFont(ofSize: 16, weight: .bold)
         view.addSubview(title)
@@ -582,6 +582,8 @@ class HomeMainViewController : UIViewController {
     
     @objc func tapVoteView(){
         print("투표뷰 클릭")
+        pushViewController(target: self, storyBoardName: "Vote", identifier: VoteViewController
+            .identifier)
     }
     
     @objc func tapMemberView(){

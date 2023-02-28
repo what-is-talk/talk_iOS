@@ -17,7 +17,6 @@ class AnnouncementViewController:UIViewController{
         super.viewDidLoad()
         self.navigationItem.title = "공지사항"
         self.navigationController?.isNavigationBarHidden = false
-//        self.navigationController?.navigationBar.isHidden = false
         view.addSubview(upperView)
         upperView.snp.makeConstraints{
             $0.top.equalToSuperview().inset(120)
